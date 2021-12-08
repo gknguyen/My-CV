@@ -12,6 +12,7 @@ import {
 import React from 'react';
 import profile from '../../data/profile';
 import About from './components/about';
+import Certificate from './components/certificate';
 import Contact from './components/contact/contact';
 import Experience from './components/experience';
 import Personal from './components/personal/personal';
@@ -85,6 +86,7 @@ const Profile: React.FC = () => {
             <Grid container item xs={8}>
               <Container disableGutters>
                 <About profile={profile} />
+                <Certificate profile={profile} />
                 <Experience profile={profile} />
                 <Project profile={profile} />
               </Container>

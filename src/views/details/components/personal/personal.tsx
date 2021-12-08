@@ -1,18 +1,4 @@
-import {
-  Avatar,
-  Box,
-  List,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  makeStyles,
-  Typography,
-} from '@material-ui/core';
-import FaceIcon from '@material-ui/icons/Face';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import SchoolIcon from '@material-ui/icons/School';
-import TodayIcon from '@material-ui/icons/Today';
-import moment from 'moment';
+import { Box, List, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { ProfileType } from '../../../../data/profile';
 import PersonalItem from './personal.item';

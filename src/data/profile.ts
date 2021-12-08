@@ -4,7 +4,7 @@ const profile = {
   name: 'Nguyen Truong Giang',
   career: 'Software Engineer (3 years experience)',
 
-  about: `My career path is to become an expert Full-stack programmer, who can create many high quality, secure and friendly products which can satify the expectation of customers.
+  about: `My career path is to become an exellent Fullstack Developer, who can create high quality, secure and friendly products which can satify the expectation of customers.
 
 I look forward to working with a professional team, where i can enjoy learning and sharing to help each other growth, practicing my skills so I can adapt well to the needs and flexible changes of the market.
 
@@ -97,7 +97,14 @@ It would be great if I had the opportunity to work in an environment where Engli
     {
       category: 'Other',
       image: 'settings',
-      list: ['Docker', 'Electron.js', 'Kafka', 'Git, Git flow', 'RESTful API'],
+      list: ['Docker', 'Electron.js', 'Kafka', 'Git, Git flow', 'RESTful API', 'Fluentd'],
+    },
+  ],
+
+  certificates: [
+    {
+      name: 'AWS Certified Solutions Architect – Associate',
+      link: 'https://www.credly.com/badges/b36874f3-2255-43c7-830e-33f6a7859c72?source=linked_in_profile',
     },
   ],
 
