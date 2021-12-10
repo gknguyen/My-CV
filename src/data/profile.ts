@@ -4,6 +4,8 @@ const profile = {
   name: 'Nguyen Truong Giang',
   career: 'Software Engineer (3 years experience)',
 
+  avatar: '/gk.jpg',
+
   about: `My career path is to become an exellent Fullstack Developer, who can create high quality, secure and friendly products which can satify the expectation of customers.
 
 I look forward to working with a professional team, where i can enjoy learning and sharing to help each other growth, practicing my skills so I can adapt well to the needs and flexible changes of the market.
@@ -97,7 +99,15 @@ It would be great if I had the opportunity to work in an environment where Engli
     {
       category: 'Other',
       image: 'settings',
-      list: ['Docker', 'Electron.js', 'Kafka', 'Git, Git flow', 'RESTful API', 'Fluentd'],
+      list: [
+        'Docker',
+        'Electron.js',
+        'Kafka',
+        'Git, Git flow',
+        'RESTful API',
+        'Fluentd',
+        'Github/Gitlab CI/CD',
+      ],
     },
   ],
 
@@ -105,6 +115,15 @@ It would be great if I had the opportunity to work in an environment where Engli
     {
       name: 'AWS Certified Solutions Architect – Associate',
       link: 'https://www.credly.com/badges/b36874f3-2255-43c7-830e-33f6a7859c72?source=linked_in_profile',
+    },
+    {
+      name: 'Whizlabs certificates',
+      isPopup: true,
+      images: [
+        { name: 'Docker Certified', path: '/certificates/docker.jpg' },
+        { name: 'Github Training', path: '/certificates/github.jpg' },
+        { name: 'Apache Kafka', path: '/certificates/kafka.jpg' },
+      ],
     },
   ],
 
@@ -199,7 +218,7 @@ It would be great if I had the opportunity to work in an environment where Engli
 
   projects: [
     {
-      period: 'Mar 2021 - Now',
+      period: 'Mar 2021 - Jul 2021',
       title: 'COLEAD network',
       type: 'Freelance project',
       descriptions: [
@@ -261,5 +280,6 @@ export type PersonalType = typeof profile.personals[0];
 export type ContactType = typeof profile.contacts[0];
 export type SkillType = typeof profile.skills[0];
 export type ProjectType = typeof profile.projects[0];
+export type CertificateImage = { name: string; path: string };
 
 export default profile;

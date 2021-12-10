@@ -12,7 +12,7 @@ import {
 import React from 'react';
 import profile from '../../data/profile';
 import About from './components/about';
-import Certificate from './components/certificate';
+import Certificate from './components/certificate/certificate';
 import Contact from './components/contact/contact';
 import Experience from './components/experience';
 import Personal from './components/personal/personal';
@@ -66,7 +66,7 @@ const Profile: React.FC = () => {
 
         <CardHeader
           className={classes.cardHeader}
-          avatar={<Avatar src="/gk.jpg" className={classes.avatar} />}
+          avatar={<Avatar src={profile.avatar} className={classes.avatar} />}
           title={profile.name}
           titleTypographyProps={{ variant: 'h4' }}
           subheader={profile.career}

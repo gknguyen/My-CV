@@ -33,4 +33,10 @@ export const useCommonStyles = makeStyles(() => ({
     backgroundColor: '#29b6f6',
     color: '#eeeeee',
   },
+  drag: {
+    cursor: 'grab',
+    '&:active': {
+      cursor: 'grabbing',
+    },
+  },
 }));
