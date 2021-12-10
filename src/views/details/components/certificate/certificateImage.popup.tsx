@@ -58,7 +58,9 @@ const CertificateImagePopup: React.FC<Props> = (props) => {
       maxWidth="lg"
       PaperComponent={DraggableDialog}
     >
-      <DialogTitle id="draggable-dialog-title" className={commonClasses.drag}>
+      <DialogTitle id="draggable-dialog-title" className={commonClasses.drag}></DialogTitle>
+
+      <DialogContent>
         <CustomPaper className={classes.root} square>
           <Tabs textColor="secondary" variant="fullWidth" value={tabValue} onChange={handleChange}>
             {props.images.map((image, index) => (
@@ -66,11 +68,9 @@ const CertificateImagePopup: React.FC<Props> = (props) => {
             ))}
           </Tabs>
         </CustomPaper>
-      </DialogTitle>
 
-      <DialogContent>
         <SwipeableViews
-          // slideStyle={{ overflow: 'hidden' }}
+          slideStyle={{ overflow: 'hidden' }}
           axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
           index={tabValue}
           onChangeIndex={handleChangeIndex}
