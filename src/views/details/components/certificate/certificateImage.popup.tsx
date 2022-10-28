@@ -55,7 +55,7 @@ const CertificateImagePopup: React.FC<Props> = (props) => {
       open={props.open}
       onClose={handleClose}
       fullWidth
-      maxWidth="lg"
+      maxWidth="md"
       PaperComponent={DraggableDialog}
     >
       <DialogTitle id="draggable-dialog-title" className={commonClasses.drag}></DialogTitle>

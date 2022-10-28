@@ -44,13 +44,13 @@ const ScrollTopButton: React.FC = () => {
   };
 
   return (
-    <div>
+    <>
       {show && (
         <IconButton onClick={handleClick} className={classes.toTop}>
           <ExpandLessIcon />
         </IconButton>
       )}
-    </div>
+    </>
   );
 };
 
