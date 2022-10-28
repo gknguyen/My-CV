@@ -62,7 +62,7 @@ const Profile: React.FC = () => {
   return (
     <Container disableGutters>
       <Card raised id="detail">
-        <CardMedia className={classes.media} image="/background.jpg" />
+        <CardMedia className={classes.media} image="/images/background.jpg" />
 
         <CardHeader
           className={classes.cardHeader}

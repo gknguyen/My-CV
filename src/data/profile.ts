@@ -4,7 +4,7 @@ const profile = {
   name: 'Nguyen Truong Giang',
   career: 'Software Engineer (3 years experience)',
 
-  avatar: '/gk.jpg',
+  avatar: '/images/gk.jpg',
 
   about: `My career path is to become an exellent Fullstack Developer, who can create high quality, secure and friendly products which can satify the expectation of customers.
 
@@ -120,9 +120,9 @@ It would be great if I had the opportunity to work in an environment where Engli
       name: 'Whizlabs certificates',
       isPopup: true,
       images: [
-        { name: 'Docker Certified', path: '/certificates/docker.jpg' },
-        { name: 'Github Training', path: '/certificates/github.jpg' },
-        { name: 'Apache Kafka', path: '/certificates/kafka.jpg' },
+        { name: 'Docker Certified', path: '/images/certificates/docker.jpg' },
+        { name: 'Github Training', path: '/images/certificates/github.jpg' },
+        { name: 'Apache Kafka', path: '/images/certificates/kafka.jpg' },
       ],
     },
   ],
