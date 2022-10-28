@@ -13,7 +13,7 @@ import CustomPaper from '../../../common/customPaper';
 import DraggableDialog from '../../../common/draggableDialog';
 import TabPanel, { a11yProps } from '../../../common/tabPanel';
 import SwipeableViews from 'react-swipeable-views';
-import { useCommonStyles } from '../../../../app/style';
+import { useCommonStyles } from '../../../style';
 
 const useStyles = makeStyles(() => ({
   root: {

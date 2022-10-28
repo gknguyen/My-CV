@@ -131,7 +131,7 @@ It would be great if I had the opportunity to work in an environment where Engli
     {
       period: 'Jul 2021 - Now',
       title: 'SETEL',
-      position: 'Backend Engineer',
+      position: 'Full-stack Engineer',
       descriptions: [
         'Providing IT solutions for Petronas corporation in Malaysia',
         'Working with backend microservices system based on Nodejs',
@@ -140,7 +140,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       projects: [
         {
           name: 'Setel',
-          position: 'Backend Developer',
+          position: 'Full-stack Engineer',
           descriptions: [
             'a super application (like Grab or Momo) in Malaysia, focus on fuel paying online',
             'Technologies : Nodejs, Typescript, Microservices, v...v...',
@@ -161,7 +161,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       projects: [
         {
           name: 'Task Management System',
-          position: 'Developer',
+          position: 'Full-stack Engineer',
           descriptions: [
             'Task management, employee management, man-hours management',
             'Web Application',
@@ -195,7 +195,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       projects: [
         {
           name: 'AXAPAC',
-          position: 'Developer',
+          position: 'Software Engineer',
           descriptions: [
             "Customer data processing, Contract's fee calculation",
             'Technologies : Cobol, IMS mainframe',
@@ -237,7 +237,7 @@ It would be great if I had the opportunity to work in an environment where Engli
         'The web version of my Curriculum Vitae (CV)',
         'Using React.js (Typescript) & Material-UI for Web platform',
         'Using Golang for server',
-        'Deploy in Heroku cloud server',
+        'Deploy in AWS S3 + Cloudfront',
       ],
     },
     {
@@ -259,7 +259,7 @@ It would be great if I had the opportunity to work in an environment where Engli
         'Application features: create booking, create contract, storage management, financial management, employee management',
         'Using React.js (Typescript) for Web platform',
         'Using Express.js (Typescript) for server',
-        'Using MySQL server for database',
+        'Using Postgres server for database',
       ],
     },
     {
