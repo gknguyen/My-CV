@@ -28,20 +28,30 @@ const Certificate: React.FC<Props> = (props) => {
 
       <ul>
         {props.profile.certificates.map((certificate, index) => (
-          <li key={index}>
+          <li key={certificate.name}>
             {certificate.isPopup ? (
               <Link onClick={() => setImagePopupData({ open: true, images: certificate.images })}>
                 <Typography variant="h6">
                   {certificate.name}
-                  {certificate.images && ` [${certificate.images.length}]`}
+                  {!!certificate.images && ` [${certificate.images.length}]`}
                 </Typography>
               </Link>
+            ) : certificate.list?.length ? (
+              <>
+                <Typography variant="h6">{certificate.name}</Typography>
+                <ul>
+                  {certificate.list.map((ele) => (
+                    <li key={ele.name}>
+                      <Link href={ele.link} target="_blank">
+                        <Typography variant="h6">{ele.name}</Typography>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </>
             ) : (
               <Link href={certificate.link} target="_blank">
-                <Typography variant="h6">
-                  {certificate.name}
-                  {certificate.images && ` [${certificate.images.length}]`}
-                </Typography>
+                <Typography variant="h6">{certificate.name}</Typography>
               </Link>
             )}
           </li>

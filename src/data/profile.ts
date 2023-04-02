@@ -126,6 +126,15 @@ It would be great if I had the opportunity to work in an environment where Engli
         { name: 'Apache Kafka', path: '/images/certificates/kafka.jpg' },
       ],
     },
+    {
+      name: 'HackerRank',
+      list: [
+        {
+          name: 'JavaScript (Basic) Certificate',
+          link: 'https://www.hackerrank.com/certificates/bbab0102001c',
+        },
+      ],
+    },
   ],
 
   experiences: [
