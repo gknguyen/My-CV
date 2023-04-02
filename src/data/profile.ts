@@ -1,8 +1,9 @@
 import moment from 'moment';
+import { getTotalYearOfExperience } from '../shared/helper';
 
 const profile = {
   name: 'Nguyen Truong Giang',
-  career: 'Software Engineer (3 years experience)',
+  career: `Software Engineer (${getTotalYearOfExperience()} years experience)`,
 
   avatar: '/images/gk.jpg',
 
@@ -276,10 +277,10 @@ It would be great if I had the opportunity to work in an environment where Engli
 };
 
 export type ProfileType = typeof profile;
-export type PersonalType = typeof profile.personals[0];
-export type ContactType = typeof profile.contacts[0];
-export type SkillType = typeof profile.skills[0];
-export type ProjectType = typeof profile.projects[0];
+export type PersonalType = (typeof profile.personals)[0];
+export type ContactType = (typeof profile.contacts)[0];
+export type SkillType = (typeof profile.skills)[0];
+export type ProjectType = (typeof profile.projects)[0];
 export type CertificateImage = { name: string; path: string };
 
 export default profile;
