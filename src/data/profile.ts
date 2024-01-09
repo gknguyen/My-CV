@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { dayjs } from '../shared/dayjs-with-plugins';
 import { getTotalYearOfExperience } from '../shared/helper';
 
 const profile = {
@@ -16,7 +16,7 @@ It would be great if I had the opportunity to work in an environment where Engli
   personals: [
     {
       image: 'today',
-      content: moment('1995/11/17').format('LL'),
+      content: dayjs('1995/11/17').format('LL'),
     },
     {
       image: 'face',
