@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@material-ui/core';
 import React from 'react';
-import { useCommonStyles } from '../../style';
+import { useCommonStyles } from '../style';
 import { ProfileType } from '../../../data/profile';
 
 const useStyles = makeStyles(() => ({

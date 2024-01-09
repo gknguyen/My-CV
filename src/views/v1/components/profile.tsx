@@ -10,14 +10,14 @@ import {
   makeStyles,
 } from '@material-ui/core';
 import React from 'react';
-import { profile } from '../../data/profile';
-import { About } from './components/about';
-import { Certificate } from './components/certificate/certificate';
-import { Contact } from './components/contact/contact';
-import { Experience } from './components/experience';
-import { Personal } from './components/personal/personal';
-import { Project } from './components/project';
-import { Skill } from './components/skill/skill';
+import { profile } from '../../../data/profile';
+import { About } from './about';
+import { Certificate } from './certificate/certificate';
+import { Contact } from './contact/contact';
+import { Experience } from './experience';
+import { Personal } from './personal/personal';
+import { Project } from './project';
+import { Skill } from './skill/skill';
 
 const useStyles = makeStyles((theme) => ({
   media: {

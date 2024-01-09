@@ -9,11 +9,11 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { CertificateImage } from '../../../../data/profile';
-import { CustomPaper } from '../../../common/customPaper';
-import { DraggableDialog } from '../../../common/draggableDialog';
-import { a11yProps, TabPanel } from '../../../common/tabPanel';
+import { CustomPaper } from '../../common/customPaper';
+import { DraggableDialog } from '../../common/draggableDialog';
+import { a11yProps, TabPanel } from '../../common/tabPanel';
 import SwipeableViews from 'react-swipeable-views';
-import { useCommonStyles } from '../../../style';
+import { useCommonStyles } from '../../style';
 
 const useStyles = makeStyles(() => ({
   root: {

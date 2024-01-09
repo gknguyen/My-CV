@@ -1,5 +1,7 @@
-import { makeStyles, Paper, PaperProps } from '@material-ui/core';
 import React from 'react';
+import { makeStyles } from './hook';
+import { PaperProps } from './interface';
+import { Paper } from './component';
 
 const useStyles = makeStyles(() => ({
   rounded: {
