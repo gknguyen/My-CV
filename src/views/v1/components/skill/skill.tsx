@@ -1,7 +1,8 @@
-import { Box, makeStyles, Typography } from '@material-ui/core';
+import { Box, Typography } from '../../common/component';
 import React from 'react';
 import { ProfileType } from '../../../../data/profile';
 import { SkillItem } from './skill.item';
+import { makeStyles } from '../../common/hook';
 
 const useStyles = makeStyles((theme) => ({
   root: {

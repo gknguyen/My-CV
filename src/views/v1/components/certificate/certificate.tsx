@@ -1,6 +1,7 @@
-import { Box, Link, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { CertificateImage, ProfileType } from '../../../../data/profile';
+import { Box, Link, Typography } from '../../common/component';
+import { makeStyles } from '../../common/hook';
 import { CertificateImagePopup } from './certificateImage.popup';
 
 const useStyles = makeStyles(() => ({

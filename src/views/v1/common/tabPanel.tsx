@@ -1,5 +1,5 @@
-import { Box } from '@material-ui/core';
 import React from 'react';
+import { Box } from './component';
 
 export const a11yProps = (index: number) => {
   return {

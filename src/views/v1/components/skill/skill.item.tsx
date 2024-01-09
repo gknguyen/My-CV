@@ -1,17 +1,8 @@
-import {
-  Collapse,
-  Icon,
-  List,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  makeStyles,
-} from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
-import ExpandLess from '@material-ui/icons/ExpandLess';
-import ExpandMore from '@material-ui/icons/ExpandMore';
+import { Collapse, Icon, List, ListItem, ListItemIcon, ListItemText } from '../../common/component';
 import React from 'react';
 import { SkillType } from '../../../../data/profile';
+import { makeStyles } from '../../common/hook';
+import { AddIcon, ExpandLess, ExpandMore } from '../../common/icon';
 
 const useStyles = makeStyles((theme) => ({
   list: {

@@ -1,7 +1,8 @@
-import { Box, ThemeProvider, makeStyles } from '@material-ui/core';
+import { Box, ThemeProvider } from './common/component';
 import { theme } from './style';
 import { Profile } from './components/profile';
 import { ScrollTopButton } from './common/scrollTopButton';
+import { makeStyles } from './common/hook';
 
 const useStyles = makeStyles(() => ({
   root: {

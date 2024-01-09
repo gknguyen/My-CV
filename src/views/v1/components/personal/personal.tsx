@@ -1,7 +1,8 @@
-import { Box, List, makeStyles, Typography } from '@material-ui/core';
+import { Box, List, Typography } from '../../common/component';
 import React from 'react';
 import { ProfileType } from '../../../../data/profile';
 import { PersonalItem } from './personal.item';
+import { makeStyles } from '../../common/hook';
 
 const useStyles = makeStyles(() => ({
   root: {

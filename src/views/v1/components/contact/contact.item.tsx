@@ -1,14 +1,7 @@
-import {
-  Avatar,
-  Icon,
-  Link,
-  ListItem,
-  ListItemAvatar,
-  ListItemText,
-  makeStyles,
-} from '@material-ui/core';
+import { Avatar, Icon, Link, ListItem, ListItemAvatar, ListItemText } from '../../common/component';
 import React from 'react';
 import { ContactType } from '../../../../data/profile';
+import { makeStyles } from '../../common/hook';
 
 const useStyles = makeStyles(() => ({
   avatarColor: {

@@ -1,12 +1,4 @@
-import {
-  Dialog,
-  DialogContent,
-  DialogTitle,
-  makeStyles,
-  Tab,
-  Tabs,
-  useTheme,
-} from '@material-ui/core';
+import { Dialog, DialogContent, DialogTitle, Tab, Tabs } from '../../common/component';
 import React from 'react';
 import { CertificateImage } from '../../../../data/profile';
 import { CustomPaper } from '../../common/customPaper';
@@ -14,6 +6,7 @@ import { DraggableDialog } from '../../common/draggableDialog';
 import { a11yProps, TabPanel } from '../../common/tabPanel';
 import SwipeableViews from 'react-swipeable-views';
 import { useCommonStyles } from '../../style';
+import { makeStyles, useTheme } from '../../common/hook';
 
 const useStyles = makeStyles(() => ({
   root: {

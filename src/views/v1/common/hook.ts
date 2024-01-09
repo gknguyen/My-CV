@@ -1,1 +1,1 @@
-export { makeStyles } from '@material-ui/core';
+export { createTheme, makeStyles, useTheme } from '@material-ui/core';

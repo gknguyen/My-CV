@@ -1,4 +1,4 @@
-import { createTheme, makeStyles } from '@material-ui/core/styles';
+import { createTheme, makeStyles } from './common/hook';
 
 export const theme = createTheme({
   overrides: {

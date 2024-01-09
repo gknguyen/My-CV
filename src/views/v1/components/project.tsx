@@ -1,6 +1,5 @@
 import {
   Box,
-  makeStyles,
   Paper,
   Table,
   TableBody,
@@ -9,10 +8,11 @@ import {
   TableHead,
   TableRow,
   Typography,
-} from '@material-ui/core';
+} from '../common/component';
 import React from 'react';
 import { useCommonStyles } from '../style';
 import { ProfileType } from '../../../data/profile';
+import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles(() => ({
   root: {
