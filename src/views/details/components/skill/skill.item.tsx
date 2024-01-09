@@ -29,7 +29,7 @@ interface Props {
   skill: SkillType;
 }
 
-const SkillItem: React.FC<Props> = (props) => {
+export const SkillItem: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   const [open, setOpen] = React.useState(true);
@@ -64,5 +64,3 @@ const SkillItem: React.FC<Props> = (props) => {
     </>
   );
 };
-
-export default SkillItem;

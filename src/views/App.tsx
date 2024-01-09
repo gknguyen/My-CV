@@ -1,7 +1,7 @@
 import { Box, makeStyles, ThemeProvider } from '@material-ui/core';
 import React from 'react';
-import ScrollTopButton from './common/scrollTopButton';
-import Profile from './details/profile';
+import { ScrollTopButton } from './common/scrollTopButton';
+import { Profile } from './details/profile';
 import { theme } from './style';
 
 const useStyles = makeStyles(() => ({
@@ -12,7 +12,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   const classes = useStyles();
 
   return (
@@ -24,5 +24,3 @@ const App: React.FC = () => {
     </ThemeProvider>
   );
 };
-
-export default App;

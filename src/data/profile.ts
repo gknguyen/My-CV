@@ -1,7 +1,7 @@
 import { dayjs } from '../shared/dayjs-with-plugins';
 import { getTotalYearOfExperience } from '../shared/helper';
 
-const profile = {
+export const profile = {
   name: 'Nguyen Truong Giang',
   career: `Software Engineer (${getTotalYearOfExperience()} years experience)`,
 
@@ -291,5 +291,3 @@ export type ContactType = (typeof profile.contacts)[0];
 export type SkillType = (typeof profile.skills)[0];
 export type ProjectType = (typeof profile.projects)[0];
 export type CertificateImage = { name: string; path: string };
-
-export default profile;

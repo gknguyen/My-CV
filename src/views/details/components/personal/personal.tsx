@@ -1,7 +1,7 @@
 import { Box, List, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { ProfileType } from '../../../../data/profile';
-import PersonalItem from './personal.item';
+import { PersonalItem } from './personal.item';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -14,7 +14,7 @@ interface Props {
   profile: ProfileType;
 }
 
-const Personal: React.FC<Props> = (props) => {
+export const Personal: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
@@ -31,5 +31,3 @@ const Personal: React.FC<Props> = (props) => {
     </Box>
   );
 };
-
-export default Personal;

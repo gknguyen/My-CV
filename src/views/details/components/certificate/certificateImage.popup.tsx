@@ -9,9 +9,9 @@ import {
 } from '@material-ui/core';
 import React from 'react';
 import { CertificateImage } from '../../../../data/profile';
-import CustomPaper from '../../../common/customPaper';
-import DraggableDialog from '../../../common/draggableDialog';
-import TabPanel, { a11yProps } from '../../../common/tabPanel';
+import { CustomPaper } from '../../../common/customPaper';
+import { DraggableDialog } from '../../../common/draggableDialog';
+import { a11yProps, TabPanel } from '../../../common/tabPanel';
 import SwipeableViews from 'react-swipeable-views';
 import { useCommonStyles } from '../../../style';
 
@@ -34,7 +34,7 @@ interface Props {
   closeHandlerCallBack: () => void;
 }
 
-const CertificateImagePopup: React.FC<Props> = (props) => {
+export const CertificateImagePopup: React.FC<Props> = (props) => {
   const commonClasses = useCommonStyles();
   const classes = useStyles();
   const theme = useTheme();
@@ -91,5 +91,3 @@ const CertificateImagePopup: React.FC<Props> = (props) => {
     </Dialog>
   );
 };
-
-export default CertificateImagePopup;

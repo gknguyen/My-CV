@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DownloadButton: React.FC = () => {
+export const DownloadButton: React.FC = () => {
   const classes = useStyles();
 
   const handleClick = async () => {
@@ -49,5 +49,3 @@ const DownloadButton: React.FC = () => {
     </IconButton>
   );
 };
-
-export default DownloadButton;

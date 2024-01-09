@@ -15,7 +15,7 @@ interface Props {
   profile: ProfileType;
 }
 
-const About: React.FC<Props> = (props) => {
+export const About: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
@@ -29,5 +29,3 @@ const About: React.FC<Props> = (props) => {
     </Box>
   );
 };
-
-export default About;

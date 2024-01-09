@@ -1,7 +1,7 @@
 import { Box, Link, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { CertificateImage, ProfileType } from '../../../../data/profile';
-import CertificateImagePopup from './certificateImage.popup';
+import { CertificateImagePopup } from './certificateImage.popup';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -15,7 +15,7 @@ interface Props {
   profile: ProfileType;
 }
 
-const Certificate: React.FC<Props> = (props) => {
+export const Certificate: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   const [imagePopupData, setImagePopupData] = React.useState(defaultImagePopupData);
@@ -66,5 +66,3 @@ const Certificate: React.FC<Props> = (props) => {
     </Box>
   );
 };
-
-export default Certificate;

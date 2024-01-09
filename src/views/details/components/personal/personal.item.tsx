@@ -19,7 +19,7 @@ interface Props {
   personal: PersonalType;
 }
 
-const PersonalItem: React.FC<Props> = (props) => {
+export const PersonalItem: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
@@ -37,5 +37,3 @@ const PersonalItem: React.FC<Props> = (props) => {
     </ListItem>
   );
 };
-
-export default PersonalItem;

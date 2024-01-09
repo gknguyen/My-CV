@@ -25,7 +25,7 @@ interface Props {
   profile: ProfileType;
 }
 
-const Project: React.FC<Props> = (props) => {
+export const Project: React.FC<Props> = (props) => {
   const classes = useStyles();
   const commonClasses = useCommonStyles();
 
@@ -79,5 +79,3 @@ const Project: React.FC<Props> = (props) => {
     </Box>
   );
 };
-
-export default Project;

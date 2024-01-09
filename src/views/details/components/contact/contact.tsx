@@ -1,7 +1,7 @@
 import { Box, List, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { ProfileType } from '../../../../data/profile';
-import ContactItem from './contact.item';
+import { ContactItem } from './contact.item';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -15,7 +15,7 @@ interface Props {
   profile: ProfileType;
 }
 
-const Contact: React.FC<Props> = (props) => {
+export const Contact: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
@@ -32,5 +32,3 @@ const Contact: React.FC<Props> = (props) => {
     </Box>
   );
 };
-
-export default Contact;

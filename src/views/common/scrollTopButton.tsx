@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ScrollTopButton: React.FC = () => {
+export const ScrollTopButton: React.FC = () => {
   const classes = useStyles();
 
   const [show, setShow] = React.useState(false);
@@ -53,5 +53,3 @@ const ScrollTopButton: React.FC = () => {
     </>
   );
 };
-
-export default ScrollTopButton;

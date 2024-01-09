@@ -1,7 +1,7 @@
 import { Box, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
 import { ProfileType } from '../../../../data/profile';
-import SkillItem from './skill.item';
+import { SkillItem } from './skill.item';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -25,7 +25,7 @@ interface Props {
   profile: ProfileType;
 }
 
-const Skill: React.FC<Props> = (props) => {
+export const Skill: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
@@ -40,5 +40,3 @@ const Skill: React.FC<Props> = (props) => {
     </Box>
   );
 };
-
-export default Skill;

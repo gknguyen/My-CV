@@ -24,7 +24,7 @@ interface Props {
   profile: ProfileType;
 }
 
-const Experience: React.FC<Props> = (props) => {
+export const Experience: React.FC<Props> = (props) => {
   const classes = useStyles();
   const commonClasses = useCommonStyles();
 
@@ -117,5 +117,3 @@ const Experience: React.FC<Props> = (props) => {
     </Box>
   );
 };
-
-export default Experience;

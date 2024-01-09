@@ -20,7 +20,7 @@ interface Props {
   contact: ContactType;
 }
 
-const ContactItem: React.FC<Props> = (props) => {
+export const ContactItem: React.FC<Props> = (props) => {
   const classes = useStyles();
 
   return (
@@ -44,5 +44,3 @@ const ContactItem: React.FC<Props> = (props) => {
     </ListItem>
   );
 };
-
-export default ContactItem;
