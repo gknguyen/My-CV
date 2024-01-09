@@ -30,4 +30,4 @@ export {
   Tabs,
   ThemeProvider,
   Typography,
-} from '@material-ui/core';
+} from '@mui/material';

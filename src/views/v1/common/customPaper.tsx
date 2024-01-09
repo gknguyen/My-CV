@@ -10,7 +10,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const CustomPaper: React.FC<PaperProps> = (props) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return <Paper classes={{ rounded: classes.rounded }} {...props} elevation={2} />;
 };

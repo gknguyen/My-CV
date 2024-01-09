@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const ScrollTopButton: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const [show, setShow] = React.useState(false);
   const [scrollPosition, setScrollPosition] = React.useState(0);
@@ -35,7 +35,7 @@ export const ScrollTopButton: React.FC = () => {
   }, [scrollPosition]);
 
   const handleScroll = () => {
-    const position = window.pageYOffset;
+    const position = window.scrollY;
     setScrollPosition(position);
   };
 

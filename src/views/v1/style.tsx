@@ -1,28 +1,34 @@
 import { createTheme, makeStyles } from './common/hook';
 
 export const theme = createTheme({
-  overrides: {
+  components: {
     MuiCardHeader: {
-      title: {
-        paddingBottom: 20,
-        color: 'white',
-      },
-      subheader: {
-        paddingTop: 10,
-        textAlign: 'end',
+      styleOverrides: {
+        title: {
+          paddingBottom: 20,
+          color: 'white',
+        },
+        subheader: {
+          paddingTop: 10,
+          textAlign: 'end',
+        },
       },
     },
     MuiCardContent: {
-      root: {
-        padding: 0,
+      styleOverrides: {
+        root: {
+          padding: 0,
+        },
       },
     },
     MuiTableCell: {
-      root: {
-        padding: '10px',
-        borderRight: '1px solid rgba(224, 224, 224, 1)',
-        fontSize: 'inherit',
-        verticalAlign: 'top',
+      styleOverrides: {
+        root: {
+          padding: '10px',
+          borderRight: '1px solid rgba(224, 224, 224, 1)',
+          fontSize: 'inherit',
+          verticalAlign: 'top',
+        },
       },
     },
   },

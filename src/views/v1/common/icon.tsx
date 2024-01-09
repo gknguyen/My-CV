@@ -4,4 +4,4 @@ export {
   ExpandLess as ExpandLessIcon,
   ExpandMore,
   GetApp as GetAppIcon,
-} from '@material-ui/icons';
+} from '@mui/icons-material';

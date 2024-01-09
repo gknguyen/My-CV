@@ -27,7 +27,7 @@ interface Props {
 }
 
 export const Skill: React.FC<Props> = (props) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Box className={classes.root}>

@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const DownloadButton: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const handleClick = async () => {
     const component = document.getElementById('detail');

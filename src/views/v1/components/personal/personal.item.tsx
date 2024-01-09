@@ -14,7 +14,7 @@ interface Props {
 }
 
 export const PersonalItem: React.FC<Props> = (props) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <ListItem>

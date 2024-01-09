@@ -57,7 +57,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const Profile: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <Container disableGutters>
@@ -97,7 +97,7 @@ export const Profile: React.FC = () => {
               item
               xs={12}
               className={classes.cardFooter}
-              justify="center"
+              justifyContent="center"
               alignItems="center"
             >
               Powered by{' '}

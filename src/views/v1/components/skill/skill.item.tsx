@@ -21,7 +21,7 @@ interface Props {
 }
 
 export const SkillItem: React.FC<Props> = (props) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const [open, setOpen] = React.useState(true);
 

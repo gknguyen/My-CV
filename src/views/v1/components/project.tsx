@@ -26,8 +26,8 @@ interface Props {
 }
 
 export const Project: React.FC<Props> = (props) => {
-  const classes = useStyles();
-  const commonClasses = useCommonStyles();
+  const { classes } = useStyles();
+  const { classes: commonClasses } = useCommonStyles();
 
   return (
     <Box className={classes.root}>

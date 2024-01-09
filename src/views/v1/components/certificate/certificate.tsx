@@ -17,7 +17,7 @@ interface Props {
 }
 
 export const Certificate: React.FC<Props> = (props) => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   const [imagePopupData, setImagePopupData] = React.useState(defaultImagePopupData);
 

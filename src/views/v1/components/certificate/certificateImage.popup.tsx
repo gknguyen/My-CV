@@ -28,8 +28,8 @@ interface Props {
 }
 
 export const CertificateImagePopup: React.FC<Props> = (props) => {
-  const commonClasses = useCommonStyles();
-  const classes = useStyles();
+  const { classes: commonClasses } = useCommonStyles();
+  const { classes } = useStyles();
   const theme = useTheme();
 
   const [tabValue, setTabValue] = React.useState<number>(0);

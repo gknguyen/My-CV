@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 }));
 
 export const V1: React.FC = () => {
-  const classes = useStyles();
+  const { classes } = useStyles();
 
   return (
     <ThemeProvider theme={theme}>
