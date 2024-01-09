@@ -1,7 +1,5 @@
 import { Box, makeStyles, ThemeProvider } from '@material-ui/core';
 import React from 'react';
-import { Provider as StoreProvider } from 'react-redux';
-import configureStore from '../redux/configureStore';
 import ScrollTopButton from './common/scrollTopButton';
 import Profile from './details/profile';
 import { theme } from './style';
@@ -14,20 +12,16 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const store = configureStore();
-
 const App: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <StoreProvider store={store}>
-      <ThemeProvider theme={theme}>
-        <Box className={classes.root}>
-          <Profile />
-          <ScrollTopButton />
-        </Box>
-      </ThemeProvider>
-    </StoreProvider>
+    <ThemeProvider theme={theme}>
+      <Box className={classes.root}>
+        <Profile />
+        <ScrollTopButton />
+      </Box>
+    </ThemeProvider>
   );
 };
 
