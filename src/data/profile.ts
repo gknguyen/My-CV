@@ -85,17 +85,28 @@ It would be great if I had the opportunity to work in an environment where Engli
     {
       category: 'Front-end',
       image: 'devices_other',
-      list: ['HTML5, CSS3, Bootstrap 4', 'React.js, Redux', 'Material-UI, Ant Design'],
+      list: [
+        'HTML5, CSS3, Bootstrap 4',
+        'React.js, Redux',
+        'Material-UI, Ant Design',
+        'Tailwind CSS',
+      ],
     },
     {
       category: 'Automation test',
       image: 'build_circle',
-      list: ['Mocha, Chai, Istanbul', 'Jest, Enzyme', 'Puppeteer'],
+      list: ['Mocha, Chai, Istanbul', 'Jest, Enzyme', 'Puppeteer, Cypress'],
     },
     {
       category: 'AWS Cloud',
       image: 'cloud',
-      list: ['EC2, ASG, VPC', 'S3, Cloudfront', 'RDS, IAM'],
+      list: [
+        'EC2, ASG, VPC',
+        'S3, Cloudfront',
+        'RDS, IAM, Route 53',
+        'Code Artifact, ECR',
+        'Cloud Formation',
+      ],
     },
     {
       category: 'Other',
@@ -103,7 +114,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       list: [
         'Docker',
         'Electron.js',
-        'Kafka',
+        'Kafka, RabbitMQ',
         'Git, Git flow',
         'RESTful API',
         'Fluentd',

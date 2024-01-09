@@ -60,7 +60,7 @@ export const Profile: React.FC = () => {
   const { classes } = useStyles();
 
   return (
-    <Container disableGutters>
+    <Container disableGutters style={{ maxWidth: 1300 }}>
       <Card raised id="detail">
         <CardMedia className={classes.media} image="/images/background.jpg" />
 
