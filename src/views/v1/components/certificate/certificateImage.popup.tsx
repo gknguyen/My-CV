@@ -4,7 +4,6 @@ import { CertificateImage } from '../../../../data/profile';
 import { CustomPaper } from '../../common/customPaper';
 import { DraggableDialog } from '../../common/draggableDialog';
 import { a11yProps, TabPanel } from '../../common/tabPanel';
-import SwipeableViews from 'react-swipeable-views';
 import { useCommonStyles } from '../../style';
 import { makeStyles, useTheme } from '../../common/hook';
 
@@ -62,24 +61,17 @@ export const CertificateImagePopup: React.FC<Props> = (props) => {
           </Tabs>
         </CustomPaper>
 
-        <SwipeableViews
-          slideStyle={{ overflow: 'hidden' }}
-          axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-          index={tabValue}
-          onChangeIndex={handleChangeIndex}
-        >
-          {props.images.map((image, index) => (
-            <TabPanel
-              key={index}
-              value={tabValue}
-              index={index}
-              dir={theme.direction}
-              style={{ overflowX: 'auto' }}
-            >
-              <img className={classes.image} alt="certificate" src={image.path} />
-            </TabPanel>
-          ))}
-        </SwipeableViews>
+        {props.images.map((image, index) => (
+          <TabPanel
+            key={index}
+            value={tabValue}
+            index={index}
+            dir={theme.direction}
+            style={{ overflowX: 'auto' }}
+          >
+            <img className={classes.image} alt="certificate" src={image.path} />
+          </TabPanel>
+        ))}
       </DialogContent>
     </Dialog>
   );

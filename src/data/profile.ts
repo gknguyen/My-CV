@@ -288,7 +288,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       title: 'BUILD A GAS LEAKED MONITORING SYSTEM BASED ON WIRELESS NETWORKS',
       type: 'Graduation project',
       descriptions: [
-        'Using Arduino for processor and Lora network',
+        'Using Arduino for processor and LoraWan network',
         'Studying C/C++ language as well as HTML, CSS, Javascript for Web platform',
         'Learning the knowledge of wireless sensor networks',
       ],
