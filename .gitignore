@@ -9,6 +9,9 @@ node_modules/
 
 # testing
 coverage/
+cypress/screenshots/
+cypress/downloads/
+.nyc_output/
 
 # production
 build/
