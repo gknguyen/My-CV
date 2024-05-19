@@ -16,7 +16,8 @@ import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles(() => ({
   root: {
-    padding: 30,
+    // marginTop: 740,
+    // padding: 20,
   },
 }));
 
@@ -30,7 +31,7 @@ export const Experience: React.FC<Props> = (props) => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h5" component="h2" display="block" gutterBottom>
+      <Typography variant="h6" component="h2" display="block" gutterBottom>
         <strong>WORK EXPERIENCES</strong>
       </Typography>
 
@@ -55,16 +56,16 @@ export const Experience: React.FC<Props> = (props) => {
             {props.profile.experiences.map((experience, index) => (
               <TableRow key={index}>
                 <TableCell>
-                  <Typography style={{ width: 90 }}>{experience.period}</Typography>
+                  <Typography style={{ width: 65 }}>{experience.period}</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="h6" component="h2" display="block">
+                  <Typography component="h2" display="block">
                     <strong>{experience.title}</strong>
                   </Typography>
 
                   <Typography component="span">
                     {experience.position}
-                    <ul>
+                    <ul className={commonClasses.ul}>
                       {experience.descriptions.map((description, index) => (
                         <li key={index}>{description}</li>
                       ))}
@@ -84,17 +85,18 @@ export const Experience: React.FC<Props> = (props) => {
                             </TableCell>
                           </TableRow>
                         </TableHead>
+
                         <TableBody>
                           {experience.projects.map((project, index) => (
                             <TableRow key={index}>
-                              <TableCell>
+                              <TableCell style={{ width: 40 }}>
                                 <Typography gutterBottom>
                                   <b>{project.name}</b>
                                 </Typography>
                                 <Typography>{project.position}</Typography>
                               </TableCell>
                               <TableCell>
-                                <ul>
+                                <ul className={commonClasses.ul}>
                                   {project.descriptions.map((description, index) => (
                                     <li key={index}>
                                       <Typography>{description}</Typography>

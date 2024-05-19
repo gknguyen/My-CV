@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: 160,
   },
   cardHeader: {
-    paddingLeft: 90,
-    paddingRight: 90,
+    // paddingLeft: 90,
+    // paddingRight: 90,
     marginTop: -150,
     marginBottom: 0,
     borderBottom: '1px solid black',
@@ -39,6 +39,10 @@ const useStyles = makeStyles((theme) => ({
   },
   personalInfo: {
     background: 'linear-gradient(45deg, #01579b 40%, #29b6f6 80%)',
+    padding: 20,
+  },
+  experienceInfo: {
+    padding: 20,
   },
   cardFooter: {
     borderTop: '1px solid black',
@@ -60,7 +64,7 @@ export const Profile: React.FC = () => {
   const { classes } = useStyles();
 
   return (
-    <Container disableGutters style={{ maxWidth: 1300 }}>
+    <Container disableGutters style={{ maxWidth: 800 }}>
       <Card raised id="detail">
         <CardMedia className={classes.media} image="/images/background.jpg" />
 
@@ -68,28 +72,36 @@ export const Profile: React.FC = () => {
           className={classes.cardHeader}
           avatar={<Avatar src={profile.avatar} className={classes.avatar} />}
           title={profile.name}
-          titleTypographyProps={{ variant: 'h4' }}
+          titleTypographyProps={{ variant: 'h5', fontSize: '1.5rem' }}
           subheader={profile.career}
-          subheaderTypographyProps={{ variant: 'h5' }}
+          subheaderTypographyProps={{ variant: 'h6', fontSize: '1.25rem' }}
         />
 
         <CardContent>
           <Grid container>
-            <Grid container item xs={4} className={classes.personalInfo} direction="column">
-              <Container disableGutters style={{ wordBreak: 'break-all' }}>
-                <Personal profile={profile} />
-                <Contact profile={profile} />
-                <Skill profile={profile} />
-              </Container>
+            <Grid
+              container
+              item
+              xs={4}
+              className={classes.personalInfo}
+              direction="column"
+              gap={2}
+              style={{ wordBreak: 'break-all' }}
+            >
+              {/* <Container disableGutters style={{ wordBreak: 'break-all', gap: 4 }}> */}
+              <Personal profile={profile} />
+              <Contact profile={profile} />
+              <Skill profile={profile} />
+              {/* </Container> */}
             </Grid>
 
-            <Grid container item xs={8}>
-              <Container disableGutters>
-                <About profile={profile} />
-                <Certificate profile={profile} />
-                <Experience profile={profile} />
-                <Project profile={profile} />
-              </Container>
+            <Grid container item xs={8} className={classes.experienceInfo} gap={2}>
+              {/* <Container disableGutters> */}
+              <About profile={profile} />
+              <Certificate profile={profile} />
+              <Experience profile={profile} />
+              <Project profile={profile} />
+              {/* </Container> */}
             </Grid>
 
             <Grid

@@ -17,7 +17,7 @@ import { makeStyles } from '../common/hook';
 const useStyles = makeStyles(() => ({
   root: {
     // marginTop: 200,
-    padding: 30,
+    // padding: 20,
   },
 }));
 
@@ -31,7 +31,7 @@ export const Project: React.FC<Props> = (props) => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h5" component="h2" display="block" gutterBottom>
+      <Typography variant="h6" component="h2" display="block" gutterBottom>
         <strong>PERSONAL PROJECTS</strong>
       </Typography>
 
@@ -55,16 +55,16 @@ export const Project: React.FC<Props> = (props) => {
           <TableBody>
             {props.profile.projects.map((project, index) => (
               <TableRow key={index}>
-                <TableCell style={{ width: 90 }}>
+                <TableCell style={{ width: 65 }}>
                   <Typography>{project.period}</Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="h6" component="h2" display="block">
+                  <Typography component="h2" display="block">
                     <strong>{project.title}</strong>
                   </Typography>
                   <Typography component="span">
                     {project.type}
-                    <ul>
+                    <ul className={commonClasses.ul}>
                       {project.descriptions.map((description, index) => (
                         <li key={index}>{description}</li>
                       ))}

@@ -3,13 +3,15 @@ import React from 'react';
 import { SkillType } from '../../../../data/profile';
 import { makeStyles } from '../../common/hook';
 import { AddIcon, ExpandLess, ExpandMore } from '../../common/icon';
+import { useCommonStyles } from '../../style';
 
 const useStyles = makeStyles((theme) => ({
   list: {
-    marginTop: 10,
+    paddingLeft: 0,
+    paddingRight: 0,
   },
   nested: {
-    paddingLeft: theme.spacing(4),
+    paddingLeft: theme.spacing(1),
   },
   icon: {
     color: '#eeeeee',
@@ -22,6 +24,7 @@ interface Props {
 
 export const SkillItem: React.FC<Props> = (props) => {
   const { classes } = useStyles();
+  const { classes: commonClasses } = useCommonStyles();
 
   const [open, setOpen] = React.useState(true);
 
@@ -29,10 +32,9 @@ export const SkillItem: React.FC<Props> = (props) => {
 
   return (
     <>
-      <ListItem button onClick={handleClick} className={classes.list}>
-        <ListItemIcon>
-          {/* {props.skill.image} */}
-          <Icon fontSize="large" className={classes.icon}>
+      <ListItem onClick={handleClick} className={classes.list}>
+        <ListItemIcon className={commonClasses.listItemIcon}>
+          <Icon fontSize="small" className={classes.icon}>
             {props.skill.image}
           </Icon>
         </ListItemIcon>
@@ -44,8 +46,8 @@ export const SkillItem: React.FC<Props> = (props) => {
         <List component="div" disablePadding>
           {props.skill.list.map((item, index) => (
             <ListItem key={index} className={classes.nested}>
-              <ListItemIcon>
-                <AddIcon className={classes.icon} fontSize="large" />
+              <ListItemIcon className={commonClasses.listItemIcon}>
+                <AddIcon className={classes.icon} fontSize="small" />
               </ListItemIcon>
               <ListItemText primary={item} />
             </ListItem>

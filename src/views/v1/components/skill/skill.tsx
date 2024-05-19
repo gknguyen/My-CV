@@ -6,9 +6,9 @@ import { makeStyles } from '../../common/hook';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // marginTop: 435,
+    // marginTop: 480,
     color: '#eeeeee',
-    padding: 30,
+    // padding: 20,
     // padding: '30px 20px',
   },
   list: {
@@ -31,7 +31,7 @@ export const Skill: React.FC<Props> = (props) => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h5" component="h2" display="block" gutterBottom>
+      <Typography variant="h6" component="h2" display="block" gutterBottom>
         <strong>SKILLS</strong>
       </Typography>
 

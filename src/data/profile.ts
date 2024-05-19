@@ -51,17 +51,17 @@ It would be great if I had the opportunity to work in an environment where Engli
     },
     {
       image: 'facebook',
-      content: 'www.facebook.com/gknguyen1711',
+      content: 'facebook.com/gknguyen1711',
       type: 'url',
     },
     {
       image: 'work',
-      content: 'www.linkedin.com/in/gknguyen1711',
+      content: 'linkedin.com/in/gknguyen1711',
       type: 'url',
     },
     {
       image: 'integration_instructions',
-      content: 'www.github.com/gknguyen',
+      content: 'github.com/gknguyen',
       type: 'url',
     },
   ],
@@ -154,18 +154,51 @@ It would be great if I had the opportunity to work in an environment where Engli
       title: 'SETEL',
       position: 'Full-stack Engineer',
       descriptions: [
-        'Providing IT solutions for Petronas corporation in Malaysia',
+        'Building Setel App platforms & system for Petronas corporation in Malaysia',
+        'a super application (like Grab or Momo) in Malaysia, focus on fuel purchase & vehicle management, loyalty points, v..v..',
         'Working with backend microservices system based on Nodejs',
+        'Build Web Apps for users/merchants, Admin Panel for Admins',
         'Communicating in English with international teams',
       ],
       projects: [
         {
-          name: 'Setel',
+          name: 'Family Wallet members',
+          position: 'BE Engineer',
+          descriptions: [
+            'A feature which allow user to create a family group, other members in the group can use their payment method to purchase',
+            'Technologies : Nest.js, MongoDB, Redis v...v...',
+            'Resource : 5 members',
+            'Period : 6 months',
+          ],
+        },
+        {
+          name: 'Places on Map',
           position: 'Full-stack Engineer',
           descriptions: [
-            'a super application (like Grab or Momo) in Malaysia, focus on fuel paying online',
-            'Technologies : Nodejs, Typescript, Microservices, v...v...',
-            'Resource : more than 20 members',
+            'Manage Places information to display on Map',
+            'Technologies : Nest.js, MongoDB, AWS S3, Kafka, React.js, Tailwind CSS, v...v...',
+            'Resource : 5 members',
+            'Period : 1 year',
+          ],
+        },
+        {
+          name: 'Loyalty points capping',
+          position: 'BE Engineer',
+          descriptions: [
+            'A feature to put a cap limit quota for the amount of loyalty that user can earned in 1 month',
+            'Technologies : Nest.js, MongoDB, Kafka, v...v...',
+            'Resource : 2 members',
+            'Period : 5 months',
+          ],
+        },
+        {
+          name: 'Setel Lite Web for Guest user',
+          position: 'Full-stack Engineer',
+          descriptions: [
+            'A light Web App which allow guest user to have their own loyalty barcode for CDS/POS scanning to earn points, for experience purpose',
+            'Technologies : Nest.js, MongoDB, React.js, Tailwind CSS, v...v...',
+            'Resource : 2 members',
+            'Period : 3 months',
           ],
         },
       ],
@@ -181,7 +214,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       ],
       projects: [
         {
-          name: 'Task Management System',
+          name: 'Task Manage System',
           position: 'Full-stack Engineer',
           descriptions: [
             'Task management, employee management, man-hours management',

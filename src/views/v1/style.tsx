@@ -31,6 +31,14 @@ export const theme = createTheme({
         },
       },
     },
+    MuiTypography: {
+      styleOverrides: {
+        root: {
+          fontSize: '0.75rem',
+          lineHeight: 1.25,
+        },
+      },
+    },
   },
 });
 
@@ -44,5 +52,20 @@ export const useCommonStyles = makeStyles(() => ({
     '&:active': {
       cursor: 'grabbing',
     },
+  },
+  ul: {
+    paddingLeft: 20,
+    marginTop: 0,
+    marginBottom: 5,
+  },
+  list: {
+    paddingTop: 0,
+    paddingBottom: 0,
+  },
+  listItemIcon: {
+    minWidth: 40,
+  },
+  listItemAvatar: {
+    minWidth: 40,
   },
 }));

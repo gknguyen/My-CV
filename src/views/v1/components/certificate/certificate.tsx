@@ -3,10 +3,11 @@ import { CertificateImage, ProfileType } from '../../../../data/profile';
 import { Box, Link, Typography } from '../../common/component';
 import { makeStyles } from '../../common/hook';
 import { CertificateImagePopup } from './certificateImage.popup';
+import { useCommonStyles } from '../../style';
 
 const useStyles = makeStyles(() => ({
   root: {
-    padding: 30,
+    // padding: 20,
   },
 }));
 
@@ -18,33 +19,34 @@ interface Props {
 
 export const Certificate: React.FC<Props> = (props) => {
   const { classes } = useStyles();
+  const { classes: commonClasses } = useCommonStyles();
 
   const [imagePopupData, setImagePopupData] = React.useState(defaultImagePopupData);
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h5" component="h2" display="block" gutterBottom>
+      <Typography variant="h6" component="h2" display="block" gutterBottom>
         <strong>CERTIFICATES</strong>
       </Typography>
 
-      <ul>
+      <ul className={commonClasses.ul}>
         {props.profile.certificates.map((certificate, index) => (
           <li key={certificate.name}>
             {certificate.isPopup ? (
               <Link onClick={() => setImagePopupData({ open: true, images: certificate.images })}>
-                <Typography variant="h6">
+                <Typography>
                   {certificate.name}
                   {!!certificate.images && ` [${certificate.images.length}]`}
                 </Typography>
               </Link>
             ) : certificate.list?.length ? (
               <>
-                <Typography variant="h6">{certificate.name}</Typography>
+                <Typography>{certificate.name}</Typography>
                 <ul>
                   {certificate.list.map((ele) => (
                     <li key={ele.name}>
                       <Link href={ele.link} target="_blank">
-                        <Typography variant="h6">{ele.name}</Typography>
+                        <Typography>{ele.name}</Typography>
                       </Link>
                     </li>
                   ))}
@@ -52,7 +54,7 @@ export const Certificate: React.FC<Props> = (props) => {
               </>
             ) : (
               <Link href={certificate.link} target="_blank">
-                <Typography variant="h6">{certificate.name}</Typography>
+                <Typography>{certificate.name}</Typography>
               </Link>
             )}
           </li>

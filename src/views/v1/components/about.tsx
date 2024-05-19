@@ -5,7 +5,7 @@ import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    padding: 30,
+    // padding: 20,
   },
   lineBreak: {
     // lineBreak: 'normal',
@@ -21,12 +21,10 @@ export const About: React.FC<Props> = (props) => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h5" component="h2" display="block" gutterBottom>
+      <Typography variant="h6" component="h2" display="block" gutterBottom>
         <strong>ABOUT</strong>
       </Typography>
-      <Typography variant="h6" className={classes.lineBreak}>
-        {props.profile.about}
-      </Typography>
+      <Typography className={classes.lineBreak}>{props.profile.about}</Typography>
     </Box>
   );
 };

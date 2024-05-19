@@ -2,10 +2,15 @@ import { Avatar, Icon, Link, ListItem, ListItemAvatar, ListItemText } from '../.
 import React from 'react';
 import { ContactType } from '../../../../data/profile';
 import { makeStyles } from '../../common/hook';
+import { useCommonStyles } from '../../style';
 
 const useStyles = makeStyles(() => ({
   avatarColor: {
     backgroundColor: '#546e7a',
+  },
+  listItem: {
+    paddingLeft: 0,
+    paddingRight: 0,
   },
 }));
 
@@ -15,12 +20,13 @@ interface Props {
 
 export const ContactItem: React.FC<Props> = (props) => {
   const { classes } = useStyles();
+  const { classes: commonClasses } = useCommonStyles();
 
   return (
-    <ListItem>
-      <ListItemAvatar>
-        <Avatar className={classes.avatarColor}>
-          <Icon>{props.contact.image}</Icon>
+    <ListItem className={classes.listItem}>
+      <ListItemAvatar className={commonClasses.listItemAvatar}>
+        <Avatar className={classes.avatarColor} sx={{ width: 32, height: 32 }}>
+          <Icon fontSize="small">{props.contact.image}</Icon>
         </Avatar>
       </ListItemAvatar>
       <ListItemText
