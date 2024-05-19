@@ -30,8 +30,8 @@
     ]
   },
   "engines": {
-    "node": "18.15.0",
-    "npm": ">=9"
+    "node": ">=21",
+    "npm": ">=10"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -56,7 +56,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jspdf": "^2.0.0",
-    "@types/node": "^18.19.6",
+    "@types/node": "^20.12.12",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "cypress": "^13.6.2",
