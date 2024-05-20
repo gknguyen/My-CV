@@ -3,6 +3,7 @@ import { theme } from './style';
 import { Profile } from './components/profile';
 import { ScrollTopButton } from './common/scrollTopButton';
 import { makeStyles } from './common/hook';
+import './style.css';
 
 const useStyles = makeStyles(() => ({
   root: {

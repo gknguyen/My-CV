@@ -153,6 +153,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       period: 'Jul 2021 - Now',
       title: 'SETEL',
       position: 'Full-stack Engineer',
+      logo: '/images/setel.png',
       descriptions: [
         'Building Setel App platforms & system for Petronas corporation in Malaysia',
         'a super application (like Grab or Momo) in Malaysia, focus on fuel purchase & vehicle management, loyalty points, v..v..',
@@ -160,6 +161,7 @@ It would be great if I had the opportunity to work in an environment where Engli
         'Build Web Apps for users/merchants, Admin Panel for Admins',
         'Communicating in English with international teams',
       ],
+      projectsCssClass: 'h-[442px]',
       projects: [
         {
           name: 'Family Wallet members',
@@ -207,11 +209,13 @@ It would be great if I had the opportunity to work in an environment where Engli
       period: 'Feb 2020 - Jun 2021',
       title: 'GEO SYSTEM SOLUTIONS VIETNAM',
       position: 'Full-stack Engineer',
+      logo: '/images/geo.png',
       descriptions: [
         'Providing IT solutions for GEO corporation in Japan',
         'Handling full life cycle of projects - from Front-end, Back-end to deployment',
         'communicating in Japan with co-workers and clients',
       ],
+      projectsCssClass: 'h-[175px]',
       projects: [
         {
           name: 'Task Manage System',
@@ -241,11 +245,13 @@ It would be great if I had the opportunity to work in an environment where Engli
       period: 'Sep 2018 - Jan 2020',
       title: 'CAPGEMINI VIETNAM',
       position: 'Software Engineer',
+      logo: '/images/capgemini.jpeg',
       descriptions: [
         'Providing IT solutions for AXA Insurance corporation in France',
         'Working with backend systems based on COBOL language',
         'Communicating in French with co-workers and clients',
       ],
+      projectsCssClass: 'h-[78px]',
       projects: [
         {
           name: 'AXAPAC',
@@ -262,6 +268,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       period: 'Jun 2017 – Sep 2017',
       title: 'REETECH INDUSTRY SUMMER INTERSHIP',
       position: 'Mechanical/Electrical Engineer',
+      logo: '/images/reetech.png',
       descriptions: [
         'Learned how to build and fix switchboards',
         'Learned how to use some automatic machines like QUADA AE2510 NT',
@@ -335,3 +342,4 @@ export type ContactType = (typeof profile.contacts)[0];
 export type SkillType = (typeof profile.skills)[0];
 export type ProjectType = (typeof profile.projects)[0];
 export type CertificateImage = { name: string; path: string };
+export type ExperienceType = (typeof profile.experiences)[0];

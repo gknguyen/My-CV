@@ -30,7 +30,7 @@ export const Certificate: React.FC<Props> = (props) => {
       </Typography>
 
       <ul className={commonClasses.ul}>
-        {props.profile.certificates.map((certificate, index) => (
+        {props.profile.certificates.map((certificate) => (
           <li key={certificate.name}>
             {certificate.isPopup ? (
               <Link onClick={() => setImagePopupData({ open: true, images: certificate.images })}>
