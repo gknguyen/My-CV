@@ -1,6 +1,6 @@
 import { Box, Typography } from '../../common/component';
 import React from 'react';
-import { ProfileType } from '../../../../data/profile';
+import { profile } from '../../../../data/profile';
 import { SkillItem } from './skill.item';
 import { makeStyles } from '../../common/hook';
 
@@ -22,11 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface Props {
-  profile: ProfileType;
-}
-
-export const Skill: React.FC<Props> = (props) => {
+export const Skill: React.FC = () => {
   const { classes } = useStyles();
 
   return (
@@ -35,7 +31,7 @@ export const Skill: React.FC<Props> = (props) => {
         <strong>SKILLS</strong>
       </Typography>
 
-      {props.profile.skills.map((skill, index) => (
+      {profile.skills.map((skill, index) => (
         <SkillItem key={index} skill={skill} />
       ))}
     </Box>

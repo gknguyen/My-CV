@@ -11,7 +11,7 @@ import {
 } from '../common/component';
 import React from 'react';
 import { useCommonStyles } from '../style';
-import { ProfileType } from '../../../data/profile';
+import { profile } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles(() => ({
@@ -21,11 +21,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-interface Props {
-  profile: ProfileType;
-}
-
-export const Project: React.FC<Props> = (props) => {
+export const Project: React.FC = () => {
   const { classes } = useStyles();
   const { classes: commonClasses } = useCommonStyles();
 
@@ -53,8 +49,8 @@ export const Project: React.FC<Props> = (props) => {
           </TableHead>
 
           <TableBody>
-            {props.profile.projects.map((project, index) => (
-              <TableRow key={index}>
+            {profile.projects.map((project, index) => (
+              <TableRow key={project.title}>
                 <TableCell style={{ width: 65 }}>
                   <Typography>{project.period}</Typography>
                 </TableCell>
@@ -66,7 +62,7 @@ export const Project: React.FC<Props> = (props) => {
                     {project.type}
                     <ul className={commonClasses.ul}>
                       {project.descriptions.map((description, index) => (
-                        <li key={index}>{description}</li>
+                        <li key={description}>{description}</li>
                       ))}
                     </ul>
                   </Typography>

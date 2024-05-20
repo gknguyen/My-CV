@@ -1,6 +1,6 @@
 import { Box, List, Typography } from '../../common/component';
 import React from 'react';
-import { ProfileType } from '../../../../data/profile';
+import { profile } from '../../../../data/profile';
 import { PersonalItem } from './personal.item';
 import { makeStyles } from '../../common/hook';
 import { useCommonStyles } from '../../style';
@@ -12,11 +12,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-interface Props {
-  profile: ProfileType;
-}
-
-export const Personal: React.FC<Props> = (props) => {
+export const Personal: React.FC = () => {
   const { classes } = useStyles();
   const { classes: commonClasses } = useCommonStyles();
 
@@ -27,7 +23,7 @@ export const Personal: React.FC<Props> = (props) => {
       </Typography>
 
       <List className={commonClasses.list}>
-        {props.profile.personals.map((personal, index) => (
+        {profile.personals.map((personal, index) => (
           <PersonalItem key={index} personal={personal} />
         ))}
       </List>

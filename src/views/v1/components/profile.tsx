@@ -88,20 +88,16 @@ export const Profile: React.FC = () => {
               gap={2}
               style={{ wordBreak: 'break-all' }}
             >
-              {/* <Container disableGutters style={{ wordBreak: 'break-all', gap: 4 }}> */}
-              <Personal profile={profile} />
-              <Contact profile={profile} />
-              <Skill profile={profile} />
-              {/* </Container> */}
+              <Personal />
+              <Contact />
+              <Skill />
             </Grid>
 
             <Grid container item xs={8} className={classes.experienceInfo} gap={2}>
-              {/* <Container disableGutters> */}
-              <About profile={profile} />
-              <Certificate profile={profile} />
-              <Experience profile={profile} />
-              <Project profile={profile} />
-              {/* </Container> */}
+              <About />
+              <Certificate />
+              <Experience />
+              <Project />
             </Grid>
 
             <Grid

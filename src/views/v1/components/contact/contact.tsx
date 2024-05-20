@@ -1,6 +1,6 @@
 import { Box, List, Typography } from '../../common/component';
 import React from 'react';
-import { ProfileType } from '../../../../data/profile';
+import { profile } from '../../../../data/profile';
 import { ContactItem } from './contact.item';
 import { makeStyles } from '../../common/hook';
 import { useCommonStyles } from '../../style';
@@ -13,11 +13,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-interface Props {
-  profile: ProfileType;
-}
-
-export const Contact: React.FC<Props> = (props) => {
+export const Contact: React.FC = () => {
   const { classes } = useStyles();
   const { classes: commonClasses } = useCommonStyles();
 
@@ -28,7 +24,7 @@ export const Contact: React.FC<Props> = (props) => {
       </Typography>
 
       <List className={commonClasses.list}>
-        {props.profile.contacts.map((contact, index) => (
+        {profile.contacts.map((contact, index) => (
           <ContactItem key={index} contact={contact} />
         ))}
       </List>

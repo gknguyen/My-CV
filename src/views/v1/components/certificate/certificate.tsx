@@ -1,5 +1,5 @@
 import React from 'react';
-import { CertificateImage, ProfileType } from '../../../../data/profile';
+import { CertificateImage, profile } from '../../../../data/profile';
 import { Box, Link, Typography } from '../../common/component';
 import { makeStyles } from '../../common/hook';
 import { CertificateImagePopup } from './certificateImage.popup';
@@ -13,11 +13,7 @@ const useStyles = makeStyles(() => ({
 
 const defaultImagePopupData = { open: false, images: [] as CertificateImage[] };
 
-interface Props {
-  profile: ProfileType;
-}
-
-export const Certificate: React.FC<Props> = (props) => {
+export const Certificate: React.FC = () => {
   const { classes } = useStyles();
   const { classes: commonClasses } = useCommonStyles();
 
@@ -30,7 +26,7 @@ export const Certificate: React.FC<Props> = (props) => {
       </Typography>
 
       <ul className={commonClasses.ul}>
-        {props.profile.certificates.map((certificate) => (
+        {profile.certificates.map((certificate) => (
           <li key={certificate.name}>
             {certificate.isPopup ? (
               <Link onClick={() => setImagePopupData({ open: true, images: certificate.images })}>

@@ -11,7 +11,7 @@ import {
 } from '../common/component';
 import React from 'react';
 import { useCommonStyles } from '../style';
-import { ProfileType } from '../../../data/profile';
+import { profile } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles(() => ({
@@ -21,11 +21,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-interface Props {
-  profile: ProfileType;
-}
-
-export const Experience: React.FC<Props> = (props) => {
+export const Experience: React.FC = () => {
   const { classes } = useStyles();
   const { classes: commonClasses } = useCommonStyles();
 
@@ -53,8 +49,8 @@ export const Experience: React.FC<Props> = (props) => {
           </TableHead>
 
           <TableBody>
-            {props.profile.experiences.map((experience, index) => (
-              <TableRow key={index}>
+            {profile.experiences.map((experience) => (
+              <TableRow key={experience.title}>
                 <TableCell>
                   <Typography style={{ width: 65 }}>{experience.period}</Typography>
                 </TableCell>
@@ -66,8 +62,8 @@ export const Experience: React.FC<Props> = (props) => {
                   <Typography component="span">
                     {experience.position}
                     <ul className={commonClasses.ul}>
-                      {experience.descriptions.map((description, index) => (
-                        <li key={index}>{description}</li>
+                      {experience.descriptions.map((description) => (
+                        <li key={description}>{description}</li>
                       ))}
                     </ul>
                   </Typography>
@@ -87,8 +83,8 @@ export const Experience: React.FC<Props> = (props) => {
                         </TableHead>
 
                         <TableBody>
-                          {experience.projects.map((project, index) => (
-                            <TableRow key={index}>
+                          {experience.projects.map((project) => (
+                            <TableRow key={project.name}>
                               <TableCell style={{ width: 40 }}>
                                 <Typography gutterBottom>
                                   <b>{project.name}</b>
@@ -97,8 +93,8 @@ export const Experience: React.FC<Props> = (props) => {
                               </TableCell>
                               <TableCell>
                                 <ul className={commonClasses.ul}>
-                                  {project.descriptions.map((description, index) => (
-                                    <li key={index}>
+                                  {project.descriptions.map((description) => (
+                                    <li key={description}>
                                       <Typography>{description}</Typography>
                                     </li>
                                   ))}

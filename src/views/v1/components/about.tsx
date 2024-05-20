@@ -1,6 +1,6 @@
 import { Box, Typography } from '../common/component';
 import React from 'react';
-import { ProfileType } from '../../../data/profile';
+import { profile } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles((theme) => ({
@@ -12,11 +12,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-interface Props {
-  profile: ProfileType;
-}
-
-export const About: React.FC<Props> = (props) => {
+export const About: React.FC = (props) => {
   const { classes } = useStyles();
 
   return (
@@ -24,7 +20,7 @@ export const About: React.FC<Props> = (props) => {
       <Typography variant="h6" component="h2" display="block" gutterBottom>
         <strong>ABOUT</strong>
       </Typography>
-      <Typography className={classes.lineBreak}>{props.profile.about}</Typography>
+      <Typography className={classes.lineBreak}>{profile.about}</Typography>
     </Box>
   );
 };
