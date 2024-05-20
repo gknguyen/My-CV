@@ -40,6 +40,8 @@ const useStyles = makeStyles((theme) => ({
   personalInfo: {
     background: 'linear-gradient(45deg, #01579b 40%, #29b6f6 80%)',
     padding: 20,
+    wordBreak: 'break-all',
+    // height: '100%',
   },
   experienceInfo: {
     padding: 20,
@@ -49,6 +51,7 @@ const useStyles = makeStyles((theme) => ({
     color: '#eeeeee',
     backgroundColor: '#01579b',
     height: 40,
+    whiteSpace: 'pre-wrap',
   },
   printButton: {
     borderBottom: '1px solid black',
@@ -64,42 +67,84 @@ export const Profile: React.FC = () => {
   const { classes } = useStyles();
 
   return (
-    <Container disableGutters style={{ maxWidth: 800 }}>
-      <Card raised id="detail">
-        <CardMedia className={classes.media} image="/images/background.jpg" />
+    <Container disableGutters style={{ width: 800 }}>
+      <Grid container gap={1}>
+        <Card raised id="page-1" style={{ width: '100%' }}>
+          <CardMedia className={classes.media} image="/images/background.jpg" />
 
-        <CardHeader
-          className={classes.cardHeader}
-          avatar={<Avatar src={profile.avatar} className={classes.avatar} />}
-          title={profile.name}
-          titleTypographyProps={{ variant: 'h5', fontSize: '1.5rem' }}
-          subheader={profile.career}
-          subheaderTypographyProps={{ variant: 'h6', fontSize: '1.25rem' }}
-        />
+          <CardHeader
+            className={classes.cardHeader}
+            avatar={<Avatar src={profile.avatar} className={classes.avatar} />}
+            title={profile.name}
+            titleTypographyProps={{ variant: 'h5', fontSize: '1.5rem' }}
+            subheader={profile.career}
+            subheaderTypographyProps={{ variant: 'h6', fontSize: '1.25rem' }}
+          />
 
-        <CardContent>
-          <Grid container>
-            <Grid
-              container
-              item
-              xs={4}
-              className={classes.personalInfo}
-              direction="column"
-              gap={2}
-              style={{ wordBreak: 'break-all' }}
-            >
-              <Personal />
-              <Contact />
-              <Skill />
+          <CardContent>
+            <Grid container style={{ height: 830 }}>
+              <Grid item xs={4} className={classes.personalInfo} direction="column">
+                <div style={{ display: 'grid', gap: 20 }}>
+                  <Personal />
+                  <Contact />
+                  <Certificate />
+                </div>
+              </Grid>
+
+              <Grid item xs={8} className={classes.experienceInfo}>
+                <div style={{ display: 'grid', gap: 20 }}>
+                  <About />
+                  <Project
+                    projects={[profile.projects[0], profile.projects[1], profile.projects[2]]}
+                  />
+                </div>
+              </Grid>
             </Grid>
+          </CardContent>
+        </Card>
 
-            <Grid container item xs={8} className={classes.experienceInfo} gap={2}>
-              <About />
-              <Certificate />
-              <Experience />
-              <Project />
+        <Card raised id="page-2" style={{ width: '100%' }}>
+          <CardContent>
+            <Grid container style={{ height: 1120 }}>
+              <Grid item xs={4} className={classes.personalInfo} direction="column">
+                <Skill />
+              </Grid>
+
+              <Grid item xs={8} className={classes.experienceInfo}>
+                <div style={{ display: 'grid', gap: 20 }}>
+                  <Project projects={[profile.projects[4]]} />
+                  <Experience experiences={[profile.experiences[0]]} />
+                </div>
+              </Grid>
             </Grid>
+          </CardContent>
+        </Card>
 
+        <Card raised id="page-3" style={{ width: '100%' }}>
+          <CardContent>
+            <Grid container>
+              <Grid
+                container
+                item
+                xs={4}
+                className={classes.personalInfo}
+                direction="column"
+                gap={2}
+              ></Grid>
+
+              <Grid container item xs={8} className={classes.experienceInfo} gap={2}>
+                <Experience
+                  experiences={[
+                    profile.experiences[1],
+                    profile.experiences[2],
+                    profile.experiences[3],
+                  ]}
+                />
+              </Grid>
+            </Grid>
+          </CardContent>
+
+          <CardMedia>
             <Grid
               container
               item
@@ -113,9 +158,9 @@ export const Profile: React.FC = () => {
                 @Material-UI
               </Link>
             </Grid>
-          </Grid>
-        </CardContent>
-      </Card>
+          </CardMedia>
+        </Card>
+      </Grid>
     </Container>
   );
 };

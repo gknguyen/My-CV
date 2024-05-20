@@ -7,7 +7,7 @@ import './style.css';
 
 const useStyles = makeStyles(() => ({
   root: {
-    minWidth: 800,
+    // minWidth: 800,
     // marginTop: '-35px',
     // marginBottom: '-55px',
   },

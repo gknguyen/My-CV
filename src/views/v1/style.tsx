@@ -44,8 +44,13 @@ export const theme = createTheme({
 
 export const useCommonStyles = makeStyles(() => ({
   tableHeader: {
+    padding: 5,
+  },
+  tableHeaderCell: {
     backgroundColor: '#29b6f6',
     color: '#eeeeee',
+    paddingTop: 5,
+    paddingBottom: 5,
   },
   drag: {
     cursor: 'grab',
@@ -63,7 +68,7 @@ export const useCommonStyles = makeStyles(() => ({
     paddingBottom: 0,
   },
   listItemIcon: {
-    minWidth: 40,
+    minWidth: 30,
   },
   listItemAvatar: {
     minWidth: 40,

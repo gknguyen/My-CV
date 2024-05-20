@@ -9,9 +9,13 @@ const useStyles = makeStyles((theme) => ({
   list: {
     paddingLeft: 0,
     paddingRight: 0,
+    paddingTop: 4,
+    paddingBottom: 4,
   },
   nested: {
-    paddingLeft: theme.spacing(1),
+    paddingLeft: theme.spacing(2),
+    paddingTop: 4,
+    paddingBottom: 4,
   },
   icon: {
     color: '#eeeeee',
@@ -44,8 +48,8 @@ export const SkillItem: React.FC<Props> = (props) => {
 
       <Collapse in={open} timeout="auto" unmountOnExit>
         <List component="div" disablePadding>
-          {props.skill.list.map((item, index) => (
-            <ListItem key={index} className={classes.nested}>
+          {props.skill.list.map((item) => (
+            <ListItem key={item} className={classes.nested}>
               <ListItemIcon className={commonClasses.listItemIcon}>
                 <AddIcon className={classes.icon} fontSize="small" />
               </ListItemIcon>

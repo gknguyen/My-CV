@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
   lineBreak: {
     // lineBreak: 'normal',
+    whiteSpace: 'pre-wrap',
   },
 }));
 

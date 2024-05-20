@@ -11,7 +11,7 @@ import {
 } from '../common/component';
 import React from 'react';
 import { useCommonStyles } from '../style';
-import { profile } from '../../../data/profile';
+import { ExperienceType } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles(() => ({
@@ -21,7 +21,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Experience: React.FC = () => {
+interface IProps {
+  experiences: ExperienceType[];
+}
+
+export const Experience: React.FC<IProps> = (props) => {
   const { classes } = useStyles();
   const { classes: commonClasses } = useCommonStyles();
 
@@ -35,12 +39,12 @@ export const Experience: React.FC = () => {
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell className={commonClasses.tableHeader}>
+              <TableCell className={commonClasses.tableHeaderCell}>
                 <Typography>
                   <strong>PRIOD</strong>
                 </Typography>
               </TableCell>
-              <TableCell className={commonClasses.tableHeader}>
+              <TableCell className={commonClasses.tableHeaderCell}>
                 <Typography>
                   <strong>COMPANIES</strong>
                 </Typography>
@@ -49,7 +53,7 @@ export const Experience: React.FC = () => {
           </TableHead>
 
           <TableBody>
-            {profile.experiences.map((experience) => (
+            {props.experiences.map((experience) => (
               <TableRow key={experience.title}>
                 <TableCell>
                   <Typography style={{ width: 65 }}>{experience.period}</Typography>
@@ -73,10 +77,10 @@ export const Experience: React.FC = () => {
                       <Table size="small">
                         <TableHead>
                           <TableRow>
-                            <TableCell className={commonClasses.tableHeader}>
+                            <TableCell className={commonClasses.tableHeaderCell}>
                               <Typography>NAME</Typography>
                             </TableCell>
-                            <TableCell className={commonClasses.tableHeader}>
+                            <TableCell className={commonClasses.tableHeaderCell}>
                               <Typography>DESCRIPTION</Typography>
                             </TableCell>
                           </TableRow>

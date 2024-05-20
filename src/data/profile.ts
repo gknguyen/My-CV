@@ -29,7 +29,7 @@ It would be great if I had the opportunity to work in an environment where Engli
     {
       image: 'school',
       content: 'International UniverSity - HCMC',
-      subContent: 'Electrical Engineering (GPA: 2.8/4.0)',
+      subContent: `Electrical Engineering`,
     },
   ],
 
@@ -125,7 +125,7 @@ It would be great if I had the opportunity to work in an environment where Engli
 
   certificates: [
     {
-      name: 'AWS Certified Solutions Architect – Associate',
+      name: 'AWS Solutions Architect (Associate)',
       link: 'https://www.credly.com/badges/b36874f3-2255-43c7-830e-33f6a7859c72?source=linked_in_profile',
     },
     {

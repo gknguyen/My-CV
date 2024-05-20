@@ -10,6 +10,7 @@ export {
   Dialog,
   DialogContent,
   DialogTitle,
+  Divider,
   Grid,
   Icon,
   IconButton,

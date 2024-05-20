@@ -8,6 +8,7 @@ import { useCommonStyles } from '../../style';
 const useStyles = makeStyles(() => ({
   root: {
     // padding: 20,
+    color: '#eeeeee',
   },
 }));
 
@@ -31,15 +32,18 @@ export const Certificate: React.FC = () => {
             {certificate.list?.length ? (
               <>
                 <Typography>{certificate.name}</Typography>
-                <ul>
+                <ul className={commonClasses.ul}>
                   {certificate.list.map((ele) => (
                     <li key={ele.name}>
                       {ele.isPopup ? (
-                        <Link onClick={() => setImagePopupData({ open: true, image: ele })}>
+                        <Link
+                          onClick={() => setImagePopupData({ open: true, image: ele })}
+                          color="inherit"
+                        >
                           <Typography>{ele.name}</Typography>
                         </Link>
                       ) : (
-                        <Link href={ele.link} target="_blank">
+                        <Link href={ele.link} target="_blank" color="inherit">
                           <Typography>{ele.name}</Typography>
                         </Link>
                       )}
@@ -48,7 +52,7 @@ export const Certificate: React.FC = () => {
                 </ul>
               </>
             ) : (
-              <Link href={certificate.link} target="_blank">
+              <Link href={certificate.link} target="_blank" color="inherit">
                 <Typography>{certificate.name}</Typography>
               </Link>
             )}

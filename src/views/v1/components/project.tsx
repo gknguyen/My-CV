@@ -11,7 +11,7 @@ import {
 } from '../common/component';
 import React from 'react';
 import { useCommonStyles } from '../style';
-import { profile } from '../../../data/profile';
+import { ProjectType } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles(() => ({
@@ -21,7 +21,11 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Project: React.FC = () => {
+interface IProps {
+  projects: ProjectType[];
+}
+
+export const Project: React.FC<IProps> = (props) => {
   const { classes } = useStyles();
   const { classes: commonClasses } = useCommonStyles();
 
@@ -35,12 +39,12 @@ export const Project: React.FC = () => {
         <Table size="small">
           <TableHead>
             <TableRow>
-              <TableCell className={commonClasses.tableHeader}>
+              <TableCell className={commonClasses.tableHeaderCell}>
                 <Typography>
                   <strong>PRIOD</strong>
                 </Typography>
               </TableCell>
-              <TableCell className={commonClasses.tableHeader}>
+              <TableCell className={commonClasses.tableHeaderCell}>
                 <Typography>
                   <strong>PROJECTS</strong>
                 </Typography>
@@ -49,7 +53,7 @@ export const Project: React.FC = () => {
           </TableHead>
 
           <TableBody>
-            {profile.projects.map((project, index) => (
+            {props.projects.map((project) => (
               <TableRow key={project.title}>
                 <TableCell style={{ width: 65 }}>
                   <Typography>{project.period}</Typography>
