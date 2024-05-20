@@ -7,9 +7,11 @@ export const About: React.FC = () => {
   const [isShowing, setIsShowing] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
       setIsShowing(true);
     }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (

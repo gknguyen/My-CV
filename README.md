@@ -7,6 +7,7 @@ a small project for my CV
 - Base template: [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html)
 - Programming language: [Typescript](https://www.typescriptlang.org/)
 - Core: [ReactJS](https://react.dev/)
+- CSS: [TailwindCSS](https://tailwindcss.com/)
 - Route manager: [react-router-dom](https://reactrouter.com/en/main)
 - Formatter: [Prettier](https://prettier.io/)
 - Code quality scanner: [Eslint](https://eslint.org/)
