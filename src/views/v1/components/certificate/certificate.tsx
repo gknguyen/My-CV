@@ -11,7 +11,7 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-const defaultImagePopupData = { open: false, images: [] as CertificateImage[] };
+const defaultImagePopupData = { open: false, image: {} as CertificateImage };
 
 export const Certificate: React.FC = () => {
   const { classes } = useStyles();
@@ -28,22 +28,21 @@ export const Certificate: React.FC = () => {
       <ul className={commonClasses.ul}>
         {profile.certificates.map((certificate) => (
           <li key={certificate.name}>
-            {certificate.isPopup ? (
-              <Link onClick={() => setImagePopupData({ open: true, images: certificate.images })}>
-                <Typography>
-                  {certificate.name}
-                  {!!certificate.images && ` [${certificate.images.length}]`}
-                </Typography>
-              </Link>
-            ) : certificate.list?.length ? (
+            {certificate.list?.length ? (
               <>
                 <Typography>{certificate.name}</Typography>
                 <ul>
                   {certificate.list.map((ele) => (
                     <li key={ele.name}>
-                      <Link href={ele.link} target="_blank">
-                        <Typography>{ele.name}</Typography>
-                      </Link>
+                      {ele.isPopup ? (
+                        <Link onClick={() => setImagePopupData({ open: true, image: ele })}>
+                          <Typography>{ele.name}</Typography>
+                        </Link>
+                      ) : (
+                        <Link href={ele.link} target="_blank">
+                          <Typography>{ele.name}</Typography>
+                        </Link>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -59,7 +58,7 @@ export const Certificate: React.FC = () => {
 
       <CertificateImagePopup
         open={imagePopupData.open}
-        images={imagePopupData.images}
+        image={imagePopupData.image}
         closeHandlerCallBack={() => setImagePopupData(defaultImagePopupData)}
       />
     </Box>

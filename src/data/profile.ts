@@ -130,11 +130,22 @@ It would be great if I had the opportunity to work in an environment where Engli
     },
     {
       name: 'Whizlabs certificates',
-      isPopup: true,
-      images: [
-        { name: 'Docker Certified', path: '/images/certificates/docker.jpg' },
-        { name: 'Github Training', path: '/images/certificates/github.jpg' },
-        { name: 'Apache Kafka', path: '/images/certificates/kafka.jpg' },
+      list: [
+        {
+          name: 'Docker Certified Associate',
+          isPopup: true,
+          link: '/images/certificates/docker.jpg',
+        },
+        {
+          name: 'Git & Github Training Course',
+          isPopup: true,
+          link: '/images/certificates/github.jpg',
+        },
+        {
+          name: 'Apache Kafka Fundamentals',
+          isPopup: true,
+          link: '/images/certificates/kafka.jpg',
+        },
       ],
     },
     {
@@ -142,6 +153,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       list: [
         {
           name: 'JavaScript (Basic) Certificate',
+          isPopup: false,
           link: 'https://www.hackerrank.com/certificates/bbab0102001c',
         },
       ],
@@ -341,5 +353,5 @@ export type PersonalType = (typeof profile.personals)[0];
 export type ContactType = (typeof profile.contacts)[0];
 export type SkillType = (typeof profile.skills)[0];
 export type ProjectType = (typeof profile.projects)[0];
-export type CertificateImage = { name: string; path: string };
+export type CertificateImage = { name: string; link: string };
 export type ExperienceType = (typeof profile.experiences)[0];
