@@ -14,17 +14,19 @@ export const V2: React.FC = () => {
     <>
       <Header />
 
-      <RenderOnViewportEntry threshold={0.25} className="h-screen">
-        <Overview />
-      </RenderOnViewportEntry>
+      <div className="-mt-10">
+        <RenderOnViewportEntry threshold={0.25} className="h-screen">
+          <Overview />
+        </RenderOnViewportEntry>
 
-      <RenderOnViewportEntry threshold={0.25} className="h-screen">
-        <About />
-      </RenderOnViewportEntry>
+        <RenderOnViewportEntry threshold={0.25} className="h-screen">
+          <About />
+        </RenderOnViewportEntry>
 
-      <RenderOnViewportEntry threshold={0.25} className="h-screen">
-        <ExperienceTabs />
-      </RenderOnViewportEntry>
+        <RenderOnViewportEntry threshold={0.25} className="h-screen">
+          <ExperienceTabs />
+        </RenderOnViewportEntry>
+      </div>
     </>
   );
 };

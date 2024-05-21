@@ -133,7 +133,7 @@ export const Overview: React.FC = () => {
               leaveTo="opacity-0 translate-x-full"
             >
               <div className="items-center flex sm:flex-col md:flex-row sm:gap-4 md:gap-6">
-                <span>Tect Stack</span>
+                <span>Tech Stack</span>
                 <div className="flex gap-4 sm:flex-wrap md: flex-nowrap">
                   {TECH_STACKS.map((stack) => (
                     <BasePopover
