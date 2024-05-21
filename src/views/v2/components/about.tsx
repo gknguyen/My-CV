@@ -15,7 +15,7 @@ export const About: React.FC = () => {
   }, []);
 
   return (
-    <div className="h-screen grid content-center justify-center">
+    <div id="about" className="h-screen grid content-center justify-center">
       <Transition
         show
         appear

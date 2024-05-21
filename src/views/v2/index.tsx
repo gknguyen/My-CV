@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import { RenderOnViewportEntry } from '../../shared/lazy-load';
+import { Header } from './components/header';
 import './style.css';
 
 const Overview = lazy(() => import('./components/overview').then((m) => ({ default: m.Overview })));
@@ -11,6 +12,8 @@ const ExperienceTabs = lazy(() =>
 export const V2: React.FC = () => {
   return (
     <>
+      <Header />
+
       <RenderOnViewportEntry threshold={0.25} className="h-screen">
         <Overview />
       </RenderOnViewportEntry>

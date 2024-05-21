@@ -6,6 +6,7 @@ export {
   CardFooter,
   CardHeader,
   IconButton,
+  Navbar,
   Popover,
   PopoverContent,
   PopoverHandler,

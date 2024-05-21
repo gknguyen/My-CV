@@ -8,6 +8,10 @@ module.exports = withMT({
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
+      scrollBehavior: ['responsive', 'scroll-smooth'],
     },
+  },
+  variants: {
+    scrollBehavior: ['responsive'],
   },
 });
