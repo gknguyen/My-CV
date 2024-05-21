@@ -162,8 +162,9 @@ It would be great if I had the opportunity to work in an environment where Engli
 
   experiences: [
     {
-      period: 'Jul 2021 - Now',
+      key: 'setel',
       title: 'SETEL',
+      period: 'Jul 2021 - Now',
       position: 'Full-stack Engineer',
       logo: '/images/setel.png',
       descriptions: [
@@ -218,8 +219,9 @@ It would be great if I had the opportunity to work in an environment where Engli
       ],
     },
     {
-      period: 'Feb 2020 - Jun 2021',
+      key: 'geo',
       title: 'GEO SYSTEM SOLUTIONS VIETNAM',
+      period: 'Feb 2020 - Jun 2021',
       position: 'Full-stack Engineer',
       logo: '/images/geo.png',
       descriptions: [
@@ -254,8 +256,9 @@ It would be great if I had the opportunity to work in an environment where Engli
       ],
     },
     {
-      period: 'Sep 2018 - Jan 2020',
+      key: 'capgemini',
       title: 'CAPGEMINI VIETNAM',
+      period: 'Sep 2018 - Jan 2020',
       position: 'Software Engineer',
       logo: '/images/capgemini.jpeg',
       descriptions: [
@@ -277,8 +280,9 @@ It would be great if I had the opportunity to work in an environment where Engli
       ],
     },
     {
-      period: 'Jun 2017 – Sep 2017',
+      key: 'reetech',
       title: 'REETECH INDUSTRY SUMMER INTERSHIP',
+      period: 'Jun 2017 – Sep 2017',
       position: 'Mechanical/Electrical Engineer',
       logo: '/images/reetech.png',
       descriptions: [
