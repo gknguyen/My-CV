@@ -77,7 +77,7 @@ export const Profile: React.FC = () => {
             avatar={<Avatar src={profile.avatar} className={classes.avatar} />}
             title={profile.name}
             titleTypographyProps={{ variant: 'h5', fontSize: '1.5rem' }}
-            subheader={profile.career}
+            subheader={`${profile.career} (${profile.yearOfExp})`}
             subheaderTypographyProps={{ variant: 'h6', fontSize: '1.25rem' }}
           />
 

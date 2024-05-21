@@ -15,7 +15,7 @@ export const Header: React.FC = () => {
         </Typography>
 
         <div>
-          <ul className="my-2 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
+          <ul className="my-2 flex flex-col gap-2 sm:mb-0 sm:mt-0 sm:flex-row sm:items-center sm:gap-6">
             <Typography
               placeholder=""
               as="li"

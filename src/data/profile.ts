@@ -3,7 +3,9 @@ import { getTotalYearOfExperience } from '../shared/helper';
 
 export const profile = {
   name: 'Nguyen Truong Giang',
-  career: `Software Engineer (${getTotalYearOfExperience()} years experience)`,
+  career: 'Software Engineer',
+
+  yearOfExp: `${getTotalYearOfExperience()} years experience`,
 
   avatar: '/images/gk.jpg',
 

@@ -10,6 +10,10 @@ module.exports = withMT({
       },
       scrollBehavior: ['responsive', 'scroll-smooth'],
     },
+    screens: {
+      sm: '360px',
+      md: '780px',
+    },
   },
   variants: {
     scrollBehavior: ['responsive'],
