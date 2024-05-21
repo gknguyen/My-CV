@@ -26,39 +26,43 @@ export const Certificate: React.FC = () => {
         <strong>CERTIFICATES</strong>
       </Typography>
 
-      <ul className={commonClasses.ul}>
-        {profile.certificates.map((certificate) => (
-          <li key={certificate.name}>
-            {certificate.list?.length ? (
-              <>
-                <Typography>{certificate.name}</Typography>
-                <ul className={commonClasses.ul}>
-                  {certificate.list.map((ele) => (
-                    <li key={ele.name}>
-                      {ele.isPopup ? (
-                        <Link
-                          onClick={() => setImagePopupData({ open: true, image: ele })}
-                          color="inherit"
-                        >
-                          <Typography>{ele.name}</Typography>
-                        </Link>
-                      ) : (
-                        <Link href={ele.link} target="_blank" color="inherit">
-                          <Typography>{ele.name}</Typography>
-                        </Link>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ) : (
-              <Link href={certificate.link} target="_blank" color="inherit">
-                <Typography>{certificate.name}</Typography>
-              </Link>
-            )}
-          </li>
-        ))}
-      </ul>
+      <Typography component="span">
+        <ul className={commonClasses.ul}>
+          {profile.certificates.map((certificate) => (
+            <li key={certificate.name}>
+              {certificate.list?.length ? (
+                <>
+                  <Typography>{certificate.name}</Typography>
+                  <Typography component="span">
+                    <ul className={commonClasses.ul}>
+                      {certificate.list.map((ele) => (
+                        <li key={ele.name}>
+                          {ele.isPopup ? (
+                            <Link
+                              onClick={() => setImagePopupData({ open: true, image: ele })}
+                              color="inherit"
+                            >
+                              <Typography>{ele.name}</Typography>
+                            </Link>
+                          ) : (
+                            <Link href={ele.link} target="_blank" color="inherit">
+                              <Typography>{ele.name}</Typography>
+                            </Link>
+                          )}
+                        </li>
+                      ))}
+                    </ul>
+                  </Typography>
+                </>
+              ) : (
+                <Link href={certificate.link} target="_blank" color="inherit">
+                  <Typography>{certificate.name}</Typography>
+                </Link>
+              )}
+            </li>
+          ))}
+        </ul>
+      </Typography>
 
       <CertificateImagePopup
         open={imagePopupData.open}

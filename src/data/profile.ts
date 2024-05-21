@@ -180,7 +180,7 @@ It would be great if I had the opportunity to work in an environment where Engli
           position: 'BE Engineer',
           descriptions: [
             'A feature which allow user to create a family group, other members in the group can use their payment method to purchase',
-            'Technologies : Nest.js, MongoDB, Redis v...v...',
+            'Tech Stacks : Nest.js, MongoDB, Redis v...v...',
             'Resource : 5 members',
             'Period : 6 months',
           ],
@@ -190,7 +190,7 @@ It would be great if I had the opportunity to work in an environment where Engli
           position: 'Full-stack Engineer',
           descriptions: [
             'Manage Places information to display on Map',
-            'Technologies : Nest.js, MongoDB, AWS S3, Kafka, React.js, Tailwind CSS, v...v...',
+            'Tech Stacks : Nest.js, MongoDB, AWS S3, Kafka, Pubsub, React.js, Tailwind CSS v...v...',
             'Resource : 5 members',
             'Period : 1 year',
           ],
@@ -200,7 +200,7 @@ It would be great if I had the opportunity to work in an environment where Engli
           position: 'BE Engineer',
           descriptions: [
             'A feature to put a cap limit quota for the amount of loyalty that user can earned in 1 month',
-            'Technologies : Nest.js, MongoDB, Kafka, v...v...',
+            'Tech Stacks : Nest.js, MongoDB, Kafka, v...v...',
             'Resource : 2 members',
             'Period : 5 months',
           ],
@@ -210,7 +210,7 @@ It would be great if I had the opportunity to work in an environment where Engli
           position: 'Full-stack Engineer',
           descriptions: [
             'A light Web App which allow guest user to have their own loyalty barcode for CDS/POS scanning to earn points, for experience purpose',
-            'Technologies : Nest.js, MongoDB, React.js, Tailwind CSS, v...v...',
+            'Tech Stacks : Nest.js, MongoDB, React.js, Tailwind CSS, v...v...',
             'Resource : 2 members',
             'Period : 3 months',
           ],
@@ -235,7 +235,7 @@ It would be great if I had the opportunity to work in an environment where Engli
           descriptions: [
             'Task management, employee management, man-hours management',
             'Web Application',
-            'Technologies : React.js + Express.js',
+            'Tech Stacks : React.js + Express.js',
             'Resource : 4 members',
             'Period : 1 year',
           ],
@@ -246,7 +246,7 @@ It would be great if I had the opportunity to work in an environment where Engli
           descriptions: [
             "Research Purchased Product's status, generate logs in server, auto checking update",
             'Desktop Application',
-            'Technologies : Electron.js + React.js',
+            'Tech Stacks : Electron.js + React.js',
             'Resource : 2 members',
             'Period : 3 months',
           ],
@@ -270,7 +270,7 @@ It would be great if I had the opportunity to work in an environment where Engli
           position: 'Software Engineer',
           descriptions: [
             "Customer data processing, Contract's fee calculation",
-            'Technologies : Cobol, IMS mainframe',
+            'Tech Stacks : Cobol, IMS mainframe',
             'Resource : more than 50 members',
           ],
         },

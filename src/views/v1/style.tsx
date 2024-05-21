@@ -60,7 +60,7 @@ export const useCommonStyles = makeStyles(() => ({
   },
   ul: {
     paddingLeft: 20,
-    marginTop: 0,
+    marginTop: 5,
     marginBottom: 5,
   },
   list: {
