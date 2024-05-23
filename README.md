@@ -50,7 +50,3 @@ npm run test:e2e:w
 npm run test:cov
 npm run test:e2e:cov
 ```
-
-# Deployment
-
-https://d3amstao1e69wj.cloudfront.net

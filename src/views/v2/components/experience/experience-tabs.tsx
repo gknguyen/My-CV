@@ -11,7 +11,10 @@ export const ExperienceTabs: React.FC = () => {
   return (
     <div id="experiences" className="h-screen grid content-center justify-center">
       <Tabs value={tabValue}>
-        <TabsHeader placeholder="" className="w-[48rem] bg-transparent px-3 mb-[-10px]">
+        <TabsHeader
+          placeholder=""
+          className="sm:w-screen md:w-[48rem] bg-transparent px-3 mb-[-10px]"
+        >
           {profile.experiences.map((exp) => (
             <Tab
               placeholder=""

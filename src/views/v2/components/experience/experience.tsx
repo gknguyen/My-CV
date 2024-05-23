@@ -37,9 +37,9 @@ export const Experience: React.FC<IProps> = (props) => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <Card className="w-[48rem]" placeholder="">
+      <Card placeholder="">
         <CardBody placeholder="" className="grid gap-4">
-          <div className="grid grid-cols-4">
+          <div className="grid sm:grid-cols-1 md:grid-cols-4">
             <div className="col-span-3">
               <Typography placeholder="" variant="h5" color="blue-gray" className="mb-2">
                 {props.exp.title}
@@ -55,7 +55,7 @@ export const Experience: React.FC<IProps> = (props) => {
               </ul>
             </div>
 
-            <div className="h-30 justify-self-end">
+            <div className="h-30 justify-self-end sm:hidden md:block">
               <Transition
                 show={isShowing}
                 enter="transform transition ease-in-out duration-1000"
@@ -102,7 +102,7 @@ export const Experience: React.FC<IProps> = (props) => {
                       <Typography placeholder="" variant="h6">
                         {proj.position}
                       </Typography>
-                      <div>{proj.descriptions[0]}</div>
+                      <div className="sm:hidden md:block">{proj.descriptions[0]}</div>
                     </div>
                   </Transition>
                 </li>

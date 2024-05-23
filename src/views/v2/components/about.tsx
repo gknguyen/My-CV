@@ -26,9 +26,9 @@ export const About: React.FC = () => {
         leaveFrom="opacity-100"
         leaveTo="opacity-0"
       >
-        <Card className="mt-6 w-[48rem]" placeholder="">
-          <CardBody placeholder="" className="grid grid-cols-3">
-            <div className="h-60">
+        <Card className="sm:w-screen md:w-[48rem]" placeholder="">
+          <CardBody placeholder="" className="grid sm:grid-cols-1 md:grid-cols-3">
+            <div className="h-60 sm:hidden md:block">
               <Transition
                 show={isShowing}
                 enter="transform transition ease-in-out duration-1000"
@@ -65,7 +65,7 @@ export const About: React.FC = () => {
                 </Transition>
               </div>
 
-              <div className="h-[280px]">
+              <div className="sm:h-[406px] md:h-[280px]">
                 <Transition
                   show={isShowing}
                   enter="transform transition ease-in-out duration-1000"

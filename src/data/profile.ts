@@ -176,7 +176,7 @@ It would be great if I had the opportunity to work in an environment where Engli
         'Build Web Apps for users/merchants, Admin Panel for Admins',
         'Communicating in English with international teams',
       ],
-      projectsCssClass: 'h-[442px]',
+      projectsCssClass: 'sm:h-[300px] md:h-[442px]',
       projects: [
         {
           name: 'Family Wallet members',

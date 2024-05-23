@@ -47,6 +47,7 @@ export const Overview: React.FC = () => {
                   <div className="mb-2 flex sm:flex-col md:flex-row sm:gap-0 md:gap-2">
                     {[profile.career, `(${profile.yearOfExp})`].map((text) => (
                       <Typography
+                        key={text}
                         as="span"
                         placeholder=""
                         variant="h5"
