@@ -2,7 +2,15 @@ import { useEffect, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { TECH_STACKS } from '../../../data/tech-stack';
 import { Transition } from '../common/animation';
-import { Avatar, Card, CardBody, CardFooter, IconButton, Typography } from '../common/components';
+import {
+  Avatar,
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  IconButton,
+  Typography,
+} from '../common/components';
 import { BasePopover } from '../common/popover';
 
 export const Overview: React.FC = () => {
@@ -61,7 +69,7 @@ export const Overview: React.FC = () => {
                 </Transition>
               </div>
 
-              <div className="sm:h-[100px] md:h-fit">
+              <div className="sm:h-[130px] md:h-fit">
                 <Transition
                   show={isShowing}
                   enter="transform transition ease-in-out duration-1000"
@@ -76,26 +84,44 @@ export const Overview: React.FC = () => {
                       Hi, i'm {profile.name}, a fullstack developer based in HCMC, Vietnam.
                     </Typography>
 
-                    <div className="flex sm:justify-center md:justify-start">
-                      <a
-                        href="https://linkedin.com/in/gknguyen1711"
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        <IconButton variant="text" placeholder="">
-                          <img src="/icons/linkedin.svg" alt="" className="w-8 h-8" />
-                        </IconButton>
-                      </a>
-                      <a href="https://github.com/gknguyen" target="_blank" rel="noreferrer">
-                        <IconButton variant="text" placeholder="">
-                          <img src="/icons/github.svg" alt="" className="w-8 h-8" />
-                        </IconButton>
-                      </a>
-                      <a href="https://facebook.com/gknguyen1711" target="_blank" rel="noreferrer">
-                        <IconButton variant="text" placeholder="">
-                          <img src="/icons/facebook.svg" alt="" className="w-8 h-8" />
-                        </IconButton>
-                      </a>
+                    <div className="flex sm:justify-center md:justify-start sm:flex-col md:flex-row sm:gap-1 md:gap-0 items-center">
+                      <div className="sm:order-2 md:order-1">
+                        <a
+                          href="https://linkedin.com/in/gknguyen1711"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <IconButton variant="text" placeholder="">
+                            <img src="/icons/linkedin.svg" alt="" className="w-8 h-8" />
+                          </IconButton>
+                        </a>
+                        <a href="https://github.com/gknguyen" target="_blank" rel="noreferrer">
+                          <IconButton variant="text" placeholder="">
+                            <img src="/icons/github.svg" alt="" className="w-8 h-8" />
+                          </IconButton>
+                        </a>
+                        <a
+                          href="https://facebook.com/gknguyen1711"
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          <IconButton variant="text" placeholder="">
+                            <img src="/icons/facebook.svg" alt="" className="w-8 h-8" />
+                          </IconButton>
+                        </a>
+                      </div>
+
+                      <div className="sm:order-1 md:order-2">
+                        <a
+                          href="/resumes/nguyen-truong-giang.pdf"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Button placeholder="" size="sm" variant="text">
+                            RESUME
+                          </Button>
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </Transition>
