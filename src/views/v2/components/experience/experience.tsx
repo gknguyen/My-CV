@@ -37,7 +37,7 @@ export const Experience: React.FC<IProps> = (props) => {
       leaveFrom="opacity-100"
       leaveTo="opacity-0"
     >
-      <Card placeholder="">
+      <Card className="sm:w-screen md:w-[48rem]" placeholder="">
         <CardBody placeholder="" className="grid gap-4">
           <div className="grid sm:grid-cols-1 md:grid-cols-4">
             <div className="col-span-3">
