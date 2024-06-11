@@ -158,6 +158,16 @@ It would be great if I had the opportunity to work in an environment where Engli
           isPopup: false,
           link: 'https://www.hackerrank.com/certificates/bbab0102001c',
         },
+        {
+          name: 'Node (Basic) Certificate',
+          isPopup: false,
+          link: 'https://www.hackerrank.com/certificates/3f593fff5b7d',
+        },
+        {
+          name: 'React (Basic) Certificate',
+          isPopup: false,
+          link: 'https://www.hackerrank.com/certificates/14edc9ed18f5',
+        },
       ],
     },
   ],
