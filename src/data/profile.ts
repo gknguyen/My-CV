@@ -127,8 +127,14 @@ It would be great if I had the opportunity to work in an environment where Engli
 
   certificates: [
     {
-      name: 'AWS Solutions Architect (Associate)',
-      link: 'https://www.credly.com/badges/b36874f3-2255-43c7-830e-33f6a7859c72?source=linked_in_profile',
+      name: 'AWS',
+      list: [
+        {
+          name: 'Solutions Architect (Associate)',
+          isPopup: false,
+          link: 'https://www.credly.com/badges/b36874f3-2255-43c7-830e-33f6a7859c72?source=linked_in_profile',
+        },
+      ],
     },
     {
       name: 'Whizlabs certificates',
