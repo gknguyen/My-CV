@@ -94,9 +94,7 @@ export const Profile: React.FC = () => {
               <Grid item xs={8} className={classes.experienceInfo}>
                 <div style={{ display: 'grid', gap: 20 }}>
                   <About />
-                  <Project
-                    projects={[profile.projects[0], profile.projects[1], profile.projects[2]]}
-                  />
+                  <Experience experiences={[profile.experiences[0]]} />
                 </div>
               </Grid>
             </Grid>
@@ -112,8 +110,14 @@ export const Profile: React.FC = () => {
 
               <Grid item xs={8} className={classes.experienceInfo}>
                 <div style={{ display: 'grid', gap: 20 }}>
-                  <Project projects={[profile.projects[4]]} />
-                  <Experience experiences={[profile.experiences[0]]} />
+                  <Experience
+                    experiences={[
+                      profile.experiences[1],
+                      profile.experiences[2],
+                      profile.experiences[3],
+                    ]}
+                  />
+                  <Project projects={[profile.projects[0]]} />
                 </div>
               </Grid>
             </Grid>
@@ -133,12 +137,8 @@ export const Profile: React.FC = () => {
               ></Grid>
 
               <Grid container item xs={8} className={classes.experienceInfo} gap={2}>
-                <Experience
-                  experiences={[
-                    profile.experiences[1],
-                    profile.experiences[2],
-                    profile.experiences[3],
-                  ]}
+                <Project
+                  projects={[profile.projects[1], profile.projects[2], profile.projects[4]]}
                 />
               </Grid>
             </Grid>

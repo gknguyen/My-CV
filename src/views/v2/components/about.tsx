@@ -76,7 +76,7 @@ export const About: React.FC = () => {
                   leaveTo="opacity-0 translate-x-full"
                 >
                   <div>
-                    {profile.about.split('\n').map((ele) => (
+                    {profile.about.map((ele) => (
                       <Typography key={ele} placeholder="" className="mb-2">
                         {ele}
                       </Typography>

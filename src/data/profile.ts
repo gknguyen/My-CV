@@ -9,11 +9,11 @@ export const profile = {
 
   avatar: '/images/gk.jpg',
 
-  about: `My career path is to become an exellent Fullstack Developer, who can create high quality, secure and friendly products which can satify the expectation of customers.
-
-I look forward to working with a professional team, where i can enjoy learning and sharing to help each other growth, practicing my skills so I can adapt well to the needs and flexible changes of the market.
-
-It would be great if I had the opportunity to work in an environment where English is the key point because I want to focus training my ability to communicate and work in English.`,
+  about: [
+    'My career path is to become a professional Fullstack Developer, who can create high quality, secure and friendly products which can satify the expectation of customers.',
+    'I look forward to working with a professional team, where i can enjoy learning and sharing to help each other growth, practicing my skills so I can adapt well to the needs and flexible changes of the market.',
+    'It would be great if I had the opportunity to work in an environment where English is the key point because I want to focus training my ability to communicate and work in English.',
+  ],
 
   personals: [
     {
@@ -186,8 +186,7 @@ It would be great if I had the opportunity to work in an environment where Engli
       position: 'Full-stack Engineer',
       logo: '/images/setel.png',
       descriptions: [
-        'Building Setel App platforms & system for Petronas corporation in Malaysia',
-        'a super application (like Grab or Momo) in Malaysia, focus on fuel purchase & vehicle management, loyalty points, v..v..',
+        'Building Setel App platforms & system for Petronas corporation in Malaysia, a super application (like Grab or Momo) in Malaysia, focus on fuel purchase & vehicle management, loyalty points, v..v..',
         'Working with backend microservices system based on Nodejs',
         'Build Web Apps for users/merchants, Admin Panel for Admins',
         'Communicating in English with international teams',

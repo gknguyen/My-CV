@@ -1,4 +1,4 @@
-import { Box, Typography } from '../common/component';
+import { Box, Grid, Typography } from '../common/component';
 import React from 'react';
 import { profile } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
@@ -21,7 +21,13 @@ export const About: React.FC = (props) => {
       <Typography variant="h6" component="h2" display="block" gutterBottom>
         <strong>ABOUT</strong>
       </Typography>
-      <Typography className={classes.lineBreak}>{profile.about}</Typography>
+      <Grid container spacing={1}>
+        {[profile.about[0], profile.about[1]].map((text) => (
+          <Grid item key={text}>
+            <Typography>{text}</Typography>
+          </Grid>
+        ))}
+      </Grid>
     </Box>
   );
 };

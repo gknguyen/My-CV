@@ -96,13 +96,16 @@ export const Experience: React.FC<IProps> = (props) => {
                                 <Typography>{project.position}</Typography>
                               </TableCell>
                               <TableCell>
-                                <ul className={commonClasses.ul}>
-                                  {project.descriptions.map((description) => (
-                                    <li key={description}>
-                                      <Typography>{description}</Typography>
-                                    </li>
-                                  ))}
-                                </ul>
+                                <Typography component="span">
+                                  <ul
+                                    className={commonClasses.ul}
+                                    style={{ marginTop: 0, marginBottom: 0 }}
+                                  >
+                                    {project.descriptions.map((description) => (
+                                      <li key={description}>{description}</li>
+                                    ))}
+                                  </ul>
+                                </Typography>
                               </TableCell>
                             </TableRow>
                           ))}
