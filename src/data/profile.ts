@@ -176,6 +176,16 @@ export const profile = {
         },
       ],
     },
+    {
+      name: 'Udemy',
+      list: [
+        {
+          name: 'AWS Cert Developer Associate',
+          isPopup: false,
+          link: 'https://www.udemy.com/certificate/UC-f02acd1a-b78b-4c28-bae7-9ea8e6e23ab1/',
+        },
+      ],
+    },
   ],
 
   experiences: [

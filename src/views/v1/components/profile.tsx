@@ -87,7 +87,6 @@ export const Profile: React.FC = () => {
                 <div style={{ display: 'grid', gap: 20 }}>
                   <Personal />
                   <Contact />
-                  <Certificate />
                 </div>
               </Grid>
 
@@ -134,7 +133,9 @@ export const Profile: React.FC = () => {
                 className={classes.personalInfo}
                 direction="column"
                 gap={2}
-              ></Grid>
+              >
+                <Certificate />
+              </Grid>
 
               <Grid container item xs={8} className={classes.experienceInfo} gap={2}>
                 <Project
