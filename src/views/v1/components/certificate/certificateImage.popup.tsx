@@ -39,7 +39,7 @@ export const CertificateImagePopup: React.FC<Props> = (props) => {
       <DialogTitle id="draggable-dialog-title" className={commonClasses.drag}></DialogTitle>
 
       <DialogContent>
-        <img className={classes.image} alt="certificate" src={props.image.link} />
+        <img className={classes.image} alt="certificate" src={props.image.image} />
       </DialogContent>
     </Dialog>
   );

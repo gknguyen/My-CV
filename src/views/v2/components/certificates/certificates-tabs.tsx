@@ -1,21 +1,23 @@
 import { lazy, Suspense, useState } from 'react';
-import { ExperienceType, profile } from '../../../../data/profile';
+import { CertificatesType, profile } from '../../../../data/profile';
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
 
-const Experience = lazy(() => import('./experience').then((m) => ({ default: m.Experience })));
+const Certificates = lazy(() =>
+  import('./certificates').then((m) => ({ default: m.Certificates })),
+);
 
-export const ExperienceTabs: React.FC = () => {
-  const [tabValue, setTabValue] = useState(profile.experiences[0].key);
-  const [tabContent, setTabContent] = useState<ExperienceType>(profile.experiences[0]);
+export const CertificateTabs: React.FC = () => {
+  const [tabValue, setTabValue] = useState(profile.certificates[0].key);
+  const [tabContent, setTabContent] = useState<CertificatesType>(profile.certificates[0]);
 
   return (
-    <div id="experiences" className="h-screen grid content-center justify-center">
+    <div id="certificates" className="h-screen grid content-center justify-center">
       <Tabs value={tabValue}>
         <TabsHeader
           placeholder=""
           className="sm:w-screen md:w-[48rem] bg-transparent px-3 mb-[-10px]"
         >
-          {profile.experiences.map((exp) => (
+          {profile.certificates.map((exp) => (
             <Tab
               placeholder=""
               className="w-28 bg-opacity-60 bg-blue-gray-50 rounded-lg"
@@ -31,10 +33,10 @@ export const ExperienceTabs: React.FC = () => {
           ))}
         </TabsHeader>
 
-        <TabsBody placeholder="" style={{ minHeight: 740 }}>
+        <TabsBody placeholder="" style={{ minHeight: 780 }}>
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <Suspense fallback={<></>}>
-              <Experience exp={tabContent} />
+              <Certificates cert={tabContent} />
             </Suspense>
           </TabPanel>
         </TabsBody>

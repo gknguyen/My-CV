@@ -1,5 +1,6 @@
 import { lazy } from 'react';
 import { RenderOnViewportEntry } from '../../shared/lazy-load';
+import { CertificateTabs } from './components/certificates/certificates-tabs';
 import { Header } from './components/header';
 import './style.css';
 
@@ -25,6 +26,10 @@ export const V2: React.FC = () => {
 
         <RenderOnViewportEntry threshold={0.25} className="h-screen">
           <ExperienceTabs />
+        </RenderOnViewportEntry>
+
+        <RenderOnViewportEntry threshold={0.25} className="h-screen">
+          <CertificateTabs />
         </RenderOnViewportEntry>
       </div>
     </>

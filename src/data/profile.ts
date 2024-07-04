@@ -127,62 +127,89 @@ export const profile = {
 
   certificates: [
     {
+      key: 'aws',
       name: 'AWS',
       list: [
         {
           name: 'Solutions Architect (Associate)',
+          isShow: true,
           isPopup: false,
           link: 'https://www.credly.com/badges/b36874f3-2255-43c7-830e-33f6a7859c72?source=linked_in_profile',
+          image: '/images/certificates/aws/solutions-architect-associate.png',
         },
       ],
     },
     {
+      key: 'hackerRank',
+      name: 'HackerRank',
+      list: [
+        {
+          name: 'Software Engineer Intern',
+          isShow: false,
+          isPopup: false,
+          link: 'https://www.hackerrank.com/certificates/4f2d85729b08',
+          image: '/images/certificates/hackerrank/engineer-intern.png',
+        },
+        {
+          name: 'JavaScript (Basic)',
+          isShow: true,
+          isPopup: false,
+          link: 'https://www.hackerrank.com/certificates/bbab0102001c',
+          image: '/images/certificates/hackerrank/js-basic.png',
+        },
+        {
+          name: 'Node (Basic)',
+          isShow: true,
+          isPopup: false,
+          link: 'https://www.hackerrank.com/certificates/3f593fff5b7d',
+          image: '/images/certificates/hackerrank/node-basic.png',
+        },
+        {
+          name: 'React (Basic)',
+          isShow: true,
+          isPopup: false,
+          link: 'https://www.hackerrank.com/certificates/14edc9ed18f5',
+          image: '/images/certificates/hackerrank/react-basic.png',
+        },
+      ],
+    },
+    {
+      key: 'whizlabs',
       name: 'Whizlabs certificates',
       list: [
         {
           name: 'Docker Certified Associate',
+          isShow: true,
           isPopup: true,
-          link: '/images/certificates/docker.jpg',
+          link: undefined,
+          image: '/images/certificates/whizlabs/docker.jpg',
         },
         {
           name: 'Git & Github Training Course',
+          isShow: true,
           isPopup: true,
-          link: '/images/certificates/github.jpg',
+          link: undefined,
+          image: '/images/certificates/whizlabs/github.jpg',
         },
         {
           name: 'Apache Kafka Fundamentals',
+          isShow: true,
           isPopup: true,
-          link: '/images/certificates/kafka.jpg',
+          link: undefined,
+          image: '/images/certificates/whizlabs/kafka.jpg',
         },
       ],
     },
     {
-      name: 'HackerRank',
-      list: [
-        {
-          name: 'JavaScript (Basic) Certificate',
-          isPopup: false,
-          link: 'https://www.hackerrank.com/certificates/bbab0102001c',
-        },
-        {
-          name: 'Node (Basic) Certificate',
-          isPopup: false,
-          link: 'https://www.hackerrank.com/certificates/3f593fff5b7d',
-        },
-        {
-          name: 'React (Basic) Certificate',
-          isPopup: false,
-          link: 'https://www.hackerrank.com/certificates/14edc9ed18f5',
-        },
-      ],
-    },
-    {
+      key: 'udemy',
       name: 'Udemy',
       list: [
         {
           name: 'AWS Cert Developer Associate',
+          isShow: false,
           isPopup: false,
           link: 'https://www.udemy.com/certificate/UC-f02acd1a-b78b-4c28-bae7-9ea8e6e23ab1/',
+          image: '/images/certificates/udemy/aws-certified-developer-associate.jpg',
         },
       ],
     },
@@ -384,5 +411,6 @@ export type PersonalType = (typeof profile.personals)[0];
 export type ContactType = (typeof profile.contacts)[0];
 export type SkillType = (typeof profile.skills)[0];
 export type ProjectType = (typeof profile.projects)[0];
-export type CertificateImage = { name: string; link: string };
+export type CertificateImage = { name: string; image: string };
 export type ExperienceType = (typeof profile.experiences)[0];
+export type CertificatesType = (typeof profile.certificates)[0];
