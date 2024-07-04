@@ -1,93 +1,74 @@
 import { useEffect, useState } from 'react';
 import { profile } from '../../../data/profile';
-import { Transition } from '../common/animation';
+import { cn } from '../../../shared/helper';
 import { Avatar, Card, CardBody, Typography } from '../common/components';
 
 export const About: React.FC = () => {
-  const [isShowing, setIsShowing] = useState(false);
+  const [isShowing1, setIsShowing1] = useState(false);
+  const [isShowing2, setIsShowing2] = useState(false);
 
   useEffect(() => {
+    setIsShowing1(true);
     const timer = setTimeout(() => {
-      setIsShowing(true);
+      setIsShowing2(true);
+      clearTimeout(timer);
     }, 1000);
-
-    return () => clearTimeout(timer);
   }, []);
 
   return (
     <div id="about" className="h-screen grid content-center justify-center">
-      <Transition
-        show
-        appear
-        enter="transition-opacity duration-1000"
-        enterFrom="opacity-0"
-        enterTo="opacity-100"
-        leave="transition-opacity transform transition ease-in-out duration-500"
-        leaveFrom="opacity-100"
-        leaveTo="opacity-0"
+      <Card
+        className={cn(
+          'sm:w-screen md:w-[48rem]',
+          'transition-opacity duration-1000',
+          isShowing1 ? 'opacity-100' : 'opacity-0',
+        )}
+        placeholder=""
       >
-        <Card className="sm:w-screen md:w-[48rem]" placeholder="">
-          <CardBody placeholder="" className="grid sm:grid-cols-1 md:grid-cols-3">
-            <div className="h-60 sm:hidden md:block">
-              <Transition
-                show={isShowing}
-                enter="transform transition ease-in-out duration-1000"
-                enterFrom="opacity-0 translate-x-[-100%]"
-                enterTo="opacity-100 translate-x-0"
-                leave="transform transition ease-in-out duration-500"
-                leaveFrom="opacity-100 translate-x-0"
-                leaveTo="opacity-0 translate-x-[-100%]"
-              >
-                <Avatar
-                  placeholder=""
-                  src="/images/coffee-chill.jpeg"
-                  alt="avatar"
-                  variant="rounded"
-                  className="w-60 h-60"
-                />
-              </Transition>
+        <CardBody placeholder="" className="grid sm:grid-cols-1 md:grid-cols-3">
+          <div
+            className={cn(
+              'sm:hidden md:block',
+              'transform transition ease-in-out duration-1000',
+              isShowing2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[-100%]',
+            )}
+          >
+            <Avatar
+              placeholder=""
+              src="/images/coffee-chill.jpeg"
+              alt="avatar"
+              variant="rounded"
+              className="w-60 h-60"
+            />
+          </div>
+
+          <div className="col-span-2 gap-2 pl-8">
+            <div
+              className={cn(
+                'transform transition ease-in-out duration-1000',
+                isShowing2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-100%]',
+              )}
+            >
+              <Typography placeholder="" variant="h5" color="blue-gray" className="mb-2">
+                ABOUT ME
+              </Typography>
             </div>
 
-            <div className="col-span-2 gap-2 pl-8">
-              <div className="h-[35px]">
-                <Transition
-                  show={isShowing}
-                  enter="transform transition ease-in-out duration-1000"
-                  enterFrom="opacity-0 translate-y-[-100%]"
-                  enterTo="opacity-100 translate-y-0"
-                  leave="transform transition ease-in-out duration-500"
-                  leaveFrom="opacity-100 translate-y-0"
-                  leaveTo="opacity-0 translate-y-[-100%]"
-                >
-                  <Typography placeholder="" variant="h5" color="blue-gray" className="mb-2">
-                    ABOUT ME
-                  </Typography>
-                </Transition>
-              </div>
-
-              <div className="sm:h-[406px] md:h-[280px]">
-                <Transition
-                  show={isShowing}
-                  enter="transform transition ease-in-out duration-1000"
-                  enterFrom="opacity-0 translate-x-full"
-                  enterTo="opacity-100 translate-x-0"
-                  leave="transform transition ease-in-out duration-500"
-                  leaveFrom="opacity-100 translate-x-0"
-                  leaveTo="opacity-0 translate-x-full"
-                >
-                  <div>
-                    {profile.about.map((ele) => (
-                      <Typography key={ele} placeholder="" className="mb-2">
-                        {ele}
-                      </Typography>
-                    ))}
-                  </div>
-                </Transition>
-              </div>
+            <div
+              className={cn(
+                'transform transition ease-in-out duration-1000',
+                isShowing2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full',
+              )}
+            >
+              {profile.about.map((ele) => (
+                <Typography key={ele} placeholder="" className="mb-2">
+                  {ele}
+                </Typography>
+              ))}
             </div>
-          </CardBody>
-        </Card>
-      </Transition>
+          </div>
+        </CardBody>
+      </Card>
     </div>
   );
 };

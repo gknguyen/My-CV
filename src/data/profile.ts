@@ -192,7 +192,7 @@ export const profile = {
     {
       key: 'setel',
       title: 'SETEL',
-      period: 'Jul 2021 - Now',
+      period: 'Jul 2021 - Jul 2024',
       position: 'Full-stack Engineer',
       logo: '/images/setel.png',
       descriptions: [
