@@ -33,7 +33,7 @@ export const CertificateTabs: React.FC = () => {
           ))}
         </TabsHeader>
 
-        <TabsBody placeholder="" style={{ minHeight: 780 }}>
+        <TabsBody placeholder="" style={{ minHeight: 680 }}>
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <Suspense fallback={<></>}>
               <Certificates cert={tabContent} />
