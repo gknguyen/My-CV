@@ -158,11 +158,11 @@ export const profile = {
           image: '/images/certificates/hackerrank/js-basic.png',
         },
         {
-          name: 'Node (Basic)',
+          name: 'Node (Intermediate)',
           isShow: true,
           isPopup: false,
-          link: 'https://www.hackerrank.com/certificates/3f593fff5b7d',
-          image: '/images/certificates/hackerrank/node-basic.png',
+          link: 'https://www.hackerrank.com/certificates/2d48f3f7f145',
+          image: '/images/certificates/hackerrank/node-intermediate.png',
         },
         {
           name: 'React (Basic)',
