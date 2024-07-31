@@ -211,6 +211,13 @@ export const profile = {
           link: 'https://www.udemy.com/certificate/UC-f02acd1a-b78b-4c28-bae7-9ea8e6e23ab1/',
           image: '/images/certificates/udemy/aws-certified-developer-associate.jpg',
         },
+        {
+          name: 'Kubernetes Hands-On (AWS)',
+          isShow: false,
+          isPopup: false,
+          link: 'https://www.udemy.com/certificate/UC-0153562b-1c4f-4348-b3c3-493d81c5e434/',
+          image: '/images/certificates/udemy/k8s-hands-on-aws.jpg',
+        },
       ],
     },
   ],

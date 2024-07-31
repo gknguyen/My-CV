@@ -1,1 +1,1 @@
-export { ArrowRightIcon } from '@heroicons/react/24/solid';
+export { ArrowRightIcon, PlusIcon } from '@heroicons/react/24/solid';

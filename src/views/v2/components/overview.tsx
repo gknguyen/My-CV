@@ -134,15 +134,32 @@ export const Overview: React.FC = () => {
             <div className="flex gap-4 sm:flex-wrap md: flex-nowrap">
               {TECH_STACKS.map((stack) => (
                 <BasePopover
-                  key={stack.id}
-                  content={() => <Typography placeholder={stack.id}>{stack.name}</Typography>}
+                  key={stack.name}
+                  content={() => (
+                    <div className="grid gap-2">
+                      <Typography placeholder={stack.name} className="text-center">
+                        {stack.name}
+                      </Typography>
+                      {stack.addons && (
+                        <>
+                          <div className="border"></div>
+                          {stack.addons.map((addon) => (
+                            <div key={addon.name} className="flex gap-2 items-center">
+                              <img src={addon.path} alt={addon.name} className="w-8 h-8" />
+                              <Typography placeholder={addon.name}>{addon.name}</Typography>
+                            </div>
+                          ))}
+                        </>
+                      )}
+                    </div>
+                  )}
                   placement="bottom"
                   animate={{
                     mount: { scale: 1, y: 0 },
                     unmount: { scale: 0, y: 25 },
                   }}
                 >
-                  <img src={stack.path} alt={stack.id} className="w-8 h-8" />
+                  <img src={stack.path} alt={stack.name} className="w-8 h-8 hover:cursor-pointer" />
                 </BasePopover>
               ))}
             </div>

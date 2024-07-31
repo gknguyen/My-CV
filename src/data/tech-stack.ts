@@ -1,61 +1,178 @@
 export const TECH_STACKS = [
   {
-    id: 'typescript',
-    name: 'Typescript',
-    path: '/icons/typescript.svg',
+    name: 'Javascript',
+    path: '/icons/js/javascript.svg',
+    addons: [
+      {
+        name: 'Typescript',
+        path: '/icons/js/typescript.svg',
+      },
+      {
+        name: 'Eslint',
+        path: '/icons/js/eslint.svg',
+      },
+    ],
   },
   {
-    id: 'nodejs',
     name: 'Node.js',
-    path: '/icons/nodejs.svg',
+    path: '/icons/backend/nodejs.svg',
+    addons: [
+      {
+        name: 'Express.js',
+        path: '/icons/backend/express.svg',
+      },
+      {
+        name: 'Nest.js',
+        path: '/icons/backend/nestjs.svg',
+      },
+      {
+        name: 'Mongoose',
+        path: '/icons/backend/mongoose.svg',
+      },
+      {
+        name: 'Sequelize',
+        path: '/icons/backend/sequelize.svg',
+      },
+      {
+        name: 'Jest',
+        path: '/icons/test/jest.svg',
+      },
+    ],
   },
   {
-    id: 'nestjs',
-    name: 'Nest.js',
-    path: '/icons/nestjs.svg',
-  },
-  {
-    id: 'reactjs',
     name: 'React.js',
-    path: '/icons/reactjs.svg',
+    path: '/icons/frontend/reactjs.svg',
+    addons: [
+      {
+        name: 'React Native',
+        path: '/icons/frontend/react-native.svg',
+      },
+      {
+        name: 'Material UI',
+        path: '/icons/frontend/mui.svg',
+      },
+      {
+        name: 'Ant Design',
+        path: '/icons/frontend/ant-design.svg',
+      },
+      {
+        name: 'Tailwind CSS',
+        path: '/icons/frontend/tailwindcss.svg',
+      },
+      {
+        name: 'Redux',
+        path: '/icons/frontend/redux.svg',
+      },
+      {
+        name: 'Cypress',
+        path: '/icons/test/cypress.svg',
+      },
+    ],
   },
   {
-    id: 'tailwindcss',
-    name: 'TailwindCSS',
-    path: '/icons/tailwindcss.svg',
-  },
-  {
-    id: 'electron',
     name: 'Electron.js',
     path: '/icons/electron.svg',
   },
   {
-    id: 'jest',
-    name: 'Jest',
-    path: '/icons/jest.svg',
-  },
-  {
-    id: 'cypress',
-    name: 'Cypress',
-    path: '/icons/cypress.svg',
-  },
-  {
-    id: 'aws',
+    /** https://aws-icons.com/ */
     name: 'AWS',
-    path: '/icons/aws.svg',
+    path: '/icons/aws/aws.svg',
+    addons: [
+      {
+        name: 'S3',
+        path: '/icons/aws/s3.svg',
+      },
+      {
+        name: 'CloudFront',
+        path: '/icons/aws/cloudfront.svg',
+      },
+      {
+        name: 'EC2',
+        path: '/icons/aws/ec2.svg',
+      },
+      {
+        name: 'ELB',
+        path: '/icons/aws/elb.svg',
+      },
+      {
+        name: 'Route 53',
+        path: '/icons/aws/route53.svg',
+      },
+      {
+        name: 'API Gateway',
+        path: '/icons/aws/api-gateway.svg',
+      },
+      {
+        name: 'Lambda',
+        path: '/icons/aws/lambda.svg',
+      },
+      {
+        name: 'DynamoDB',
+        path: '/icons/aws/dynamodb.svg',
+      },
+      {
+        name: 'Code Artifact',
+        path: '/icons/aws/code-artifact.svg',
+      },
+      {
+        name: 'ECR',
+        path: '/icons/aws/ecr.svg',
+      },
+      {
+        name: 'EKS',
+        path: '/icons/aws/eks.svg',
+      },
+    ],
   },
   {
-    id: 'docker',
     name: 'Docker',
-    path: '/icons/docker.svg',
+    path: '/icons/docker/docker.svg',
+    addons: [
+      {
+        name: 'Kubernetes',
+        path: '/icons/docker/k8s.svg',
+      },
+      {
+        name: 'Minikube',
+        path: '/icons/docker/minikube.svg',
+      },
+      {
+        name: 'Podman',
+        path: '/icons/docker/podman.svg',
+      },
+      {
+        name: 'Helm',
+        path: '/icons/docker/helm.svg',
+      },
+      {
+        name: 'Kops',
+        path: '/icons/docker/kops.svg',
+      },
+    ],
   },
   {
-    id: 'rabbitmq',
+    name: 'Database',
+    path: '/icons//database/database.svg',
+    addons: [
+      {
+        name: 'MongoDB',
+        path: '/icons/database/mongo.svg',
+      },
+      {
+        name: 'MySQL',
+        path: '/icons/database/mysql.svg',
+      },
+      {
+        name: 'PostgresSQL',
+        path: '/icons/database/postgres.svg',
+      },
+    ],
+  },
+  {
     name: 'RabbitMQ',
     path: '/icons/rabbitmq.svg',
   },
   {
-    id: 'kafka',
     name: 'Kafka',
     path: '/icons/kafka.svg',
   },

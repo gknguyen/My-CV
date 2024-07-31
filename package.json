@@ -16,7 +16,6 @@
     "lint": "eslint --quiet ./src --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky install"
   },
-  "proxy": "http://localhost:3000",
   "browserslist": {
     "production": [
       ">0.2%",

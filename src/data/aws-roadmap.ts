@@ -18,4 +18,14 @@ export const APPLICATION_ARCHITECT = {
       image: '/images/certificates/aws/solutions-architect-professional.png',
     },
   ],
+  addons: [
+    {
+      title: 'DevOps Engineer Professional',
+      image: '/images/certificates/aws/devops-engineer-professional.png',
+    },
+    {
+      title: 'Security',
+      image: '/images/certificates/aws/security.png',
+    },
+  ],
 };
