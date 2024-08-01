@@ -1,3 +1,4 @@
+/** https://techicons.dev */
 export const TECH_STACKS = [
   {
     name: 'Javascript',
@@ -107,20 +108,12 @@ export const TECH_STACKS = [
         path: '/icons/aws/lambda.svg',
       },
       {
-        name: 'DynamoDB',
-        path: '/icons/aws/dynamodb.svg',
-      },
-      {
         name: 'Code Artifact',
         path: '/icons/aws/code-artifact.svg',
       },
       {
         name: 'ECR',
-        path: '/icons/aws/ecr.svg',
-      },
-      {
-        name: 'EKS',
-        path: '/icons/aws/eks.svg',
+        path: '/icons/aws/ECR.svg',
       },
     ],
   },
@@ -148,11 +141,15 @@ export const TECH_STACKS = [
         name: 'Kops',
         path: '/icons/docker/kops.svg',
       },
+      {
+        name: 'EKS',
+        path: '/icons/aws/eks.svg',
+      },
     ],
   },
   {
     name: 'Database',
-    path: '/icons//database/database.svg',
+    path: '/icons/database/database.svg',
     addons: [
       {
         name: 'MongoDB',
@@ -166,14 +163,32 @@ export const TECH_STACKS = [
         name: 'PostgresSQL',
         path: '/icons/database/postgres.svg',
       },
+      {
+        name: 'Redis',
+        path: '/icons/database/redis.svg',
+      },
+      {
+        name: 'DynamoDB',
+        path: '/icons/aws/dynamodb.svg',
+      },
     ],
   },
   {
-    name: 'RabbitMQ',
-    path: '/icons/rabbitmq.svg',
-  },
-  {
-    name: 'Kafka',
-    path: '/icons/kafka.svg',
+    name: 'Messaging',
+    path: '/icons/messaging/messaging.svg',
+    addons: [
+      {
+        name: 'RabbitMQ',
+        path: '/icons/messaging/rabbitmq.svg',
+      },
+      {
+        name: 'SQS',
+        path: '/icons/aws/sqs.svg',
+      },
+      {
+        name: 'Kafka',
+        path: '/icons/messaging/kafka.svg',
+      },
+    ],
   },
 ];
