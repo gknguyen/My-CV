@@ -62,7 +62,7 @@ export const Experience: React.FC<IProps> = (props) => {
         </div>
 
         <div className={cn('px-5', props.exp.projectsCssClass)}>
-          <ol className="relative grid gap-5 border-s-2 h-full">
+          <ol className="relative grid gap-5 border-s-2">
             {props.exp.projects?.map((proj) => (
               <li key={proj.name} className="mx-8">
                 <span

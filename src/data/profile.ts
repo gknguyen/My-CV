@@ -230,7 +230,7 @@ export const profile = {
       position: 'Full-stack Engineer',
       logo: '/images/setel.png',
       descriptions: [
-        'Building Setel App platforms & system for Petronas corporation in Malaysia, a super application (like Grab or Momo) in Malaysia, focus on fuel purchase & vehicle management, loyalty points, v..v..',
+        'Building a super App platforms & system for Petronas in Malaysia',
         'Working with backend microservices system based on Nodejs',
         'Build Web Apps for users/merchants, Admin Panel for Admins',
         'Communicating in English with international teams',
@@ -288,7 +288,7 @@ export const profile = {
       descriptions: [
         'Providing IT solutions for GEO corporation in Japan',
         'Handling full life cycle of projects - from Front-end, Back-end to deployment',
-        'communicating in Japan with co-workers and clients',
+        'Communicating in Japan with co-workers and clients',
       ],
       projectsCssClass: 'h-[175px]',
       projects: [
