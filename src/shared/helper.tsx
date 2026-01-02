@@ -9,3 +9,9 @@ export function getTotalYearOfExperience(
 export function cn(...classes: (string | undefined)[]) {
   return classes.filter(Boolean).join(' ');
 }
+
+export function highlightAchievement(text: string) {
+  return text
+    .split(/(Achievement)/gi)
+    .map((part, idx) => (/Achievement/i.test(part) ? <b key={idx}>{part}</b> : part));
+}

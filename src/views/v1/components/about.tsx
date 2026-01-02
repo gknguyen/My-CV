@@ -22,8 +22,8 @@ export const About: React.FC = (props) => {
         <strong>ABOUT</strong>
       </Typography>
       <Grid container spacing={1}>
-        {[profile.about[0], profile.about[1]].map((text) => (
-          <Grid item key={text}>
+        {profile.about.map((text) => (
+          <Grid container item key={text}>
             <Typography>{text}</Typography>
           </Grid>
         ))}

@@ -29,8 +29,7 @@
     ]
   },
   "engines": {
-    "node": ">=21",
-    "npm": ">=10"
+    "node": "21"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",

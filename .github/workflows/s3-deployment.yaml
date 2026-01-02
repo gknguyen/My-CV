@@ -1,26 +1,31 @@
-name: deploy-app-on-s3
+name: Deploy Application to AWS S3
+
 on:
   pull_request:
     branches: [master]
     types: [closed]
   push:
     branches: [master]
+
 jobs:
-  deploy:
+  deploy-app-on-s3:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version: [21]
+
     steps:
-      - uses: actions/checkout@master
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Use Node.js version from package.json
+        uses: actions/setup-node@v4
         with:
-          node-version: ${{ matrix.node-version }}
+          node-version-file: 'package.json'
+
       - name: Install Dependencies
-        run: npm ci
+        run: npm ci --ignore-scripts
+
       - name: Build Application
         run: npm run build
+
       - uses: jakejarvis/s3-sync-action@master
         name: Upload App to S3 Bucket
         with:
@@ -30,8 +35,9 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ secrets.AWS_REGION }}
-          SOURCE_DIR: "build"
-          DEST_DIR: "app"
+          SOURCE_DIR: 'build'
+          DEST_DIR: 'app'
+
       - name: Create CloudFront Cache Invalidation
         uses: chetan/invalidate-cloudfront-action@master
         env:
@@ -39,4 +45,4 @@ jobs:
           AWS_REGION: ${{ secrets.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          PATHS: "/*"
+          PATHS: '/*'

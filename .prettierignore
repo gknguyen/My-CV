@@ -1,6 +1,4 @@
 *.md
-*.yaml
-*.yml
 node_modules/
 build/
 coverage/

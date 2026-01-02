@@ -1,6 +1,16 @@
 /** https://techicons.dev */
 export const TECH_STACKS = [
   {
+    name: 'Golang',
+    path: '/icons/go/golang.svg',
+    addons: [
+      {
+        name: 'Go Gin',
+        path: '/icons/go/gin.svg',
+      },
+    ],
+  },
+  {
     name: 'Javascript',
     path: '/icons/js/javascript.svg',
     addons: [
@@ -33,6 +43,10 @@ export const TECH_STACKS = [
       {
         name: 'Sequelize',
         path: '/icons/backend/sequelize.svg',
+      },
+      {
+        name: 'Typeorm',
+        path: '/icons/backend/typeorm.svg',
       },
       {
         name: 'Jest',

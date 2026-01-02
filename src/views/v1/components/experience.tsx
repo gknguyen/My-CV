@@ -13,6 +13,7 @@ import React from 'react';
 import { useCommonStyles } from '../style';
 import { ExperienceType } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
+import { highlightAchievement } from '../../../shared/helper';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -67,12 +68,12 @@ export const Experience: React.FC<IProps> = (props) => {
                     {experience.position}
                     <ul className={commonClasses.ul}>
                       {experience.descriptions.map((description) => (
-                        <li key={description}>{description}</li>
+                        <li key={description}>{highlightAchievement(description)}</li>
                       ))}
                     </ul>
                   </Typography>
 
-                  {experience.projects && (
+                  {!!experience.projects && (
                     <TableContainer component={Paper}>
                       <Table size="small">
                         <TableHead>
@@ -102,7 +103,7 @@ export const Experience: React.FC<IProps> = (props) => {
                                     style={{ marginTop: 0, marginBottom: 0 }}
                                   >
                                     {project.descriptions.map((description) => (
-                                      <li key={description}>{description}</li>
+                                      <li key={description}>{highlightAchievement(description)}</li>
                                     ))}
                                   </ul>
                                 </Typography>

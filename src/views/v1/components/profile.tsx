@@ -108,16 +108,7 @@ export const Profile: React.FC = () => {
               </Grid>
 
               <Grid item xs={8} className={classes.experienceInfo}>
-                <div style={{ display: 'grid', gap: 20 }}>
-                  <Experience
-                    experiences={[
-                      profile.experiences[1],
-                      profile.experiences[2],
-                      profile.experiences[3],
-                    ]}
-                  />
-                  <Project projects={[profile.projects[0]]} />
-                </div>
+                <Experience experiences={[profile.experiences[1]]} />
               </Grid>
             </Grid>
           </CardContent>
@@ -125,7 +116,7 @@ export const Profile: React.FC = () => {
 
         <Card raised id="page-3" style={{ width: '100%' }}>
           <CardContent>
-            <Grid container>
+            <Grid container style={{ height: 1120 }}>
               <Grid
                 container
                 item
@@ -137,9 +128,25 @@ export const Profile: React.FC = () => {
                 <Certificate />
               </Grid>
 
+              <Grid item xs={8} className={classes.experienceInfo}>
+                <Experience experiences={[profile.experiences[2], profile.experiences[3]]} />
+              </Grid>
+            </Grid>
+          </CardContent>
+        </Card>
+
+        <Card raised id="page-4" style={{ width: '100%' }}>
+          <CardContent>
+            <Grid container>
+              <Grid item xs={4} className={classes.personalInfo} direction="column"></Grid>
               <Grid container item xs={8} className={classes.experienceInfo} gap={2}>
                 <Project
-                  projects={[profile.projects[1], profile.projects[2], profile.projects[4]]}
+                  projects={[
+                    profile.projects[0],
+                    profile.projects[1],
+                    profile.projects[2],
+                    profile.projects[4],
+                  ]}
                 />
               </Grid>
             </Grid>

@@ -10,9 +10,7 @@ export const profile = {
   avatar: '/images/gk.jpg',
 
   about: [
-    'My career path is to become a professional Fullstack Developer, who can create high quality, secure and friendly products which can satify the expectation of customers.',
-    'I look forward to working with a professional team, where i can enjoy learning and sharing to help each other growth, practicing my skills so I can adapt well to the needs and flexible changes of the market.',
-    'It would be great if I had the opportunity to work in an environment where English is the key point because I want to focus training my ability to communicate and work in English.',
+    'My career path is to become a expert in this field of expertise, be able to handle all the process to build many kind of Applications. I look forward to learning and working with new technologies in the current 4.0 generation economy, practicing my skills so I can adapt well to the needs and flexible changes of the market.',
   ],
 
   personals: [
@@ -47,11 +45,6 @@ export const profile = {
       type: 'text',
     },
     {
-      image: 'message',
-      content: 'live:nguyentruonggiang1711',
-      type: 'text',
-    },
-    {
       image: 'facebook',
       content: 'facebook.com/gknguyen1711',
       type: 'url',
@@ -59,6 +52,11 @@ export const profile = {
     {
       image: 'work',
       content: 'linkedin.com/in/gknguyen1711',
+      type: 'url',
+    },
+    {
+      image: 'contact_page',
+      content: 'gk-dev.click',
       type: 'url',
     },
     {
@@ -89,38 +87,29 @@ export const profile = {
       image: 'devices_other',
       list: [
         'HTML5, CSS3, Bootstrap 4',
-        'React.js, Redux',
+        'React.js, Redux, Next.js',
         'Material-UI, Ant Design',
         'Tailwind CSS',
+        'Google Map, Stadia Map',
       ],
     },
     {
       category: 'Automation test',
       image: 'build_circle',
-      list: ['Mocha, Chai, Istanbul', 'Jest, Enzyme', 'Puppeteer, Cypress'],
-    },
-    {
-      category: 'AWS Cloud',
-      image: 'cloud',
-      list: [
-        'EC2, ASG, VPC',
-        'S3, Cloudfront',
-        'RDS, IAM, Route 53',
-        'Code Artifact, ECR',
-        'Cloud Formation',
-      ],
+      list: ['Mocha, Chai, Istanbul', 'Jest, Enzyme', 'Puppeteer, Cypress', 'k6, Locust'],
     },
     {
       category: 'Other',
       image: 'settings',
       list: [
-        'Docker',
+        'Docker, k8s, Helm, ArgoCD',
         'Electron.js',
         'Kafka, RabbitMQ',
         'Git, Git flow',
-        'RESTful API',
+        'RESTful API, gRPC',
         'Fluentd',
         'Github/Gitlab CI/CD',
+        'AWS, GCP',
       ],
     },
   ],
@@ -141,7 +130,7 @@ export const profile = {
           name: 'Developer (Associate)',
           isShow: true,
           isPopup: false,
-          link: 'https://www.credly.com/earner/earned/badge/fd98574f-ebc6-4105-85ed-f5358fbb1c68',
+          link: 'https://www.credly.com/badges/fd98574f-ebc6-4105-85ed-f5358fbb1c68',
           image: '/images/certificates/aws/developer-associate.png',
         },
       ],
@@ -225,11 +214,59 @@ export const profile = {
           link: 'https://www.udemy.com/certificate/UC-0153562b-1c4f-4348-b3c3-493d81c5e434/',
           image: '/images/certificates/udemy/k8s-hands-on-aws.jpg',
         },
+        {
+          name: 'Go - The Complete Guide',
+          isShow: false,
+          isPopup: false,
+          link: 'https://www.udemy.com/certificate/UC-0bd2ee22-e1af-47e1-9cfe-2e1835ae969a/',
+          image: '/images/certificates/udemy/golang-guideline-for-beginner.jpg',
+        },
       ],
     },
   ],
 
   experiences: [
+    {
+      key: 'clt',
+      title: 'CyberLogitec Vietnam',
+      period: 'Aug 2024 - Dec 2025',
+      position: 'Technical Architect',
+      logo: '/images/clt.png',
+      descriptions: [
+        'Building system & platforms for managing shipping and logistics for CLT clients',
+        'Achievement : Got promoted to Technical Architect position after 2 months of working, responsible for infrastructure optimization, enhance CI/CD pipelines, setup automation tests & train team members',
+      ],
+      projectsCssClass: 'sm:h-[240px] md:h-[350px]',
+      projects: [
+        {
+          name: 'Customer Subscription Plan',
+          position: 'Technical Architect',
+          descriptions: [
+            'Managing Subscription Plan of Customers, allowing them to view data of their Reefer Containers',
+            'Tech Stacks : Nest.js, Next.js, Postgres, Redis, GCP, Kubernetes, Argocd, Kafka v...v...',
+            'Resource : 12 members',
+          ],
+        },
+        {
+          name: 'IoT Data Pipeline',
+          position: 'Technical Architect',
+          descriptions: [
+            'Managing IoT data of Reefer Containers, streaming data from multiple sources & serving them to customers',
+            'Tech Stacks : Nest.js, Next.js, MongoDB, Redis, GCP, Kubernetes, Argocd, Kafka v...v...',
+            'Resource : 12 members',
+          ],
+        },
+        {
+          name: 'Container Operation Management',
+          position: 'Technical Architect',
+          descriptions: [
+            'Managing Containers Movement, streaming data from multiple sources & serving them to customers',
+            'Tech Stacks : Nest.js, Next.js, MongoDB, Postgres, Redis, GCP, Kubernetes, Argocd, Kafka, Google Map/Stadia Map/AMap APIs, v...v...',
+            'Resource : 12 members',
+          ],
+        },
+      ],
+    },
     {
       key: 'setel',
       title: 'SETEL',
@@ -238,11 +275,10 @@ export const profile = {
       logo: '/images/setel.png',
       descriptions: [
         'Building a super App platforms & system for Petronas in Malaysia',
-        'Working with backend microservices system based on Nodejs',
-        'Build Web Apps for users/merchants, Admin Panel for Admins',
         'Communicating in English with international teams',
+        'Achievement : Got promoted to Technical Architect position after 1 and a half years of working',
       ],
-      projectsCssClass: 'sm:h-[300px] md:h-[442px]',
+      projectsCssClass: 'sm:h-[360px] md:h-[580px]',
       projects: [
         {
           name: 'Family Wallet members',
@@ -252,6 +288,7 @@ export const profile = {
             'Tech Stacks : Nest.js, MongoDB, Redis v...v...',
             'Resource : 5 members',
             'Period : 6 months',
+            'Achievement : The project was highly rated by stalkeholders, for bringing in more customers & contributing to the revenue of the company',
           ],
         },
         {
@@ -262,26 +299,40 @@ export const profile = {
             'Tech Stacks : Nest.js, MongoDB, AWS S3, Kafka, Pubsub, React.js, Tailwind CSS v...v...',
             'Resource : 5 members',
             'Period : 1 year',
+            'Achievement : Main responsible for the BE part & integrate with Mobile team, apply CQRS pattern & CDC to achieve high performance, build a Map on Admin Portal',
+          ],
+        },
+        {
+          name: 'Deals & Vouchers',
+          position: 'Team Leader',
+          descriptions: [
+            'Managing & Issuing Vouchers for users, allowing them to redeem vouchers from merchant deals',
+            'Tech Stacks : Nest.js, MongoDB, AWS S3, Kafka, Pubsub, React.js, Tailwind CSS v...v...',
+            'Resource : 5 members',
+            'Period : 1 year',
+            'Achievement : take over this project from another team, responsible for maintaining & developing new features for this project',
           ],
         },
         {
           name: 'Loyalty points capping',
-          position: 'BE Engineer',
+          position: 'Team Leader',
           descriptions: [
             'A feature to put a cap limit quota for the amount of loyalty that user can earned in 1 month',
             'Tech Stacks : Nest.js, MongoDB, Kafka, v...v...',
             'Resource : 2 members',
             'Period : 5 months',
+            'Achievement : Handle a full life cycle of the project, from analysis to release phase, integrate with system of loyalty team',
           ],
         },
         {
           name: 'Setel Lite Web for Guest user',
-          position: 'Full-stack Engineer',
+          position: 'Team Leader',
           descriptions: [
             'A light Web App which allow guest user to have their own loyalty barcode for CDS/POS scanning to earn points, for experience purpose',
             'Tech Stacks : Nest.js, MongoDB, React.js, Tailwind CSS, v...v...',
             'Resource : 2 members',
             'Period : 3 months',
+            'Achievement : Handle a full life cycle of the project, from analysis to release phase, build a Web App & handle authentication with reCaptcha & OTP, integrate with BE system of another domain team',
           ],
         },
       ],
@@ -294,8 +345,8 @@ export const profile = {
       logo: '/images/geo.png',
       descriptions: [
         'Providing IT solutions for GEO corporation in Japan',
-        'Handling full life cycle of projects - from Front-end, Back-end to deployment',
-        'Communicating in Japan with co-workers and clients',
+        'Communicating in English with co-workers and clients',
+        'Achievement : Got promoted to team leader position after 1 year of working, received support from the company to study & take AWS Certified Solutions Architect Associate certificate',
       ],
       projectsCssClass: 'h-[175px]',
       projects: [
@@ -308,6 +359,7 @@ export const profile = {
             'Tech Stacks : React.js + Express.js',
             'Resource : 4 members',
             'Period : 1 year',
+            'Achievement : Main responsible for the development of UI/UX part, support with the Design part',
           ],
         },
         {
@@ -319,6 +371,7 @@ export const profile = {
             'Tech Stacks : Electron.js + React.js',
             'Resource : 2 members',
             'Period : 3 months',
+            'Achievement : Handle a full life cycle of the project, from analysis to release phase, working with a junior developer, support & training him on the project',
           ],
         },
       ],
@@ -343,6 +396,7 @@ export const profile = {
             "Customer data processing, Contract's fee calculation",
             'Tech Stacks : Cobol, IMS mainframe',
             'Resource : more than 50 members',
+            'Achievement : Received a small exclusive performance bonus for 6 months of working, for the contribution to the project',
           ],
         },
       ],
@@ -382,7 +436,7 @@ export const profile = {
         'The web version of my Curriculum Vitae (CV)',
         'Using React.js (Typescript) & Material-UI for Web platform',
         'Using Golang for server',
-        'Deploy in AWS S3 + Cloudfront',
+        'Deploy as SPA in AWS S3 + Cloudfront',
       ],
     },
     {
