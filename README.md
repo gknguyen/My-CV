@@ -35,7 +35,7 @@ npm update -S
 
 ## Test
 
-1. all tests
+### all tests
 
 ```bash
 npm test
@@ -44,7 +44,7 @@ npm run test:e2e
 npm run test:e2e:w
 ```
 
-2. coverage
+### coverage
 
 ```bash
 npm run test:cov
