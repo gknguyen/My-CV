@@ -22,8 +22,18 @@ npm ci
 
 ## Start application
 
+### Development build
+
 ```sh
 npm start
+```
+
+### Production build
+
+```sh
+npm run build
+npm install -g serve
+serve -s build
 ```
 
 ## Test
