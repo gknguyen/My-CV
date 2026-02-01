@@ -1,8 +1,9 @@
-import { Typography } from '../../common/components';
-import { ArrowRightIcon, PlusIcon } from '../../common/icon/solid';
-import { cn } from '../../../../shared/helper';
+import { FC } from 'react';
 import { APPLICATION_ARCHITECT } from '../../../../data/aws-roadmap';
+import { cn } from '../../../../shared/helper';
+import { Typography } from '../../common/components';
 import { CustomLink } from '../../common/customLink';
+import { ArrowRightIcon, PlusIcon } from '../../common/icon/solid';
 
 interface IProps {
   certs: {
@@ -14,7 +15,7 @@ interface IProps {
   }[];
 }
 
-export const AwsRoadmap: React.FC<IProps> = (props) => {
+export const AwsRoadmap: FC<IProps> = (props) => {
   return (
     <div>
       <Typography

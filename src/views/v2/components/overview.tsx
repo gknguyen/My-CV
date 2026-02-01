@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { TECH_STACKS } from '../../../data/tech-stack';
 import { useNavigate } from '../../../router/hook';
@@ -15,7 +15,7 @@ import {
 } from '../common/components';
 import { BasePopover } from '../common/popover';
 
-export const Overview: React.FC = () => {
+export const Overview: FC = () => {
   const navigate = useNavigate();
 
   const [isShowing1, setIsShowing1] = useState(false);

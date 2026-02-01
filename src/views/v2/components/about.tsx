@@ -1,9 +1,9 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { cn } from '../../../shared/helper';
 import { Avatar, Card, CardBody, Typography } from '../common/components';
 
-export const About: React.FC = () => {
+export const About: FC = () => {
   const [isShowing1, setIsShowing1] = useState(false);
   const [isShowing2, setIsShowing2] = useState(false);
 

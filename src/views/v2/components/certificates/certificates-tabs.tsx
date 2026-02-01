@@ -1,4 +1,4 @@
-import { lazy, Suspense, useState } from 'react';
+import { FC, lazy, Suspense, useState } from 'react';
 import { CertificatesType, profile } from '../../../../data/profile';
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
 
@@ -6,7 +6,7 @@ const Certificates = lazy(() =>
   import('./certificates').then((m) => ({ default: m.Certificates })),
 );
 
-export const CertificateTabs: React.FC = () => {
+export const CertificateTabs: FC = () => {
   const [tabValue, setTabValue] = useState(profile.certificates[0].key);
   const [tabContent, setTabContent] = useState<CertificatesType>(profile.certificates[0]);
 

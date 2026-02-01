@@ -1,10 +1,10 @@
-import { lazy, Suspense, useState } from 'react';
+import { FC, lazy, Suspense, useState } from 'react';
 import { ExperienceType, profile } from '../../../../data/profile';
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
 
 const Experience = lazy(() => import('./experience').then((m) => ({ default: m.Experience })));
 
-export const ExperienceTabs: React.FC = () => {
+export const ExperienceTabs: FC = () => {
   const [tabValue, setTabValue] = useState(profile.experiences[0].key);
   const [tabContent, setTabContent] = useState<ExperienceType>(profile.experiences[0]);
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { ExperienceType } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
 import { Card, CardBody, Typography } from '../../common/components';
@@ -7,7 +7,7 @@ interface IProps {
   exp: ExperienceType;
 }
 
-export const Experience: React.FC<IProps> = (props) => {
+export const Experience: FC<IProps> = (props) => {
   const [isShowing1, setIsShowing1] = useState(false);
   const [isShowing2, setIsShowing2] = useState(false);
   const [isShowing3, setIsShowing3] = useState(false);

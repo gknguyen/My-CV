@@ -1,8 +1,10 @@
+import { FC } from 'react';
+
 interface IProps {
   link: string;
 }
 
-export const CustomLink: React.FC<IProps> = (props) => {
+export const CustomLink: FC<IProps> = (props) => {
   return (
     <a
       href={props.link}

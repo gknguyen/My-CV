@@ -1,18 +1,21 @@
-import { useState } from 'react';
+import { FC, ReactElement, useMemo, useState } from 'react';
 import { Popover, PopoverContent, PopoverHandler } from './components';
 import { PopoverProps } from './types';
 
 interface IProps extends PopoverProps {
-  content: () => React.ReactElement;
+  content: () => ReactElement;
 }
 
-export const BasePopover: React.FC<IProps> = ({ content, children, ...popoverProps }) => {
+export const BasePopover: FC<IProps> = ({ content, children, ...popoverProps }) => {
   const [openPopover, setOpenPopover] = useState(false);
 
-  const triggers = {
-    onMouseEnter: () => setOpenPopover(true),
-    onMouseLeave: () => setOpenPopover(false),
-  };
+  const triggers = useMemo(
+    () => ({
+      onMouseEnter: () => setOpenPopover(true),
+      onMouseLeave: () => setOpenPopover(false),
+    }),
+    [],
+  );
 
   return (
     <Popover open={openPopover} handler={setOpenPopover} {...popoverProps}>

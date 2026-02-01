@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { CertificatesType } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
 import { Card, CardBody, Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
@@ -8,7 +8,7 @@ interface IProps {
   cert: CertificatesType;
 }
 
-export const Certificates: React.FC<IProps> = (props) => {
+export const Certificates: FC<IProps> = (props) => {
   const [tabValue, setTabValue] = useState(props.cert.list[0].name);
   const [isShowing1, setIsShowing1] = useState(false);
 
