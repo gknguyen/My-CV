@@ -55,8 +55,6 @@
     "@cypress/code-coverage": "^3.14.7",
     "@cypress/instrument-cra": "^1.4.0",
     "@testing-library/cypress": "^10.1.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
     "@types/jspdf": "^2.0.0",
     "@types/node": "^22.19.7",
     "@types/react": "^18.2.47",

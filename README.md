@@ -16,15 +16,21 @@ a small project for my CV
 
 ## Installation
 
-```bash
+```sh
 npm ci
+```
+
+## Start application
+
+```sh
+npm start
 ```
 
 ## Test
 
 ### unit tests
 
-```bash
+```sh
 npm test
 npm run test:w
 npm run test:cov
@@ -32,7 +38,7 @@ npm run test:cov
 
 ### e2e tests
 
-```bash
+```sh
 npm run test:e2e
 npm run test:e2e:w
 npm run test:e2e:cov
