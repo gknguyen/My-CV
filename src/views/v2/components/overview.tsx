@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { TECH_STACKS } from '../../../data/tech-stack';
+import { useNavigate } from '../../../router/hook';
+import { ROUTE_V1 } from '../../../router/routes';
+import { cn } from '../../../shared/helper';
 import {
   Avatar,
   Button,
@@ -10,10 +13,11 @@ import {
   IconButton,
   Typography,
 } from '../common/components';
-import { cn } from '../../../shared/helper';
 import { BasePopover } from '../common/popover';
 
 export const Overview: React.FC = () => {
+  const navigate = useNavigate();
+
   const [isShowing1, setIsShowing1] = useState(false);
   const [isShowing2, setIsShowing2] = useState(false);
 
@@ -91,15 +95,14 @@ export const Overview: React.FC = () => {
                 </div>
 
                 <div className="sm:order-1 md:order-2">
-                  <a
-                    href="/resumes/nguyen-truong-giang.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <Button
+                    placeholder=""
+                    size="sm"
+                    variant="text"
+                    onClick={() => navigate(ROUTE_V1)}
                   >
-                    <Button placeholder="" size="sm" variant="text">
-                      RESUME
-                    </Button>
-                  </a>
+                    RESUME
+                  </Button>
                 </div>
               </div>
             </div>

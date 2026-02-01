@@ -4,10 +4,20 @@ import { CertificateTabs } from './components/certificates/certificates-tabs';
 import { Header } from './components/header';
 import './style.css';
 
-const Overview = lazy(() => import('./components/overview').then((m) => ({ default: m.Overview })));
-const About = lazy(() => import('./components/about').then((m) => ({ default: m.About })));
+const Overview = lazy(() =>
+  import('./components/overview').then((m) => ({
+    default: m.Overview,
+  })),
+);
+const About = lazy(() =>
+  import('./components/about').then((m) => ({
+    default: m.About,
+  })),
+);
 const ExperienceTabs = lazy(() =>
-  import('./components/experience/experience-tabs').then((m) => ({ default: m.ExperienceTabs })),
+  import('./components/experience/experience-tabs').then((m) => ({
+    default: m.ExperienceTabs,
+  })),
 );
 
 export const V2: React.FC = () => {

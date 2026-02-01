@@ -1,10 +1,10 @@
-import React from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import { IconButton } from './component';
-import { ExpandLessIcon } from './icon';
 import { makeStyles } from './hook';
+import { ExpandLessIcon } from './icon';
 
 const useStyles = makeStyles((theme) => ({
-  toTop: {
+  root: {
     zIndex: 2,
     position: 'fixed',
     bottom: '30px',
@@ -16,22 +16,26 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.warning.main,
       color: theme.palette.secondary.dark,
     },
+    [theme.breakpoints.down('sm')]: {
+      right: 'auto',
+      left: '35px',
+    },
   },
 }));
 
-export const ScrollTopButton: React.FC = () => {
+export const ScrollTopButton: FC = () => {
   const { classes } = useStyles();
 
-  const [show, setShow] = React.useState(false);
-  const [scrollPosition, setScrollPosition] = React.useState(0);
+  const [show, setShow] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  React.useEffect(() => {
-    scrollPosition > 1000 ? setShow(true) : setShow(false);
+  useEffect(() => {
+    setShow(scrollPosition > 1000);
   }, [scrollPosition]);
 
   const handleScroll = () => {
@@ -39,14 +43,14 @@ export const ScrollTopButton: React.FC = () => {
     setScrollPosition(position);
   };
 
-  const handleClick = () => {
+  const handleClick = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
+  }, []);
 
   return (
     <>
       {show && (
-        <IconButton onClick={handleClick} className={classes.toTop}>
+        <IconButton onClick={handleClick} className={classes.root}>
           <ExpandLessIcon />
         </IconButton>
       )}

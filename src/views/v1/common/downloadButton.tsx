@@ -1,12 +1,10 @@
-import React from 'react';
-import html2canvas from 'html2canvas';
-import { jsPDF } from 'jspdf';
-import { makeStyles } from './hook';
+import { FC } from 'react';
 import { IconButton } from './component';
+import { makeStyles } from './hook';
 import { GetAppIcon } from './icon';
 
 const useStyles = makeStyles((theme) => ({
-  toTop: {
+  root: {
     zIndex: 2,
     position: 'fixed',
     top: '30px',
@@ -18,34 +16,21 @@ const useStyles = makeStyles((theme) => ({
       backgroundColor: theme.palette.warning.main,
       color: theme.palette.secondary.dark,
     },
+    [theme.breakpoints.down('sm')]: {
+      right: 'auto',
+      left: '35px',
+    },
   },
 }));
 
-export const DownloadButton: React.FC = () => {
+export const DownloadButton: FC = () => {
   const { classes } = useStyles();
 
-  const handleClick = async () => {
-    const component = document.getElementById('detail');
-
-    if (component) {
-      const doc = new jsPDF('p', 'mm', '', true);
-      const canvas = await html2canvas(component, { removeContainer: true, scale: 2 });
-
-      const contentDataURL = canvas.toDataURL('image/png');
-
-      const margin = 0;
-      const position = 0;
-      const imgWidth = 200;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-      doc.addImage(contentDataURL, 'PNG', margin, position, imgWidth, imgHeight);
-      doc.save(`NGUYEN_TRUONG_GIANG.pdf`);
-    }
-  };
-
   return (
-    <IconButton onClick={handleClick} className={classes.toTop}>
-      <GetAppIcon />
-    </IconButton>
+    <a href="/resumes/nguyen-truong-giang.pdf" target="_blank" rel="noopener noreferrer">
+      <IconButton className={classes.root}>
+        <GetAppIcon />
+      </IconButton>
+    </a>
   );
 };
