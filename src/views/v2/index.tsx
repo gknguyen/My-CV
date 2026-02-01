@@ -12,7 +12,7 @@ const ExperienceTabs = lazy(() =>
 
 export const V2: React.FC = () => {
   return (
-    <>
+    <div id="version-2">
       <Header />
 
       <div className="-mt-10">
@@ -32,6 +32,6 @@ export const V2: React.FC = () => {
           <CertificateTabs />
         </RenderOnViewportEntry>
       </div>
-    </>
+    </div>
   );
 };

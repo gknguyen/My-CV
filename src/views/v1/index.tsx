@@ -18,7 +18,7 @@ export const V1: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box className={classes.root}>
+      <Box id="version-1" className={classes.root}>
         <Profile />
         <ScrollTopButton />
       </Box>
