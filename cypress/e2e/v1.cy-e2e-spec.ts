@@ -1,8 +1,6 @@
 describe('Version 1', () => {
   it('renders component', () => {
-    cy.visit('/');
-    cy.get('#detail').should('exist');
+    cy.visit('/v1');
+    cy.get('#version-1').should('exist');
   });
 });
-
-export {};

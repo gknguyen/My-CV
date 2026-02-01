@@ -2,7 +2,7 @@
 
 a small project for my CV
 
-## Technical Approach
+## Technical Stack
 
 - Base template: [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html)
 - Programming language: [Typescript](https://www.typescriptlang.org/)
@@ -20,33 +20,20 @@ a small project for my CV
 npm ci
 ```
 
-- Note: If you receive `old lockfile The package-lock.json file was created with an old version of npm`, run this script to fix
-
-```bash
-npm i --package-lock-only
-```
-
-- upgrade dependencies
-
-```bash
-npm outdated
-npm update -S
-```
-
 ## Test
 
-### all tests
+### unit tests
 
 ```bash
 npm test
 npm run test:w
-npm run test:e2e
-npm run test:e2e:w
+npm run test:cov
 ```
 
-### coverage
+### e2e tests
 
 ```bash
-npm run test:cov
+npm run test:e2e
+npm run test:e2e:w
 npm run test:e2e:cov
 ```
