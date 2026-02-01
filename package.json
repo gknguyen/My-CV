@@ -14,7 +14,7 @@
     "test:w:e2e": "cypress open --e2e --browser chrome",
     "test:e2e:cov": "npm run test:e2e && nyc report --reporter=text --reporter html --report-dir coverage-e2e",
     "format": "prettier --write ./src/**/*.{ts,tsx}",
-    "lint": "eslint --quiet ./src --ext .js,.jsx,.ts,.tsx",
+    "lint": "eslint ./src --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky"
   },
   "browserslist": {
@@ -41,8 +41,6 @@
     "@mui/icons-material": "^5.15.3",
     "@mui/material": "^5.15.3",
     "dayjs": "^1.11.10",
-    "html2canvas": "^1.4.1",
-    "jspdf": "^2.5.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-draggable": "^4.4.6",
@@ -57,7 +55,6 @@
     "@cypress/code-coverage": "^3.14.7",
     "@cypress/instrument-cra": "^1.4.0",
     "@testing-library/cypress": "^10.1.0",
-    "@types/jspdf": "^2.0.0",
     "@types/node": "^22.19.7",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",

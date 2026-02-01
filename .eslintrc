@@ -2,6 +2,6 @@
   "extends": "react-app",
   "rules": {
     "import/no-default-export": "error",
-    "react-hooks/exhaustive-deps": "off"
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
