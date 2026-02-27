@@ -53,3 +53,8 @@ npm run test:e2e
 npm run test:e2e:w
 npm run test:e2e:cov
 ```
+
+## Reference
+
+- <https://techicons.dev>
+- <https://aws-icons.com>

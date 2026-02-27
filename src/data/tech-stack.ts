@@ -205,4 +205,18 @@ export const TECH_STACKS = [
       },
     ],
   },
+  {
+    name: 'IaC',
+    path: '/icons/iac/iac.svg',
+    addons: [
+      {
+        name: 'Terraform',
+        path: '/icons/iac/terraform.svg',
+      },
+      {
+        name: 'CloudFormation',
+        path: '/icons/iac/cloud-formation.svg',
+      },
+    ],
+  },
 ];
