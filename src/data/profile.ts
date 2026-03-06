@@ -1,6 +1,8 @@
 import { dayjs } from '../shared/dayjs-with-plugins';
 import { getTotalYearOfExperience } from '../shared/helper';
 
+const APP_DOMAIN = process.env.REACT_APP_DOMAIN;
+
 export const profile = {
   name: 'Nguyen Truong Giang',
   career: 'Software Engineer',
@@ -56,7 +58,7 @@ export const profile = {
     },
     {
       image: 'contact_page',
-      content: 'gk-dev.click',
+      content: APP_DOMAIN,
       type: 'url',
     },
     {
