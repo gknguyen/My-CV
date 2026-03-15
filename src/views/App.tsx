@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { Navigate, Outlet } from '../router/component';
+import { ROUTE_V2 } from '../router/const';
 import { useLocation } from '../router/hook';
-import { ROUTE_V2 } from '../router/routes';
 
 export const App: FC = () => {
   const location = useLocation();

@@ -1,8 +1,8 @@
 import { FC, useEffect, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { TECH_STACKS } from '../../../data/tech-stack';
+import { ROUTE_V1 } from '../../../router/const';
 import { useNavigate } from '../../../router/hook';
-import { ROUTE_V1 } from '../../../router/routes';
 import { cn } from '../../../shared/helper';
 import {
   Avatar,

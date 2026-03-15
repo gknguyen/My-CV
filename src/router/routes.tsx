@@ -1,8 +1,6 @@
-import { RouteObject } from './interface';
+import { ROUTE_V1, ROUTE_V2 } from './const';
 import { createBrowserRouter } from './helper';
-
-export const ROUTE_V1 = '/v1';
-export const ROUTE_V2 = '/v2';
+import { RouteObject } from './interface';
 
 export const routes: RouteObject[] = [
   {
