@@ -4,6 +4,7 @@ import { TECH_STACKS } from '../../../data/tech-stack';
 import { ROUTE_V1 } from '../../../router/const';
 import { useNavigate } from '../../../router/hook';
 import { cn } from '../../../shared/helper';
+import { useBreakpoint } from '../../../shared/hooks/useBreakpoint';
 import {
   Avatar,
   Button,
@@ -13,7 +14,6 @@ import {
   IconButton,
   Typography,
 } from '../common/components';
-import { useBreakpoint } from '../common/hook/useBreakpoint';
 import { BasePopover } from '../common/popover';
 
 export const Overview: FC = () => {

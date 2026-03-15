@@ -10,7 +10,7 @@ export function useBreakpoint() {
   }, []);
 
   return {
-    isSm: width >= 360,
+    isSm: width >= 360 && width < 768,
     isMd: width >= 768,
   };
 }
