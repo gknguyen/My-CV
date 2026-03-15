@@ -55,7 +55,7 @@ export const Overview: FC = () => {
   }, []);
 
   return (
-    <div id="overview" className="h-screen grid content-center justify-center">
+    <div id="overview" className={cn('grid content-center justify-center', 'h-auto min-h-screen')}>
       <Card
         className={cn(
           'sm:w-screen md:w-[48rem]',

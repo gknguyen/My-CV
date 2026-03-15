@@ -1,5 +1,6 @@
 import { FC, lazy, Suspense, useState } from 'react';
 import { ExperienceType, profile } from '../../../../data/profile';
+import { cn } from '../../../../shared/helper';
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
 
 const Experience = lazy(() => import('./experience').then((m) => ({ default: m.Experience })));
@@ -9,7 +10,10 @@ export const ExperienceTabs: FC = () => {
   const [tabContent, setTabContent] = useState<ExperienceType>(profile.experiences[0]);
 
   return (
-    <div id="experiences" className="h-screen grid content-center justify-center">
+    <div
+      id="experiences"
+      className={cn('grid content-center justify-center', 'h-auto min-h-screen')}
+    >
       <Tabs value={tabValue}>
         <TabsHeader
           placeholder=""
@@ -31,9 +35,9 @@ export const ExperienceTabs: FC = () => {
           ))}
         </TabsHeader>
 
-        <TabsBody placeholder="" style={{ minHeight: 680 }}>
+        <TabsBody placeholder="" style={{ minHeight: 880 }}>
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
-            <Suspense fallback={<></>}>
+            <Suspense fallback={null}>
               <Experience exp={tabContent} />
             </Suspense>
           </TabPanel>

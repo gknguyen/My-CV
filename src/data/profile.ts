@@ -289,36 +289,14 @@ export const profile = {
       projectsCssClass: 'sm:h-[360px] md:h-[580px]',
       projects: [
         {
-          name: 'Family Wallet members',
-          position: 'BE Engineer',
-          descriptions: [
-            'A feature which allow user to create a family group, other members in the group can use their payment method to purchase',
-            'Tech Stacks : Nest.js, MongoDB, Redis v...v...',
-            'Resource : 5 members',
-            'Period : 6 months',
-            'Achievement : The project was highly rated by stalkeholders, for bringing in more customers & contributing to the revenue of the company',
-          ],
-        },
-        {
-          name: 'Places on Map',
-          position: 'Full-stack Engineer',
-          descriptions: [
-            'Manage Places information to display on Map',
-            'Tech Stacks : Nest.js, MongoDB, AWS S3, Kafka, Pubsub, React.js, Tailwind CSS v...v...',
-            'Resource : 5 members',
-            'Period : 1 year',
-            'Achievement : Main responsible for the BE part & integrate with Mobile team, apply CQRS pattern & CDC to achieve high performance, build a Map on Admin Portal',
-          ],
-        },
-        {
-          name: 'Deals & Vouchers',
+          name: 'Setel Lite Web for Guest user',
           position: 'Team Leader',
           descriptions: [
-            'Managing & Issuing Vouchers for users, allowing them to redeem vouchers from merchant deals',
-            'Tech Stacks : Nest.js, MongoDB, AWS S3, Kafka, Pubsub, React.js, Tailwind CSS v...v...',
-            'Resource : 5 members',
-            'Period : 1 year',
-            'Achievement : take over this project from another team, responsible for maintaining & developing new features for this project',
+            'A light Web App which allow guest user to have their own loyalty barcode for CDS/POS scanning to earn points, for experience purpose',
+            'Tech Stacks : Nest.js, MongoDB, React.js, Tailwind CSS, v...v...',
+            'Resource : 2 members',
+            'Period : 3 months',
+            'Achievement : Handle a full life cycle of the project, from analysis to release phase, build a Web App & handle authentication with reCaptcha & OTP, integrate with BE system of another domain team',
           ],
         },
         {
@@ -333,14 +311,36 @@ export const profile = {
           ],
         },
         {
-          name: 'Setel Lite Web for Guest user',
+          name: 'Deals & Vouchers',
           position: 'Team Leader',
           descriptions: [
-            'A light Web App which allow guest user to have their own loyalty barcode for CDS/POS scanning to earn points, for experience purpose',
-            'Tech Stacks : Nest.js, MongoDB, React.js, Tailwind CSS, v...v...',
-            'Resource : 2 members',
-            'Period : 3 months',
-            'Achievement : Handle a full life cycle of the project, from analysis to release phase, build a Web App & handle authentication with reCaptcha & OTP, integrate with BE system of another domain team',
+            'Managing & Issuing Vouchers for users, allowing them to redeem vouchers from merchant deals',
+            'Tech Stacks : Nest.js, MongoDB, AWS S3, Kafka, Pubsub, React.js, Tailwind CSS v...v...',
+            'Resource : 5 members',
+            'Period : 1 year',
+            'Achievement : take over this project from another team, responsible for maintaining & developing new features for this project',
+          ],
+        },
+        {
+          name: 'Places on Map',
+          position: 'Full-stack Engineer',
+          descriptions: [
+            'Manage Places information to display on Map',
+            'Tech Stacks : Nest.js, MongoDB, AWS S3, Kafka, Pubsub, React.js, Tailwind CSS v...v...',
+            'Resource : 5 members',
+            'Period : 1 year',
+            'Achievement : Main responsible for the BE part & integrate with Mobile team, apply CQRS pattern & CDC to achieve high performance, build a Map on Admin Portal',
+          ],
+        },
+        {
+          name: 'Family Wallet members',
+          position: 'BE Engineer',
+          descriptions: [
+            'A feature which allow user to create a family group, other members in the group can use their payment method to purchase',
+            'Tech Stacks : Nest.js, MongoDB, Redis v...v...',
+            'Resource : 5 members',
+            'Period : 6 months',
+            'Achievement : The project was highly rated by stalkeholders, for bringing in more customers & contributing to the revenue of the company',
           ],
         },
       ],
@@ -359,18 +359,6 @@ export const profile = {
       projectsCssClass: 'h-[175px]',
       projects: [
         {
-          name: 'Task Manage System',
-          position: 'Full-stack Engineer',
-          descriptions: [
-            'Task management, employee management, man-hours management',
-            'Web Application',
-            'Tech Stacks : React.js + Express.js',
-            'Resource : 4 members',
-            'Period : 1 year',
-            'Achievement : Main responsible for the development of UI/UX part, support with the Design part',
-          ],
-        },
-        {
           name: "Purchased Product's status Finder",
           position: 'Team Leader',
           descriptions: [
@@ -380,6 +368,18 @@ export const profile = {
             'Resource : 2 members',
             'Period : 3 months',
             'Achievement : Handle a full life cycle of the project, from analysis to release phase, working with a junior developer, support & training him on the project',
+          ],
+        },
+        {
+          name: 'Task Manage System',
+          position: 'Full-stack Engineer',
+          descriptions: [
+            'Task management, employee management, man-hours management',
+            'Web Application',
+            'Tech Stacks : React.js + Express.js',
+            'Resource : 4 members',
+            'Period : 1 year',
+            'Achievement : Main responsible for the development of UI/UX part, support with the Design part',
           ],
         },
       ],

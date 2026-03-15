@@ -1,5 +1,6 @@
 import { FC, lazy, Suspense, useState } from 'react';
 import { CertificatesType, profile } from '../../../../data/profile';
+import { cn } from '../../../../shared/helper';
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
 
 const Certificates = lazy(() =>
@@ -11,7 +12,10 @@ export const CertificateTabs: FC = () => {
   const [tabContent, setTabContent] = useState<CertificatesType>(profile.certificates[0]);
 
   return (
-    <div id="certificates" className="h-screen grid content-center justify-center">
+    <div
+      id="certificates"
+      className={cn('grid content-center justify-center', 'h-auto min-h-screen')}
+    >
       <Tabs value={tabValue}>
         <TabsHeader
           placeholder=""
@@ -35,7 +39,7 @@ export const CertificateTabs: FC = () => {
 
         <TabsBody placeholder="" style={{ minHeight: 680 }}>
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
-            <Suspense fallback={<></>}>
+            <Suspense fallback={null}>
               <Certificates cert={tabContent} />
             </Suspense>
           </TabPanel>

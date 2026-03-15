@@ -1,22 +1,37 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useLayoutEffect, useRef, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { cn } from '../../../shared/helper';
 import { Avatar, Card, CardBody, Typography } from '../common/components';
 
 export const About: FC = () => {
+  const aboutContainerRef = useRef<HTMLDivElement | null>(null);
+
   const [isShowing1, setIsShowing1] = useState(false);
   const [isShowing2, setIsShowing2] = useState(false);
 
-  useEffect(() => {
-    setIsShowing1(true);
-    const timer = setTimeout(() => {
-      setIsShowing2(true);
-      clearTimeout(timer);
-    }, 1000);
+  useLayoutEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsShowing1(true);
+          const timer = setTimeout(() => {
+            setIsShowing2(true);
+            clearTimeout(timer);
+          }, 1000);
+        }
+      },
+      { threshold: 0.5 },
+    );
+    if (aboutContainerRef.current) observer.observe(aboutContainerRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <div id="about" className="h-screen grid content-center justify-center">
+    <div
+      id="about"
+      ref={aboutContainerRef}
+      className={cn('grid content-center justify-center', 'h-auto min-h-screen')}
+    >
       <Card
         className={cn(
           'sm:w-screen md:w-[48rem]',

@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { cn } from '../../../shared/helper';
 import { Navbar, Typography } from '../common/components';
 
 const HEADER = [
@@ -22,7 +23,14 @@ const HEADER = [
 
 export const Header: FC = () => {
   return (
-    <Navbar placeholder="" className="sticky top-0 z-50 mx-auto max-w-screen-xl px-6 py-0">
+    <Navbar
+      placeholder=""
+      className={cn(
+        'sticky top-0 z-50',
+        'mx-auto max-w-screen-xl px-6 py-0',
+        'rounded-none rounded-b-lg',
+      )}
+    >
       <div className="flex items-center justify-between text-blue-gray-900">
         <Typography
           placeholder=""

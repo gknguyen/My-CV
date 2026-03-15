@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useLayoutEffect, useRef, useState } from 'react';
 import { ExperienceType } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
 import { Card, CardBody, Typography } from '../../common/components';
@@ -8,24 +8,36 @@ interface IProps {
 }
 
 export const Experience: FC<IProps> = (props) => {
+  const expContainerRef = useRef<HTMLDivElement | null>(null);
+
   const [isShowing1, setIsShowing1] = useState(false);
   const [isShowing2, setIsShowing2] = useState(false);
   const [isShowing3, setIsShowing3] = useState(false);
 
-  useEffect(() => {
-    setIsShowing1(true);
-    const timer = setTimeout(() => {
-      setIsShowing2(true);
-      clearTimeout(timer);
-    }, 500);
-    const timer2 = setTimeout(() => {
-      setIsShowing3(true);
-      clearTimeout(timer2);
-    }, 1000);
+  useLayoutEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsShowing1(true);
+          const timer = setTimeout(() => {
+            setIsShowing2(true);
+            clearTimeout(timer);
+          }, 500);
+          const timer2 = setTimeout(() => {
+            setIsShowing3(true);
+            clearTimeout(timer2);
+          }, 1000);
+        }
+      },
+      { threshold: 0.5 },
+    );
+    if (expContainerRef.current) observer.observe(expContainerRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <Card
+      ref={expContainerRef}
       className={cn(
         'sm:w-screen md:w-[48rem]',
         'transition-opacity duration-1000',

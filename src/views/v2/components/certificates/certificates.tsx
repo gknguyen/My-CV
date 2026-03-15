@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useLayoutEffect, useRef, useState } from 'react';
 import { CertificatesType } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
 import { Card, CardBody, Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
@@ -9,15 +9,27 @@ interface IProps {
 }
 
 export const Certificates: FC<IProps> = (props) => {
+  const certContainerRef = useRef<HTMLDivElement | null>(null);
+
   const [tabValue, setTabValue] = useState(props.cert.list[0].name);
   const [isShowing1, setIsShowing1] = useState(false);
 
-  useEffect(() => {
-    setIsShowing1(true);
+  useLayoutEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsShowing1(true);
+        }
+      },
+      { threshold: 0.5 },
+    );
+    if (certContainerRef.current) observer.observe(certContainerRef.current);
+    return () => observer.disconnect();
   }, []);
 
   return (
     <Card
+      ref={certContainerRef}
       className={cn(
         'sm:w-screen md:w-[48rem]',
         'transition-opacity duration-1000',
@@ -46,14 +58,13 @@ export const Certificates: FC<IProps> = (props) => {
             <TabsBody placeholder="">
               {props.cert.list.map((cert) => (
                 <TabPanel key={cert.name} value={cert.name} className="grid justify-items-center">
-                  <img
-                    alt="certificate"
-                    src={cert.image}
-                    className={cn(cert.link ? 'hover:cursor-pointer' : undefined)}
-                    onClick={() => {
-                      if (cert.link) window.open(cert.link, '_blank');
-                    }}
-                  />
+                  <a href={cert.link} target="_blank" rel="noreferrer">
+                    <img
+                      alt="certificate"
+                      src={cert.image}
+                      className={cn(cert.link ? 'hover:cursor-pointer' : undefined)}
+                    />
+                  </a>
                 </TabPanel>
               ))}
             </TabsBody>
