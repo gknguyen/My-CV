@@ -12,7 +12,7 @@ module.exports = withMT({
     },
     screens: {
       sm: '360px',
-      md: '780px',
+      md: '768px',
     },
   },
   variants: {

@@ -27,19 +27,25 @@ export const Header: FC = () => {
       placeholder=""
       className={cn(
         'sticky top-0 z-50',
-        'mx-auto max-w-screen-xl px-6 py-0',
+        'mx-auto max-w-screen-xl py-0',
         'rounded-none rounded-b-lg',
+        'sm:px-2',
+        'md:px-6',
       )}
     >
-      <div className="flex items-center justify-between text-blue-gray-900">
+      <div
+        className={cn(
+          'flex items-center text-blue-gray-900',
+          'sm:justify-center',
+          'md:justify-between',
+        )}
+      >
         <Typography
           placeholder=""
-          as="a"
-          href="#overview"
           variant="h6"
-          className="mr-4 cursor-pointer py-1.5"
+          className={cn('mr-4 cursor-pointer py-1.5', 'sm:hidden', 'md:block')}
         >
-          GK.dev
+          gknguyen.info
         </Typography>
 
         <div className="overflow-x-auto">
