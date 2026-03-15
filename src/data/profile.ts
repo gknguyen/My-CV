@@ -37,31 +37,37 @@ export const profile = {
 
   contacts: [
     {
+      key: 'phone',
       image: 'phone_iphone',
       content: '0978205130',
       type: 'text',
     },
     {
+      key: 'email',
       image: 'email',
       content: 'nguyentruonggiang1711@gmail.com',
       type: 'text',
     },
     {
+      key: 'facebook',
       image: 'facebook',
       content: 'facebook.com/gknguyen1711',
       type: 'url',
     },
     {
+      key: 'linkedin',
       image: 'work',
       content: 'linkedin.com/in/gknguyen1711',
       type: 'url',
     },
     {
+      key: 'portfolio',
       image: 'contact_page',
       content: APP_DOMAIN,
       type: 'url',
     },
     {
+      key: 'github',
       image: 'integration_instructions',
       content: 'github.com/gknguyen',
       type: 'url',

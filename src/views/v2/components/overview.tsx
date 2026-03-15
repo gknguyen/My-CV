@@ -1,4 +1,4 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useEffect, useMemo, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { TECH_STACKS } from '../../../data/tech-stack';
 import { ROUTE_V1 } from '../../../router/const';
@@ -27,6 +27,31 @@ export const Overview: FC = () => {
       setIsShowing2(true);
       clearTimeout(timer);
     }, 1000);
+  }, []);
+
+  const linkedinContact = useMemo(() => {
+    const contact = profile.contacts.find((contact) => contact.key === 'linkedin');
+    return {
+      ...contact,
+      content: `https://${contact?.content}`,
+      image: '/icons/linkedin.svg',
+    };
+  }, []);
+  const githubContact = useMemo(() => {
+    const contact = profile.contacts.find((contact) => contact.key === 'github');
+    return {
+      ...contact,
+      content: `https://${contact?.content}`,
+      image: '/icons/github.svg',
+    };
+  }, []);
+  const facebookContact = useMemo(() => {
+    const contact = profile.contacts.find((contact) => contact.key === 'facebook');
+    return {
+      ...contact,
+      content: `https://${contact?.content}`,
+      image: '/icons/facebook.svg',
+    };
   }, []);
 
   return (
@@ -77,21 +102,13 @@ export const Overview: FC = () => {
 
               <div className="flex sm:justify-center md:justify-start sm:flex-col md:flex-row sm:gap-1 md:gap-0 items-center">
                 <div className="sm:order-2 md:order-1">
-                  <a href="https://linkedin.com/in/gknguyen1711" target="_blank" rel="noreferrer">
-                    <IconButton variant="text" placeholder="">
-                      <img src="/icons/linkedin.svg" alt="" className="w-8 h-8" />
-                    </IconButton>
-                  </a>
-                  <a href="https://github.com/gknguyen" target="_blank" rel="noreferrer">
-                    <IconButton variant="text" placeholder="">
-                      <img src="/icons/github.svg" alt="" className="w-8 h-8" />
-                    </IconButton>
-                  </a>
-                  <a href="https://facebook.com/gknguyen1711" target="_blank" rel="noreferrer">
-                    <IconButton variant="text" placeholder="">
-                      <img src="/icons/facebook.svg" alt="" className="w-8 h-8" />
-                    </IconButton>
-                  </a>
+                  {[linkedinContact, githubContact, facebookContact].map((contact) => (
+                    <a key={contact.key} href={contact.content} target="_blank" rel="noreferrer">
+                      <IconButton variant="text" placeholder="">
+                        <img src={contact.image} alt="" className="w-8 h-8" />
+                      </IconButton>
+                    </a>
+                  ))}
                 </div>
 
                 <div className="sm:order-1 md:order-2">

@@ -44,7 +44,7 @@ export const RenderOnViewportEntry: React.FC<IRenderOnViewportEntry> = ({
 
   return (
     <div id="render-on-viewport" {...wapperProps} ref={ref}>
-      {entered && <Suspense fallback={<></>}>{children}</Suspense>}
+      {entered && <Suspense fallback={null}>{children}</Suspense>}
     </div>
   );
 };
