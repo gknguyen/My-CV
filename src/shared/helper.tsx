@@ -15,3 +15,12 @@ export function highlightAchievement(text: string) {
     .split(/(Achievement)/gi)
     .map((part, idx) => (/Achievement/i.test(part) ? <b key={idx}>{part}</b> : part));
 }
+
+export function chunkArray<T>(array: T[], limit: number) {
+  const arrayGroups = [];
+  for (let i = 0; i < array.length; i += limit) {
+    const tempArray = array.slice(i, i + limit);
+    arrayGroups.push(tempArray);
+  }
+  return arrayGroups;
+}

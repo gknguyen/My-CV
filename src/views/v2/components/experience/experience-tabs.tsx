@@ -1,6 +1,7 @@
 import { FC, lazy, Suspense, useState } from 'react';
 import { ExperienceType, profile } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
+import { useBreakpoint } from '../../../../shared/hooks/useBreakpoint';
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
 
 const Experience = lazy(() => import('./experience').then((m) => ({ default: m.Experience })));
@@ -9,12 +10,14 @@ export const ExperienceTabs: FC = () => {
   const [tabValue, setTabValue] = useState(profile.experiences[0].key);
   const [tabContent, setTabContent] = useState<ExperienceType>(profile.experiences[0]);
 
+  const { isSm } = useBreakpoint();
+
   return (
     <div
       id="experiences"
-      className={cn('grid content-center justify-center', 'h-auto min-h-screen')}
+      className={cn('grid content-center justify-center relative', 'h-auto min-h-screen')}
     >
-      <Tabs value={tabValue}>
+      <Tabs value={tabValue} className="overflow-visible">
         <TabsHeader
           placeholder=""
           className="sm:w-screen md:w-[48rem] bg-transparent px-3 mb-[-10px]"
@@ -35,7 +38,11 @@ export const ExperienceTabs: FC = () => {
           ))}
         </TabsHeader>
 
-        <TabsBody placeholder="" style={{ minHeight: 880 }}>
+        <TabsBody
+          placeholder=""
+          className="overflow-visible"
+          style={{ minHeight: isSm ? 560 : 612 }}
+        >
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <Suspense fallback={null}>
               <Experience exp={tabContent} />

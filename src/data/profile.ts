@@ -286,7 +286,7 @@ export const profile = {
         'Communicating in English with international teams',
         'Achievement : Got promoted to Technical Architect position after 1 and a half years of working',
       ],
-      projectsCssClass: 'sm:h-[360px] md:h-[580px]',
+      projectsCssClass: 'sm:h-[240px] md:h-[350px]',
       projects: [
         {
           name: 'Setel Lite Web for Guest user',

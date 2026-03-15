@@ -2,8 +2,8 @@ import { FC, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { ExperienceType } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
 import { Card, CardBody, Typography } from '../../common/components';
-import { PlusIcon } from '../../common/icon/solid';
 import { ExperienceDetailDialog, ExperienceDetailType } from './experience-detail-dialog';
+import { ExperienceProjectsPagination } from './experience-projects-pagination';
 
 interface IProps {
   exp: ExperienceType;
@@ -88,39 +88,15 @@ export const Experience: FC<IProps> = (props) => {
           </div>
         </div>
 
-        <div className={cn('px-5', props.exp.projectsCssClass)}>
-          <ol className="relative grid gap-5 border-s-2">
-            {props.exp.projects?.map((proj) => (
-              <li key={proj.name} className="mx-8">
-                <span
-                  className={cn(
-                    'absolute flex items-center justify-center w-8 h-8 bg-orange-300 rounded-full -start-4 ring-4 ring-white',
-                    'transform transition ease-in-out duration-1000',
-                    isShowing3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full',
-                    'hover:cursor-pointer hover:bg-orange-500',
-                  )}
-                >
-                  <PlusIcon className="block w-[27px]" onClick={() => onOpenExpDetail(proj)} />
-                </span>
-
-                <div
-                  className={cn(
-                    'transform transition ease-in-out duration-1000',
-                    isShowing3 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full',
-                  )}
-                >
-                  <Typography placeholder="" variant="h5">
-                    {proj.name}
-                  </Typography>
-                  <Typography placeholder="" variant="h6">
-                    {proj.position}
-                  </Typography>
-                  <div className={cn('sm:hidden', 'md:block')}>{proj.descriptions[0]}</div>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
+        {props.exp.projects?.length && (
+          <div className={cn('px-5', props.exp.projectsCssClass)}>
+            <ExperienceProjectsPagination
+              isShowing3={isShowing3}
+              projects={props.exp.projects}
+              onOpenExpDetail={onOpenExpDetail}
+            />
+          </div>
+        )}
       </CardBody>
 
       <ExperienceDetailDialog
