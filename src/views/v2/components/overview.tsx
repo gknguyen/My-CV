@@ -13,6 +13,7 @@ import {
   IconButton,
   Typography,
 } from '../common/components';
+import { useBreakpoint } from '../common/hook/useBreakpoint';
 import { BasePopover } from '../common/popover';
 
 export const Overview: FC = () => {
@@ -53,6 +54,8 @@ export const Overview: FC = () => {
       image: '/icons/facebook.svg',
     };
   }, []);
+
+  const { isMd } = useBreakpoint();
 
   return (
     <div id="overview" className={cn('grid content-center justify-center', 'h-auto min-h-screen')}>
@@ -173,7 +176,7 @@ export const Overview: FC = () => {
                       )}
                     </div>
                   )}
-                  placement="bottom"
+                  placement={isMd ? 'bottom' : 'top'}
                   animate={{
                     mount: { scale: 1, y: 0 },
                     unmount: { scale: 0, y: 25 },
