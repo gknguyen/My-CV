@@ -41,7 +41,7 @@ export const ExperienceTabs: FC = () => {
         <TabsBody
           placeholder=""
           className="overflow-visible"
-          style={{ minHeight: isSm ? 560 : 612 }}
+          style={{ minHeight: isSm ? 560 : 660 }}
         >
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <Suspense fallback={null}>

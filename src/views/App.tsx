@@ -11,5 +11,5 @@ export const App: FC = () => {
     return <Outlet />;
   }, [location.pathname]);
 
-  return <div>{autoNavigateRoutes()}</div>;
+  return autoNavigateRoutes();
 };

@@ -1,6 +1,7 @@
 import { FC, lazy, Suspense, useState } from 'react';
 import { CertificatesType, profile } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
+import { useBreakpoint } from '../../../../shared/hooks/useBreakpoint';
 import { Tab, TabPanel, Tabs, TabsBody, TabsHeader } from '../../common/components';
 
 const Certificates = lazy(() =>
@@ -10,6 +11,8 @@ const Certificates = lazy(() =>
 export const CertificateTabs: FC = () => {
   const [tabValue, setTabValue] = useState(profile.certificates[0].key);
   const [tabContent, setTabContent] = useState<CertificatesType>(profile.certificates[0]);
+
+  const { isSm } = useBreakpoint();
 
   return (
     <div
@@ -37,7 +40,7 @@ export const CertificateTabs: FC = () => {
           ))}
         </TabsHeader>
 
-        <TabsBody placeholder="" style={{ minHeight: 680 }}>
+        <TabsBody placeholder="" style={{ minHeight: isSm ? 720 : 600 }}>
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <Suspense fallback={null}>
               <Certificates cert={tabContent} />
