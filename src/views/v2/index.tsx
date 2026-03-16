@@ -7,10 +7,10 @@ import './style.css';
 
 export const V2: React.FC = () => {
   return (
-    <div id="version-2" className="overflow-x-hidden">
+    <div id="version-2">
       <Header />
 
-      <div className="-mt-10">
+      <div className="-mt-10 overflow-x-hidden">
         <Overview />
         <About />
         <ExperienceTabs />

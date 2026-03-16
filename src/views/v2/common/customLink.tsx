@@ -2,6 +2,7 @@ import { FC } from 'react';
 
 interface IProps {
   link: string;
+  notDisplayProtocol?: boolean;
 }
 
 export const CustomLink: FC<IProps> = (props) => {
@@ -12,7 +13,7 @@ export const CustomLink: FC<IProps> = (props) => {
       rel="noreferrer"
       className="text-center text-blue-600 visited:text-purple-600 truncate"
     >
-      {props.link}
+      {props.notDisplayProtocol ? props.link.replace(/^https?:\/\//, '') : props.link}
     </a>
   );
 };

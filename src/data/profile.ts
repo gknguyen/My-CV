@@ -12,7 +12,7 @@ export const profile = {
   avatar: '/images/gk.jpg',
 
   about: [
-    'My career path is to become a expert in this field of expertise, be able to handle all the process to build many kind of Applications. I look forward to learning and working with new technologies in the current 4.0 generation economy, practicing my skills so I can adapt well to the needs and flexible changes of the market.',
+    'A senior Full-Stack Engineer specializing in distributed systems and modern web architectures. Experienced in building scalable backend services, real-time data pipelines, and responsive frontend applications while applying strong DevOps and cloud practices.',
   ],
 
   personals: [

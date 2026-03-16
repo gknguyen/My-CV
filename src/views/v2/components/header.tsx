@@ -43,7 +43,7 @@ export const Header: FC = () => {
         <Typography
           placeholder=""
           variant="h6"
-          className={cn('mr-4 cursor-pointer py-1.5', 'sm:hidden', 'md:block')}
+          className={cn('mr-4 py-1.5', 'sm:hidden', 'md:block')}
         >
           gknguyen.info
         </Typography>

@@ -2,6 +2,7 @@ import { FC, useLayoutEffect, useRef, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { cn } from '../../../shared/helper';
 import { Avatar, Card, CardBody, Typography } from '../common/components';
+import { CustomLink } from '../common/customLink';
 
 export const About: FC = () => {
   const aboutContainerRef = useRef<HTMLDivElement | null>(null);
@@ -80,6 +81,13 @@ export const About: FC = () => {
                   {ele}
                 </Typography>
               ))}
+
+              <Typography placeholder="">Some fun projects that i have made</Typography>
+              <ul className="flex flex-col">
+                <li className="pl-4">
+                  <CustomLink link="https://travel-guide.gknguyen.com" notDisplayProtocol />
+                </li>
+              </ul>
             </div>
           </div>
         </CardBody>
