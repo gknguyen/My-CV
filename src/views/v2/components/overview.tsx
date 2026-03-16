@@ -2,7 +2,6 @@ import { FC, useEffect, useMemo, useState } from 'react';
 import { profile } from '../../../data/profile';
 import { TECH_STACKS } from '../../../data/tech-stack';
 import { ROUTE_V1 } from '../../../router/const';
-import { useNavigate } from '../../../router/hook';
 import { cn } from '../../../shared/helper';
 import { useBreakpoint } from '../../../shared/hooks/useBreakpoint';
 import {
@@ -17,8 +16,6 @@ import {
 import { BasePopover } from '../common/popover';
 
 export const Overview: FC = () => {
-  const navigate = useNavigate();
-
   const [isShowing1, setIsShowing1] = useState(false);
   const [isShowing2, setIsShowing2] = useState(false);
 
@@ -119,7 +116,7 @@ export const Overview: FC = () => {
                     placeholder=""
                     size="sm"
                     variant="text"
-                    onClick={() => navigate(ROUTE_V1)}
+                    onClick={() => (globalThis.location.href = ROUTE_V1)}
                   >
                     RESUME
                   </Button>
