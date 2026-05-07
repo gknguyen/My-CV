@@ -4,6 +4,8 @@ import { cn } from '../../../shared/helper';
 import { Avatar, Card, CardBody, Typography } from '../common/components';
 import { CustomLink } from '../common/customLink';
 
+const projectLinks = ['https://travel-guide.gknguyen.com', 'https://dynamic-qr-code.gknguyen.com'];
+
 export const About: FC = () => {
   const aboutContainerRef = useRef<HTMLDivElement | null>(null);
 
@@ -83,10 +85,12 @@ export const About: FC = () => {
               ))}
 
               <Typography placeholder="">Some fun projects that i have made</Typography>
-              <ul className="flex flex-col">
-                <li className="pl-4">
-                  <CustomLink link="https://travel-guide.gknguyen.com" notDisplayProtocol />
-                </li>
+              <ul className="flex flex-col list-disc">
+                {projectLinks.map((link) => (
+                  <li key={link} className="ml-5">
+                    <CustomLink link={link} notDisplayProtocol />
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
