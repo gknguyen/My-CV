@@ -13,20 +13,21 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4.0.0
 
       - name: Use Node.js version from package.json
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.0.0
         with:
-          node-version-file: 'package.json'
+          node-version-file: "package.json"
+          cache: "npm"
 
       - name: Install Dependencies
-        run: npm ci --ignore-scripts
+        run: npm ci --prefer-offline --ignore-scripts
 
       - name: Build Application
         run: npm run build
 
-      - uses: jakejarvis/s3-sync-action@master
+      - uses: jakejarvis/s3-sync-action@7ed8b112447abb09f1da74f3466e4194fc7a6311 # v0.5.1
         name: Upload App to S3 Bucket
         with:
           args: --follow-symlinks --delete
@@ -35,14 +36,14 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_REGION: ${{ vars.AWS_REGION }}
-          SOURCE_DIR: 'build'
-          DEST_DIR: 'app'
+          SOURCE_DIR: "build"
+          DEST_DIR: "app"
 
       - name: Create CloudFront Cache Invalidation
-        uses: chetan/invalidate-cloudfront-action@master
+        uses: chetan/invalidate-cloudfront-action@fce6f6f546fae2e9fe55f3bd1411063a908f2557 # v2.4.2
         env:
           DISTRIBUTION: ${{ vars.AWS_CF_DISTRIBUTION_ID }}
           AWS_REGION: ${{ vars.AWS_REGION }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          PATHS: '/*'
+          PATHS: "/*"
