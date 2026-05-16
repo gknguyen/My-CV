@@ -54,18 +54,13 @@ export const Certificates: FC<IProps> = (props) => {
               <TabsBody placeholder="">
                 {props.cert.list.map((cert) => (
                   <TabPanel key={cert.name} value={cert.name} className="grid justify-items-center">
-                    <motion.div
-                      whileHover={{ scale: 1.05 }}
-                      transition={{ type: 'spring', stiffness: 200 }}
-                    >
-                      <a href={cert.link} target="_blank" rel="noreferrer">
-                        <img
-                          alt="certificate"
-                          src={cert.image}
-                          className={cn(cert.link ? 'hover:cursor-pointer' : undefined)}
-                        />
-                      </a>
-                    </motion.div>
+                    <a href={cert.link} target="_blank" rel="noreferrer">
+                      <img
+                        alt="certificate"
+                        src={cert.image}
+                        className={cn(cert.link ? 'hover:cursor-pointer' : undefined)}
+                      />
+                    </a>
                   </TabPanel>
                 ))}
               </TabsBody>
