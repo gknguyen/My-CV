@@ -24,7 +24,7 @@ export const CertificateTabs: FC = () => {
       <Tabs value={tabValue}>
         <TabsHeader
           placeholder=""
-          className="sm:w-screen md:w-[48rem] bg-transparent px-3 mb-[-10px]"
+          className="sm:w-screen md:w-[48rem] px-3 mb-[-10px]"
           indicatorProps={{ className: 'v2-tab-indicator' }}
         >
           {profile.certificates.map((exp) => (
@@ -43,7 +43,7 @@ export const CertificateTabs: FC = () => {
           ))}
         </TabsHeader>
 
-        <TabsBody placeholder="" style={{ minHeight: isSm ? 685 : 665 }}>
+        <TabsBody placeholder="" style={{ minHeight: isSm ? 710 : 665 }}>
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <AnimatePresence mode="wait">
               <motion.div

@@ -49,7 +49,7 @@ export const Header: FC<Props> = ({ isDark, onToggleDark, activeSection }) => {
           </Typography>
 
           <div className="overflow-x-auto">
-            <ul className={cn('my-2 flex gap-4 mb-0 mt-0 items-center', 'md:gap-6')}>
+            <ul className={cn('my-2 flex gap-2 mb-0 mt-0 items-center', 'md:gap-6')}>
               {HEADER.map((header) => (
                 <Typography
                   key={header.title}
@@ -63,7 +63,9 @@ export const Header: FC<Props> = ({ isDark, onToggleDark, activeSection }) => {
                     href={header.href}
                     className={cn(
                       'flex items-center hover:text-blue-500 transition-colors',
-                      activeSection === header.id ? 'text-blue-500 font-semibold' : undefined,
+                      activeSection === header.id
+                        ? 'text-blue-500 v2-nav-active font-semibold'
+                        : undefined,
                     )}
                   >
                     {header.title}

@@ -24,6 +24,10 @@ body {
   color: white !important;
 }
 
+.dark #version-2 .v2-nav-active {
+  color: #60a5fa !important;
+}
+
 .dark #version-2 [role='tablist'] {
   background: transparent !important;
 }
@@ -48,8 +52,14 @@ body {
 }
 
 @keyframes slideUpFade {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .v2-plus-enter {

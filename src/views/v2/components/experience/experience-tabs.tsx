@@ -22,7 +22,7 @@ export const ExperienceTabs: FC = () => {
       <Tabs value={tabValue} className="overflow-visible">
         <TabsHeader
           placeholder=""
-          className="sm:w-screen md:w-[48rem] bg-transparent px-3 mb-[-10px]"
+          className="sm:w-screen md:w-[48rem] px-3 mb-[-10px] overflow-x-auto"
           indicatorProps={{ className: 'v2-tab-indicator' }}
         >
           {profile.experiences.map((exp) => (
