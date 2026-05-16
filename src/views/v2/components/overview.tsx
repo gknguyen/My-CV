@@ -124,7 +124,11 @@ export const Overview: FC = () => {
               </motion.div>
             </div>
 
-            <motion.div className="sm:order-1 md:order-2" variants={slideRightVariant}>
+            <motion.div
+              className="sm:order-1 md:order-2"
+              variants={slideRightVariant}
+              whileHover={{ scale: 1.02 }}
+            >
               <Avatar
                 placeholder="card-avatar"
                 src={profile.avatar}
@@ -150,7 +154,7 @@ export const Overview: FC = () => {
                         <Typography placeholder={stack.name} className="text-center">
                           {stack.name}
                         </Typography>
-                        {stack.addons && (
+                        {!!stack.addons && (
                           <>
                             <div className="border"></div>
                             {stack.addons.map((addon) => (

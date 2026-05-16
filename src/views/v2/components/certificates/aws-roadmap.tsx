@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { FC } from 'react';
 import { APPLICATION_ARCHITECT } from '../../../../data/aws-roadmap';
-import { cn } from '../../../../shared/helper';
 import { Typography } from '../../common/components';
 import { CustomLink } from '../../common/customLink';
 import { ArrowRightIcon, PlusIcon } from '../../common/icon/solid';
@@ -39,13 +38,15 @@ export const AwsRoadmap: FC<IProps> = (props) => {
                 whileTap={validCert ? { scale: 0.97 } : {}}
                 transition={{ type: 'spring', stiffness: 200 }}
               >
-                <a href={validCert?.link} target="_blank" rel="noreferrer">
-                  <img
-                    alt={cert.title}
-                    src={cert.image}
-                    className={cn('h-40', validCert ? 'hover:cursor-pointer' : 'grayscale')}
-                  />
-                </a>
+                {validCert ? (
+                  <a href={validCert.link} target="_blank" rel="noreferrer">
+                    <img alt={cert.title} src={cert.image} className="h-40 hover:cursor-pointer" />
+                  </a>
+                ) : (
+                  <span>
+                    <img alt={cert.title} src={cert.image} className="h-40 grayscale" />
+                  </span>
+                )}
               </motion.div>
             </div>
           );
@@ -65,13 +66,15 @@ export const AwsRoadmap: FC<IProps> = (props) => {
                 whileTap={validCert ? { scale: 0.97 } : {}}
                 transition={{ type: 'spring', stiffness: 200 }}
               >
-                <a href={validCert?.link} target="_blank" rel="noreferrer">
-                  <img
-                    alt={cert.title}
-                    src={cert.image}
-                    className={cn('h-40', validCert ? 'hover:cursor-pointer' : 'grayscale')}
-                  />
-                </a>
+                {validCert ? (
+                  <a href={validCert.link} target="_blank" rel="noreferrer">
+                    <img alt={cert.title} src={cert.image} className="h-40 hover:cursor-pointer" />
+                  </a>
+                ) : (
+                  <span>
+                    <img alt={cert.title} src={cert.image} className="h-40 grayscale" />
+                  </span>
+                )}
               </motion.div>
             </div>
           );

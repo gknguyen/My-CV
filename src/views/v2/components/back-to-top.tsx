@@ -25,6 +25,8 @@ export const BackToTop: FC = () => {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: 20 }}
           transition={{ duration: 0.25 }}
+          whileHover={{ scale: 1.15 }}
+          whileTap={{ scale: 0.9 }}
           onClick={scrollToTop}
           className="fixed bottom-8 right-8 z-[70] p-3 bg-blue-500 text-white rounded-full shadow-lg hover:bg-blue-600"
           aria-label="Back to top"

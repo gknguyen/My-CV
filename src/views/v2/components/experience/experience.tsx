@@ -84,11 +84,11 @@ export const Experience: FC<IProps> = (props) => {
               className="justify-self-end sm:hidden md:block"
               variants={slideRightVariant}
             >
-              <img src={props.exp.logo} alt="" className="w-30 h-30 rounded-2xl bg-white" />
+              <img src={props.exp.logo} alt={props.exp.title} className="rounded-2xl bg-white" />
             </motion.div>
           </div>
 
-          {props.exp.projects?.length && (
+          {!!props.exp.projects?.length && (
             <div className={cn('px-5', props.exp.projectsCssClass)}>
               <ExperienceProjectsPagination
                 projects={props.exp.projects}
