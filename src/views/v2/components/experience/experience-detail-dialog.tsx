@@ -36,13 +36,6 @@ export const ExperienceDetailDialog: FC<Props> = (props) => {
               {props.detail?.position}
             </span>
           </div>
-          <button
-            onClick={props.onClose}
-            className="ml-4 p-1 rounded-lg text-white/70 hover:text-white hover:bg-white/20 transition-colors"
-            aria-label="Close"
-          >
-            <XMarkIcon className="w-5 h-5" />
-          </button>
         </div>
 
         {/* Body */}
