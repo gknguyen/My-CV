@@ -1,5 +1,9 @@
+import React from 'react';
+import { ExperienceType } from '../../../data/profile';
+import { highlightAchievement } from '../../../shared/helper';
 import {
   Box,
+  Grid,
   Paper,
   Table,
   TableBody,
@@ -9,11 +13,8 @@ import {
   TableRow,
   Typography,
 } from '../common/component';
-import React from 'react';
-import { useCommonStyles } from '../style';
-import { ExperienceType } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
-import { highlightAchievement } from '../../../shared/helper';
+import { useCommonStyles } from '../style';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -36,90 +37,63 @@ export const Experience: React.FC<IProps> = (props) => {
         <strong>WORK EXPERIENCES</strong>
       </Typography>
 
-      <TableContainer component={Paper}>
-        <Table size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell className={commonClasses.tableHeaderCell}>
-                <Typography>
-                  <strong>PRIOD</strong>
-                </Typography>
-              </TableCell>
-              <TableCell className={commonClasses.tableHeaderCell}>
-                <Typography>
-                  <strong>COMPANIES</strong>
-                </Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
+      <Grid container gap={2}>
+        {props.experiences.map((experience) => (
+          <Box key={experience.title}>
+            <Typography variant="subtitle1" component="h2" display="block">
+              <strong>
+                {experience.title} ({experience.period})
+              </strong>
+            </Typography>
 
-          <TableBody>
-            {props.experiences.map((experience) => (
-              <TableRow key={experience.title}>
-                <TableCell>
-                  <Typography style={{ width: 65 }}>{experience.period}</Typography>
-                </TableCell>
-                <TableCell>
-                  <Typography component="h2" display="block">
-                    <strong>{experience.title}</strong>
-                  </Typography>
+            <Typography component="span">
+              {experience.position}
+              <ul className={commonClasses.ul}>
+                {experience.descriptions.map((description) => (
+                  <li key={description}>{highlightAchievement(description)}</li>
+                ))}
+              </ul>
+            </Typography>
 
-                  <Typography component="span">
-                    {experience.position}
-                    <ul className={commonClasses.ul}>
-                      {experience.descriptions.map((description) => (
-                        <li key={description}>{highlightAchievement(description)}</li>
-                      ))}
-                    </ul>
-                  </Typography>
+            {!!experience.projects && (
+              <TableContainer component={Paper}>
+                <Table size="small">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell className={commonClasses.tableHeaderCell}>
+                        <Typography>PROJECTS</Typography>
+                      </TableCell>
+                    </TableRow>
+                  </TableHead>
 
-                  {!!experience.projects && (
-                    <TableContainer component={Paper}>
-                      <Table size="small">
-                        <TableHead>
-                          <TableRow>
-                            <TableCell className={commonClasses.tableHeaderCell}>
-                              <Typography>NAME</Typography>
-                            </TableCell>
-                            <TableCell className={commonClasses.tableHeaderCell}>
-                              <Typography>DESCRIPTION</Typography>
-                            </TableCell>
-                          </TableRow>
-                        </TableHead>
-
-                        <TableBody>
-                          {experience.projects.map((project) => (
-                            <TableRow key={project.name}>
-                              <TableCell style={{ width: 40 }}>
-                                <Typography gutterBottom>
-                                  <b>{project.name}</b>
-                                </Typography>
-                                <Typography>{project.position}</Typography>
-                              </TableCell>
-                              <TableCell>
-                                <Typography component="span">
-                                  <ul
-                                    className={commonClasses.ul}
-                                    style={{ marginTop: 0, marginBottom: 0 }}
-                                  >
-                                    {project.descriptions.map((description) => (
-                                      <li key={description}>{highlightAchievement(description)}</li>
-                                    ))}
-                                  </ul>
-                                </Typography>
-                              </TableCell>
-                            </TableRow>
-                          ))}
-                        </TableBody>
-                      </Table>
-                    </TableContainer>
-                  )}
-                </TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+                  <TableBody>
+                    {experience.projects.map((project) => (
+                      <TableRow key={project.name}>
+                        <TableCell>
+                          <Typography variant="subtitle2" gutterBottom>
+                            <b>{project.name}</b>
+                          </Typography>
+                          <Typography gutterBottom>{project.position}</Typography>
+                          <Typography component="span">
+                            <ul
+                              className={commonClasses.ul}
+                              style={{ marginTop: 0, marginBottom: 0 }}
+                            >
+                              {project.descriptions.map((description) => (
+                                <li key={description}>{highlightAchievement(description)}</li>
+                              ))}
+                            </ul>
+                          </Typography>
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            )}
+          </Box>
+        ))}
+      </Grid>
     </Box>
   );
 };

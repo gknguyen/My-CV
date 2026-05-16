@@ -1,6 +1,6 @@
 import { FC, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import { ExperienceType } from '../../../../data/profile';
-import { cn } from '../../../../shared/helper';
+import { cn, highlightAchievement } from '../../../../shared/helper';
 import { Card, CardBody, Typography } from '../../common/components';
 import { ExperienceDetailDialog, ExperienceDetailType } from './experience-detail-dialog';
 import { ExperienceProjectsPagination } from './experience-projects-pagination';
@@ -71,8 +71,8 @@ export const Experience: FC<IProps> = (props) => {
             </Typography>
 
             <ul>
-              {props.exp.descriptions.map((des) => (
-                <li key={des}>{des}</li>
+              {props.exp.descriptions.map((des, index) => (
+                <li key={`${index}-${des}`}>{highlightAchievement(des)}</li>
               ))}
             </ul>
           </div>

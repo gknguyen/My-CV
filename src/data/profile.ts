@@ -235,6 +235,29 @@ export const profile = {
 
   experiences: [
     {
+      key: 'fram',
+      title: 'Fram^',
+      period: 'Jan 2026 - now',
+      position: 'Senior Full-Stack Engineer',
+      logo: '/images/fram.png',
+      descriptions: [
+        'Provide technical solutions for clients',
+        'Working offsore & communicating in English with international teams',
+      ],
+      projects: [
+        {
+          name: 'ed-tech platform & talent management for B2B clients',
+          position: 'Senior Full-Stack Engineer',
+          descriptions: [
+            'Allowing employees to access to the platform, view learning materials, take courses and training programs, track their learning progress, and manage their learning activities',
+            'Allowing HR to manage learning materials, create training programs, assign courses to employees, track employee progress, and generate reports',
+            'Tech Stacks : Golang, React.js, Postgres, Redis, AWS, Kubernetes, Argocd, Grafana v...v...',
+            'Resource : ~50 members',
+          ],
+        },
+      ],
+    },
+    {
       key: 'clt',
       title: 'CyberLogitec Vietnam',
       period: 'Aug 2024 - Dec 2025',
@@ -247,29 +270,20 @@ export const profile = {
       projectsCssClass: 'sm:h-[240px] md:h-[350px]',
       projects: [
         {
+          name: 'Container Operation Management & IoT Data Pipeline',
+          position: 'Technical Architect',
+          descriptions: [
+            'Managing Containers Movement & IoT data of Reefer Containers, streaming data from multiple sources & serving them to customers',
+            'Tech Stacks : Nest.js, Next.js, MongoDB, Postgres, Redis, GCP, Kubernetes, Argocd, Kafka, Google Map/Stadia Map/AMap APIs, v...v...',
+            'Resource : 12 members',
+          ],
+        },
+        {
           name: 'Customer Subscription Plan',
           position: 'Technical Architect',
           descriptions: [
             'Managing Subscription Plan of Customers, allowing them to view data of their Reefer Containers',
-            'Tech Stacks : Nest.js, Next.js, Postgres, Redis, GCP, Kubernetes, Argocd, Kafka v...v...',
-            'Resource : 12 members',
-          ],
-        },
-        {
-          name: 'IoT Data Pipeline',
-          position: 'Technical Architect',
-          descriptions: [
-            'Managing IoT data of Reefer Containers, streaming data from multiple sources & serving them to customers',
-            'Tech Stacks : Nest.js, Next.js, MongoDB, Redis, GCP, Kubernetes, Argocd, Kafka v...v...',
-            'Resource : 12 members',
-          ],
-        },
-        {
-          name: 'Container Operation Management',
-          position: 'Technical Architect',
-          descriptions: [
-            'Managing Containers Movement, streaming data from multiple sources & serving them to customers',
-            'Tech Stacks : Nest.js, Next.js, MongoDB, Postgres, Redis, GCP, Kubernetes, Argocd, Kafka, Google Map/Stadia Map/AMap APIs, v...v...',
+            'Tech Stacks : Nest.js, Next.js, Postgres, Redis, GCP, Kubernetes, Kafka v...v...',
             'Resource : 12 members',
           ],
         },
@@ -425,6 +439,32 @@ export const profile = {
 
   projects: [
     {
+      period: 'May 2026 - Now',
+      title: 'Pocket QR Code Tools',
+      type: 'Personal project',
+      descriptions: [
+        'https://dynamic-qr-code.gknguyen.com',
+        'An online QR code generator and decoder.',
+        'Using React.js, Vite, Tailwind CSS & Shadcn UI for Web platform',
+        'Using Golang to build API for URL verification, deploy in AWS Lambda',
+        'Using AWS S3 as data source for the web app & DynamoDB for caching',
+        'Deploy in AWS cloud server',
+      ],
+    },
+    {
+      period: 'Feb 2026 - Now',
+      title: 'Visa Free Travel',
+      type: 'Personal project',
+      descriptions: [
+        'https://travel-guide.gknguyen.com',
+        'A comprehensive travel guide for visa-free destinations around the world.',
+        'Using React.js, Vite, Tailwind CSS & Radix UI for Web platform',
+        'Using Golang to build script for crawling data from multiple sources',
+        'Using AWS S3 as data source for the web app',
+        'Deploy in AWS cloud server',
+      ],
+    },
+    {
       period: 'Mar 2021 - Jul 2021',
       title: 'COLEAD network',
       type: 'Freelance project',
@@ -441,9 +481,8 @@ export const profile = {
       title: 'MY CV TEMPLATE',
       type: 'Personal project',
       descriptions: [
-        'The web version of my Curriculum Vitae (CV)',
+        'The web version of my Portfolio/CV',
         'Using React.js (Typescript) & Material-UI for Web platform',
-        'Using Golang for server',
         'Deploy as SPA in AWS S3 + Cloudfront',
       ],
     },

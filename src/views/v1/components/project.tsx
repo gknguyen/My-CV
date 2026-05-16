@@ -1,18 +1,19 @@
+import React from 'react';
+import { ProjectType } from '../../../data/profile';
+import { isUrl } from '../../../shared/helper';
 import {
   Box,
+  Link,
   Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
-  TableHead,
   TableRow,
   Typography,
 } from '../common/component';
-import React from 'react';
-import { useCommonStyles } from '../style';
-import { ProjectType } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
+import { useCommonStyles } from '../style';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -37,36 +38,31 @@ export const Project: React.FC<IProps> = (props) => {
 
       <TableContainer component={Paper}>
         <Table size="small">
-          <TableHead>
-            <TableRow>
-              <TableCell className={commonClasses.tableHeaderCell}>
-                <Typography>
-                  <strong>PRIOD</strong>
-                </Typography>
-              </TableCell>
-              <TableCell className={commonClasses.tableHeaderCell}>
-                <Typography>
-                  <strong>PROJECTS</strong>
-                </Typography>
-              </TableCell>
-            </TableRow>
-          </TableHead>
-
           <TableBody>
             {props.projects.map((project) => (
               <TableRow key={project.title}>
-                <TableCell style={{ width: 65 }}>
-                  <Typography>{project.period}</Typography>
-                </TableCell>
                 <TableCell>
                   <Typography component="h2" display="block">
-                    <strong>{project.title}</strong>
+                    <div>
+                      <strong>{project.title}</strong>
+                    </div>
+                    <div>
+                      <strong>{project.period}</strong>
+                    </div>
                   </Typography>
                   <Typography component="span">
                     {project.type}
                     <ul className={commonClasses.ul}>
                       {project.descriptions.map((description, index) => (
-                        <li key={description}>{description}</li>
+                        <li key={`${index}-${description}`}>
+                          {isUrl(description) ? (
+                            <Link href={description} target="_blank">
+                              {description}
+                            </Link>
+                          ) : (
+                            <span>{description}</span>
+                          )}
+                        </li>
                       ))}
                     </ul>
                   </Typography>

@@ -1,3 +1,5 @@
+import React from 'react';
+import { profile } from '../../../data/profile';
 import {
   Avatar,
   Card,
@@ -8,8 +10,7 @@ import {
   Grid,
   Link,
 } from '../common/component';
-import React from 'react';
-import { profile } from '../../../data/profile';
+import { makeStyles } from '../common/hook';
 import { About } from './about';
 import { Certificate } from './certificate/certificate';
 import { Contact } from './contact/contact';
@@ -17,7 +18,6 @@ import { Experience } from './experience';
 import { Personal } from './personal/personal';
 import { Project } from './project';
 import { Skill } from './skill/skill';
-import { makeStyles } from '../common/hook';
 
 const useStyles = makeStyles((theme) => ({
   media: {
@@ -93,7 +93,7 @@ export const Profile: React.FC = () => {
               <Grid item xs={8} className={classes.experienceInfo}>
                 <div style={{ display: 'grid', gap: 20 }}>
                   <About />
-                  <Experience experiences={[profile.experiences[0]]} />
+                  <Experience experiences={[profile.experiences[0], profile.experiences[1]]} />
                 </div>
               </Grid>
             </Grid>
@@ -108,7 +108,7 @@ export const Profile: React.FC = () => {
               </Grid>
 
               <Grid item xs={8} className={classes.experienceInfo}>
-                <Experience experiences={[profile.experiences[1]]} />
+                <Experience experiences={[profile.experiences[2]]} />
               </Grid>
             </Grid>
           </CardContent>
@@ -129,7 +129,13 @@ export const Profile: React.FC = () => {
               </Grid>
 
               <Grid item xs={8} className={classes.experienceInfo}>
-                <Experience experiences={[profile.experiences[2], profile.experiences[3]]} />
+                <Experience
+                  experiences={[
+                    profile.experiences[3],
+                    profile.experiences[4],
+                    profile.experiences[5],
+                  ]}
+                />
               </Grid>
             </Grid>
           </CardContent>
@@ -145,7 +151,9 @@ export const Profile: React.FC = () => {
                     profile.projects[0],
                     profile.projects[1],
                     profile.projects[2],
+                    profile.projects[3],
                     profile.projects[4],
+                    profile.projects[6],
                   ]}
                 />
               </Grid>

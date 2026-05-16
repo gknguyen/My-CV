@@ -13,7 +13,7 @@ export function cn(...classes: (string | undefined)[]) {
 export function highlightAchievement(text: string) {
   return text
     .split(/(Achievement)/gi)
-    .map((part, idx) => (/Achievement/i.test(part) ? <b key={idx}>{part}</b> : part));
+    .map((part, idx) => (/Achievement/i.test(part) ? <b key={`${idx}-${part}`}>{part}</b> : part));
 }
 
 export function chunkArray<T>(array: T[], limit: number) {
@@ -23,4 +23,8 @@ export function chunkArray<T>(array: T[], limit: number) {
     arrayGroups.push(tempArray);
   }
   return arrayGroups;
+}
+
+export function isUrl(value: string) {
+  return /^https?:\/\//i.test(value);
 }
