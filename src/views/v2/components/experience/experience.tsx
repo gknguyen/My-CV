@@ -84,7 +84,7 @@ export const Experience: FC<IProps> = (props) => {
               className="justify-self-end sm:hidden md:block"
               variants={slideRightVariant}
             >
-              <img src={props.exp.logo} alt="" className="w-30 h-30 rounded-2xl" />
+              <img src={props.exp.logo} alt="" className="w-30 h-30 rounded-2xl bg-white" />
             </motion.div>
           </div>
 

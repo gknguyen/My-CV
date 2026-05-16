@@ -43,14 +43,14 @@ export const CertificateTabs: FC = () => {
           ))}
         </TabsHeader>
 
-        <TabsBody placeholder="" style={{ minHeight: isSm ? 710 : 665 }}>
+        <TabsBody placeholder="" style={{ minHeight: isSm ? 715 : 665, overflow: 'hidden' }}>
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <AnimatePresence mode="wait">
               <motion.div
                 key={tabValue}
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
                 transition={{ duration: 0.2 }}
               >
                 <Suspense fallback={null}>

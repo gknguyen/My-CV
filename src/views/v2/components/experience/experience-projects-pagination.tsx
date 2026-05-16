@@ -68,7 +68,7 @@ export const ExperienceProjectsPagination: FC<Props> = (props) => {
             whileTap={active === minPage ? {} : { scale: 0.95 }}
             className={cn(
               'absolute z-50',
-              'sm:left-[40%] sm:top-auto sm:-bottom-5',
+              'sm:left-[39%] sm:top-auto sm:-bottom-5',
               'md:-left-5 md:top-1/2 md:bottom-1/2',
               'p-2 border-2 rounded-xl h-fit',
               'v2-pagination-btn',
@@ -107,7 +107,7 @@ export const ExperienceProjectsPagination: FC<Props> = (props) => {
             whileTap={active === maxPage ? {} : { scale: 0.95 }}
             className={cn(
               'absolute z-50',
-              'sm:right-[40%] sm:top-auto sm:-bottom-5',
+              'sm:right-[39%] sm:top-auto sm:-bottom-5',
               'md:-right-5 md:top-1/2 md:bottom-1/2',
               'p-2 border-2 rounded-xl h-fit',
               'v2-pagination-btn',

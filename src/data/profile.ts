@@ -267,7 +267,7 @@ export const profile = {
         'Building system & platforms for managing shipping and logistics for CLT clients',
         'Achievement : Got promoted to Technical Architect position after 2 months of working, responsible for infrastructure optimization, enhance CI/CD pipelines, setup automation tests & train team members',
       ],
-      projectsCssClass: 'sm:h-[240px] md:h-[350px]',
+      projectsCssClass: 'sm:h-[210px] md:h-[230px]',
       projects: [
         {
           name: 'Container Operation Management & IoT Data Pipeline',
