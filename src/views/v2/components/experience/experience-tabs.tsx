@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion';
+import { AnimatePresence } from '../../common/animate-presence';
 import { FC, lazy, Suspense, useState } from 'react';
 import { ExperienceType, profile } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
@@ -21,11 +23,12 @@ export const ExperienceTabs: FC = () => {
         <TabsHeader
           placeholder=""
           className="sm:w-screen md:w-[48rem] bg-transparent px-3 mb-[-10px]"
+          indicatorProps={{ className: 'v2-tab-indicator' }}
         >
           {profile.experiences.map((exp) => (
             <Tab
               placeholder=""
-              className="w-28 bg-opacity-60 bg-blue-gray-50 rounded-lg"
+              className={cn('w-28 rounded-lg')}
               key={exp.key}
               value={exp.key}
               onClick={() => {
@@ -44,9 +47,19 @@ export const ExperienceTabs: FC = () => {
           style={{ minHeight: isSm ? 560 : 660 }}
         >
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
-            <Suspense fallback={null}>
-              <Experience exp={tabContent} />
-            </Suspense>
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={tabValue}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -20 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Suspense fallback={null}>
+                  <Experience exp={tabContent} />
+                </Suspense>
+              </motion.div>
+            </AnimatePresence>
           </TabPanel>
         </TabsBody>
       </Tabs>

@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { FC } from 'react';
 import { APPLICATION_ARCHITECT } from '../../../../data/aws-roadmap';
 import { cn } from '../../../../shared/helper';
@@ -22,7 +23,7 @@ export const AwsRoadmap: FC<IProps> = (props) => {
         placeholder=""
         variant="h5"
         color="blue-gray"
-        className="mb-2 sm:text-center md:text-left"
+        className="mb-2 sm:text-center md:text-left dark:text-slate-100"
       >
         {APPLICATION_ARCHITECT.title}
       </Typography>
@@ -33,13 +34,19 @@ export const AwsRoadmap: FC<IProps> = (props) => {
           return (
             <div key={cert.title} className="flex">
               {!!index && <ArrowRightIcon className="sm:hidden md:block w-8" />}
-              <a href={validCert?.link} target="_blank" rel="noreferrer">
-                <img
-                  alt={cert.title}
-                  src={cert.image}
-                  className={cn('h-40', validCert ? 'hover:cursor-pointer' : 'grayscale')}
-                />
-              </a>
+              <motion.div
+                whileHover={validCert ? { scale: 1.08 } : {}}
+                whileTap={validCert ? { scale: 0.97 } : {}}
+                transition={{ type: 'spring', stiffness: 200 }}
+              >
+                <a href={validCert?.link} target="_blank" rel="noreferrer">
+                  <img
+                    alt={cert.title}
+                    src={cert.image}
+                    className={cn('h-40', validCert ? 'hover:cursor-pointer' : 'grayscale')}
+                  />
+                </a>
+              </motion.div>
             </div>
           );
         })}
@@ -53,13 +60,19 @@ export const AwsRoadmap: FC<IProps> = (props) => {
           return (
             <div key={cert.title} className="flex">
               {!!index && <PlusIcon className="sm:hidden md:block w-[27px]" />}
-              <a href={validCert?.link} target="_blank" rel="noreferrer">
-                <img
-                  alt={cert.title}
-                  src={cert.image}
-                  className={cn('h-40', validCert ? 'hover:cursor-pointer' : 'grayscale')}
-                />
-              </a>
+              <motion.div
+                whileHover={validCert ? { scale: 1.08 } : {}}
+                whileTap={validCert ? { scale: 0.97 } : {}}
+                transition={{ type: 'spring', stiffness: 200 }}
+              >
+                <a href={validCert?.link} target="_blank" rel="noreferrer">
+                  <img
+                    alt={cert.title}
+                    src={cert.image}
+                    className={cn('h-40', validCert ? 'hover:cursor-pointer' : 'grayscale')}
+                  />
+                </a>
+              </motion.div>
             </div>
           );
         })}

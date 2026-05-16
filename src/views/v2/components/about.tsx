@@ -1,4 +1,5 @@
-import { FC, useLayoutEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { FC, useRef } from 'react';
 import { profile } from '../../../data/profile';
 import { cn } from '../../../shared/helper';
 import { Avatar, Card, CardBody, Typography } from '../common/components';
@@ -6,96 +7,88 @@ import { CustomLink } from '../common/customLink';
 
 const projectLinks = ['https://travel-guide.gknguyen.com', 'https://dynamic-qr-code.gknguyen.com'];
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const slideLeftVariant = {
+  hidden: { opacity: 0, x: -60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, type: 'spring' as const } },
+};
+
+const fadeUpVariant = {
+  hidden: { opacity: 0, y: -30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.5, type: 'spring' as const } },
+};
+
+const slideRightVariant = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, type: 'spring' as const } },
+};
+
 export const About: FC = () => {
-  const aboutContainerRef = useRef<HTMLDivElement | null>(null);
-
-  const [isShowing1, setIsShowing1] = useState(false);
-  const [isShowing2, setIsShowing2] = useState(false);
-
-  useLayoutEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsShowing1(true);
-          const timer = setTimeout(() => {
-            setIsShowing2(true);
-            clearTimeout(timer);
-          }, 1000);
-        }
-      },
-      { threshold: 0.5 },
-    );
-    if (aboutContainerRef.current) observer.observe(aboutContainerRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.4 });
 
   return (
     <div
       id="about"
-      ref={aboutContainerRef}
       className={cn('grid content-center justify-center', 'h-auto min-h-screen')}
     >
-      <Card
-        className={cn(
-          'sm:w-screen md:w-[48rem]',
-          'transition-opacity duration-1000',
-          isShowing1 ? 'opacity-100' : 'opacity-0',
-        )}
-        placeholder=""
+      <motion.div
+        ref={ref}
+        className={cn('sm:w-screen md:w-[48rem]', 'rounded-xl overflow-hidden', 'v2-card-wrapper')}
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
       >
-        <CardBody placeholder="" className="grid sm:grid-cols-1 md:grid-cols-3">
-          <div
-            className={cn(
-              'sm:hidden md:block',
-              'transform transition ease-in-out duration-1000',
-              isShowing2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-[-100%]',
-            )}
-          >
-            <Avatar
-              placeholder=""
-              src="/images/coffee-chill.jpeg"
-              alt="avatar"
-              variant="rounded"
-              className="w-60 h-60"
-            />
-          </div>
+        <Card className="sm:w-screen md:w-[48rem] v2-card" placeholder="">
+          <CardBody placeholder="" className="grid sm:grid-cols-1 md:grid-cols-3">
+            <motion.div className="sm:hidden md:block" variants={slideLeftVariant}>
+              <Avatar
+                placeholder=""
+                src="/images/coffee-chill.jpeg"
+                alt="avatar"
+                variant="rounded"
+                className="w-60 h-60"
+              />
+            </motion.div>
 
-          <div className="col-span-2 gap-2 pl-8">
-            <div
-              className={cn(
-                'transform transition ease-in-out duration-1000',
-                isShowing2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[-100%]',
-              )}
-            >
-              <Typography placeholder="" variant="h5" color="blue-gray" className="mb-2">
-                ABOUT ME
-              </Typography>
-            </div>
-
-            <div
-              className={cn(
-                'transform transition ease-in-out duration-1000',
-                isShowing2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full',
-              )}
-            >
-              {profile.about.map((ele) => (
-                <Typography key={ele} placeholder="" className="mb-2">
-                  {ele}
+            <div className="col-span-2 gap-2 pl-8">
+              <motion.div variants={fadeUpVariant}>
+                <Typography
+                  placeholder=""
+                  variant="h5"
+                  color="blue-gray"
+                  className="mb-2 dark:text-slate-100"
+                >
+                  ABOUT ME
                 </Typography>
-              ))}
+              </motion.div>
 
-              <Typography placeholder="">Some fun projects that i have made</Typography>
-              <ul className="flex flex-col list-disc">
-                {projectLinks.map((link) => (
-                  <li key={link} className="ml-5">
-                    <CustomLink link={link} notDisplayProtocol />
-                  </li>
+              <motion.div variants={slideRightVariant}>
+                {profile.about.map((ele) => (
+                  <Typography key={ele} placeholder="" className="mb-2 dark:text-slate-100">
+                    {ele}
+                  </Typography>
                 ))}
-              </ul>
+
+                <Typography placeholder="" className="dark:text-slate-100">
+                  Some fun projects that i have made
+                </Typography>
+                <ul className="flex flex-col list-disc">
+                  {projectLinks.map((link) => (
+                    <li key={link} className="ml-5">
+                      <CustomLink link={link} notDisplayProtocol />
+                    </li>
+                  ))}
+                </ul>
+              </motion.div>
             </div>
-          </div>
-        </CardBody>
-      </Card>
+          </CardBody>
+        </Card>
+      </motion.div>
     </div>
   );
 };

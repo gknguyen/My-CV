@@ -52,9 +52,40 @@ Root path (`/`) redirects to the default version via `App.tsx`.
 ### Views (`src/views/`)
 
 - `v1/` — MUI (`@mui/material`) components with `tss-react` styling; uses draggable dialogs
-- `v2/` — TailwindCSS + `@headlessui/react` + `@heroicons/react`; features tabbed experience/certificates, paginated projects, and a detail dialog
+- `v2/` — TailwindCSS + `@headlessui/react` + `@heroicons/react` + `framer-motion`; features:
+  - Physics-based animations via Framer Motion (`useInView`, `AnimatePresence`, `whileHover`)
+  - Dark mode toggle (persisted in `localStorage('v2-dark-mode')`), enabled via `darkMode: 'class'` in Tailwind
+  - Scroll progress bar and back-to-top FAB
+  - Active nav link highlighting based on scroll position
+  - Paginated project list with animated page transitions
+  - Modern modal dialog for project details
 
 Each version has its own `common/` folder for shared primitives (components, hooks, types) scoped to that version.
+
+#### V2 new files
+
+| File | Purpose |
+|---|---|
+| `src/views/v2/common/useDarkMode.tsx` | Dark mode hook — reads `localStorage`, toggles `html.dark` class |
+| `src/views/v2/common/useActiveSection.tsx` | IntersectionObserver hook — returns active section id for nav highlighting |
+| `src/views/v2/common/animate-presence.tsx` | Thin shim around framer-motion `AnimatePresence` for React 18 JSX types |
+| `src/views/v2/common/icon/svg.tsx` | Custom inline SVG components (LinkedIn, GitHub, Facebook) |
+| `src/views/v2/components/scroll-progress-bar.tsx` | Scroll progress bar rendered inside the sticky Navbar |
+| `src/views/v2/components/back-to-top.tsx` | Fixed FAB that appears after scrolling past 50% of viewport height |
+
+#### V2 CSS conventions (`src/views/v2/style.css`)
+
+All dark-mode overrides live in `style.css` using `!important` to beat MT's internal styles. Key classes:
+
+| Class | Purpose |
+|---|---|
+| `v2-card-wrapper` | Outer gradient wrapper for cards (dark mode gradient applied here) |
+| `v2-card` | Inner MT `Card` forced transparent in dark mode |
+| `v2-tab-indicator` | Sliding active-tab indicator background (passed via MT's `indicatorProps`) |
+| `v2-pagination-btn` | Prev/next pagination buttons — dark background forced via CSS |
+| `v2-plus-enter` | CSS keyframe (`slideUpFade`) for the project PlusIcon entrance animation |
+
+> **MT dark mode caveat:** `@material-tailwind/react` applies many styles with `!important`. All V2 dark-mode overrides must be in `style.css` with `!important`; Tailwind `dark:` prefix classes alone are not sufficient for MT-managed elements.
 
 ### Shared utilities (`src/shared/`)
 

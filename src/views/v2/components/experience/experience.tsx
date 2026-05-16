@@ -1,4 +1,5 @@
-import { FC, useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { motion, useInView } from 'framer-motion';
+import { FC, useCallback, useRef, useState } from 'react';
 import { ExperienceType } from '../../../../data/profile';
 import { cn, highlightAchievement } from '../../../../shared/helper';
 import { Card, CardBody, Typography } from '../../common/components';
@@ -9,33 +10,24 @@ interface IProps {
   exp: ExperienceType;
 }
 
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.15 } },
+};
+
+const slideLeftVariant = {
+  hidden: { opacity: 0, x: -40 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, type: 'spring' as const } },
+};
+
+const slideRightVariant = {
+  hidden: { opacity: 0, x: 60 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, type: 'spring' as const } },
+};
+
 export const Experience: FC<IProps> = (props) => {
-  const expContainerRef = useRef<HTMLDivElement | null>(null);
-
-  const [isShowing1, setIsShowing1] = useState(false);
-  const [isShowing2, setIsShowing2] = useState(false);
-  const [isShowing3, setIsShowing3] = useState(false);
-
-  useLayoutEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsShowing1(true);
-          const timer = setTimeout(() => {
-            setIsShowing2(true);
-            clearTimeout(timer);
-          }, 500);
-          const timer2 = setTimeout(() => {
-            setIsShowing3(true);
-            clearTimeout(timer2);
-          }, 1000);
-        }
-      },
-      { threshold: 0.5 },
-    );
-    if (expContainerRef.current) observer.observe(expContainerRef.current);
-    return () => observer.disconnect();
-  }, []);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const [isShowExpDetail, setIsShowExpDetail] = useState(false);
   const [selectedExpDetail, setSelectedExpDetail] = useState<ExperienceDetailType | null>(null);
@@ -51,59 +43,67 @@ export const Experience: FC<IProps> = (props) => {
   }, []);
 
   return (
-    <Card
-      ref={expContainerRef}
-      className={cn(
-        'sm:w-screen md:w-[48rem]',
-        'transition-opacity duration-1000',
-        isShowing1 ? 'opacity-100' : 'opacity-0',
-      )}
-      placeholder=""
+    <motion.div
+      ref={ref}
+      className={cn('sm:w-screen md:w-[48rem]', 'rounded-xl', 'v2-card-wrapper')}
+      variants={containerVariants}
+      initial="hidden"
+      animate={isInView ? 'visible' : 'hidden'}
+      whileHover={{ scale: 1.01, boxShadow: '0 8px 32px rgba(0,0,0,0.12)' }}
+      transition={{ type: 'spring', stiffness: 300, damping: 30 }}
     >
-      <CardBody placeholder="" className="grid gap-4">
-        <div className="grid sm:grid-cols-1 md:grid-cols-4 gap-2">
-          <div className="col-span-3">
-            <Typography placeholder="" variant="h5" color="blue-gray" className="mb-2">
-              {props.exp.title}
-            </Typography>
-            <Typography placeholder="" variant="h6" color="blue-gray" className="mb-2">
-              {props.exp.position} ({props.exp.period})
-            </Typography>
+      <Card className="sm:w-screen md:w-[48rem] v2-card" placeholder="">
+        <CardBody placeholder="" className="grid gap-4">
+          <div className="grid sm:grid-cols-1 md:grid-cols-4 gap-2">
+            <motion.div className="col-span-3" variants={slideLeftVariant}>
+              <Typography
+                placeholder=""
+                variant="h5"
+                color="blue-gray"
+                className="mb-2 dark:text-slate-100"
+              >
+                {props.exp.title}
+              </Typography>
+              <Typography
+                placeholder=""
+                variant="h6"
+                color="blue-gray"
+                className="mb-2 dark:text-slate-100"
+              >
+                {props.exp.position} ({props.exp.period})
+              </Typography>
 
-            <ul>
-              {props.exp.descriptions.map((des, index) => (
-                <li key={`${index}-${des}`}>{highlightAchievement(des)}</li>
-              ))}
-            </ul>
+              <ul>
+                {props.exp.descriptions.map((des, index) => (
+                  <li key={`${index}-${des}`}>{highlightAchievement(des)}</li>
+                ))}
+              </ul>
+            </motion.div>
+
+            <motion.div
+              className="justify-self-end sm:hidden md:block"
+              variants={slideRightVariant}
+            >
+              <img src={props.exp.logo} alt="" className="w-30 h-30 rounded-2xl" />
+            </motion.div>
           </div>
 
-          <div
-            className={cn(
-              'justify-self-end sm:hidden md:block',
-              'transform transition ease-in-out duration-1000',
-              isShowing2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full',
-            )}
-          >
-            <img src={props.exp.logo} alt="" className="w-30 h-30 rounded-2xl" />
-          </div>
-        </div>
+          {props.exp.projects?.length && (
+            <div className={cn('px-5', props.exp.projectsCssClass)}>
+              <ExperienceProjectsPagination
+                projects={props.exp.projects}
+                onOpenExpDetail={onOpenExpDetail}
+              />
+            </div>
+          )}
+        </CardBody>
 
-        {props.exp.projects?.length && (
-          <div className={cn('px-5', props.exp.projectsCssClass)}>
-            <ExperienceProjectsPagination
-              isShowing3={isShowing3}
-              projects={props.exp.projects}
-              onOpenExpDetail={onOpenExpDetail}
-            />
-          </div>
-        )}
-      </CardBody>
-
-      <ExperienceDetailDialog
-        open={isShowExpDetail}
-        detail={selectedExpDetail}
-        onClose={onCloseExpDetail}
-      />
-    </Card>
+        <ExperienceDetailDialog
+          open={isShowExpDetail}
+          detail={selectedExpDetail}
+          onClose={onCloseExpDetail}
+        />
+      </Card>
+    </motion.div>
   );
 };
