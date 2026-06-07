@@ -54,7 +54,7 @@ export const About: FC = () => {
               />
             </motion.div>
 
-            <div className="col-span-2 gap-2 pl-8">
+            <div className="col-span-2 gap-2 md:pl-8">
               <motion.div variants={fadeUpVariant}>
                 <Typography
                   placeholder=""
@@ -76,7 +76,7 @@ export const About: FC = () => {
                 <Typography placeholder="" className="mb-3 dark:text-slate-100">
                   Some fun projects that i have made
                 </Typography>
-                <div className="grid sm:grid-cols-1 md:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1 gap-3">
                   {[profile.projects[0], profile.projects[1]].map((proj, index) => (
                     <motion.div
                       key={`${index}-${proj.title}`}

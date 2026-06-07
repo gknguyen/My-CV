@@ -443,7 +443,7 @@ export const profile = {
       title: 'Pocket QR Code Tools',
       type: 'Personal project',
       descriptions: [
-        'https://dynamic-qr-code.gknguyen.com',
+        'https://pocket-qr-code-tools.gknguyen.com',
         'An online QR code generator and decoder.',
         'Using React.js, Vite, Tailwind CSS & Shadcn UI for Web platform',
         'Using Golang to build API for URL verification, deploy in AWS Lambda',
