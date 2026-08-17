@@ -439,8 +439,21 @@ export const profile = {
 
   projects: [
     {
+      period: 'Jul 2026 - Now',
+      title: 'Litelens',
+      logo: 'https://litelensapp.github.io/assets/logo-transparent-Bh9_wwGG.png',
+      type: 'Personal project',
+      descriptions: [
+        'https://litelensapp.github.io',
+        'a lightweight, native desktop app for managing Kubernetes clusters',
+        'Using React.js, Vite, Tailwind CSS & Shadcn UI for App UI/UX',
+        'Using Wails (Golang) to build App engine',
+      ],
+    },
+    {
       period: 'May 2026 - Now',
       title: 'Pocket QR Code Tools',
+      logo: 'https://pocket-qr-code-tools.gknguyen.com/qr.png',
       type: 'Personal project',
       descriptions: [
         'https://pocket-qr-code-tools.gknguyen.com',
@@ -454,6 +467,7 @@ export const profile = {
     {
       period: 'Feb 2026 - Now',
       title: 'Visa Free Travel',
+      logo: 'https://travel-guide.gknguyen.com/passport.png',
       type: 'Personal project',
       descriptions: [
         'https://travel-guide.gknguyen.com',

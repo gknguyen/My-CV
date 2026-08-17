@@ -77,25 +77,36 @@ export const About: FC = () => {
                   Some fun projects that i have made
                 </Typography>
                 <div className="grid grid-cols-1 gap-3">
-                  {[profile.projects[0], profile.projects[1]].map((proj, index) => (
-                    <motion.div
-                      key={`${index}-${proj.title}`}
-                      whileHover={{ scale: 1.02 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
-                      className="p-3 rounded-lg border border-gray-200 dark:border-slate-600 bg-white/50 dark:bg-slate-700/60"
-                    >
-                      <span className="text-sm font-semibold dark:text-white leading-tight">
-                        {proj.title}
-                      </span>
-                      <p className="text-xs text-gray-600 dark:text-slate-300 line-clamp-2">
-                        {isUrl(proj.descriptions[0]) ? (
-                          <CustomLink link={proj.descriptions[0]} notDisplayProtocol />
-                        ) : (
-                          proj.descriptions[0]
-                        )}
-                      </p>
-                    </motion.div>
-                  ))}
+                  {[profile.projects[0], profile.projects[1], profile.projects[2]].map(
+                    (proj, index) => (
+                      <motion.div
+                        key={`${index}-${proj.title}`}
+                        whileHover={{ scale: 1.02 }}
+                        transition={{ type: 'spring', stiffness: 300 }}
+                        className="p-3 rounded-lg border border-gray-200 dark:border-slate-600 bg-white/50 dark:bg-slate-700/60 flex flex-col gap-1"
+                      >
+                        <div className="flex items-center gap-2">
+                          {proj.logo && (
+                            <img
+                              src={proj.logo}
+                              alt={proj.title}
+                              className="w-5 h-5 object-contain shrink-0 bg-white border border-gray-300 rounded-md p-0.5 shadow-sm"
+                            />
+                          )}
+                          <span className="text-sm font-semibold dark:text-white leading-tight">
+                            {proj.title}
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-600 dark:text-slate-300 line-clamp-2">
+                          {isUrl(proj.descriptions[0]) ? (
+                            <CustomLink link={proj.descriptions[0]} notDisplayProtocol />
+                          ) : (
+                            proj.descriptions[0]
+                          )}
+                        </p>
+                      </motion.div>
+                    ),
+                  )}
                 </div>
               </motion.div>
             </div>
