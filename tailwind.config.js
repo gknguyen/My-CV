@@ -1,7 +1,7 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
-const withMT = require('@material-tailwind/react/utils/withMT');
+import withMT from '@material-tailwind/react/utils/withMT';
+import defaultTheme from 'tailwindcss/defaultTheme';
 
-module.exports = withMT({
+export default withMT({
   darkMode: 'class',
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
