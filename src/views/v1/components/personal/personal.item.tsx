@@ -33,7 +33,9 @@ export const PersonalItem: React.FC<Props> = (props) => {
       <ListItemText
         primary={props.personal.content}
         secondary={props.personal.subContent}
-        secondaryTypographyProps={props.personal.subContent ? { color: 'inherit' } : undefined}
+        slotProps={{
+          secondary: props.personal.subContent ? { color: 'inherit' } : undefined,
+        }}
       />
     </ListItem>
   );

@@ -27,7 +27,7 @@ export const Skill: React.FC = () => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h6" component="h2" display="block" gutterBottom>
+      <Typography variant="h6" component="h2" gutterBottom>
         <strong>SKILLS</strong>
       </Typography>
 

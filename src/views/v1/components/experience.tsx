@@ -33,14 +33,14 @@ export const Experience: React.FC<IProps> = (props) => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h6" component="h2" display="block" gutterBottom>
+      <Typography variant="h6" component="h2" gutterBottom>
         <strong>WORK EXPERIENCES</strong>
       </Typography>
 
-      <Grid container gap={2}>
+      <Grid container spacing={2}>
         {props.experiences.map((experience) => (
           <Box key={experience.title}>
-            <Typography variant="subtitle1" component="h2" display="block">
+            <Typography variant="subtitle1" component="h2">
               <strong>
                 {experience.title} ({experience.period})
               </strong>

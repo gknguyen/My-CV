@@ -18,7 +18,7 @@ export const Personal: React.FC = () => {
 
   return (
     <Box className={classes.root}>
-      <Typography component="h2" display="block" gutterBottom>
+      <Typography component="h2" gutterBottom>
         <strong>PERSONAL INFORMATIONS</strong>
       </Typography>
 

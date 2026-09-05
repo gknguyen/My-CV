@@ -32,7 +32,7 @@ export const Project: React.FC<IProps> = (props) => {
 
   return (
     <Box className={classes.root}>
-      <Typography variant="h6" component="h2" display="block" gutterBottom>
+      <Typography variant="h6" component="h2" gutterBottom>
         <strong>PERSONAL PROJECTS</strong>
       </Typography>
 
@@ -42,7 +42,7 @@ export const Project: React.FC<IProps> = (props) => {
             {props.projects.map((project) => (
               <TableRow key={project.title}>
                 <TableCell>
-                  <Typography component="h2" display="block">
+                  <Typography component="h2">
                     <div>
                       <strong>{project.title}</strong>
                     </div>

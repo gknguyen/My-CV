@@ -68,7 +68,7 @@ export const Profile: React.FC = () => {
 
   return (
     <Container disableGutters style={{ width: 800 }}>
-      <Grid container gap={1}>
+      <Grid container spacing={1}>
         <Card raised id="page-1" style={{ width: '100%' }}>
           <CardMedia className={classes.media} image="/images/background.jpg" />
 
@@ -76,21 +76,23 @@ export const Profile: React.FC = () => {
             className={classes.cardHeader}
             avatar={<Avatar src={profile.avatar} className={classes.avatar} />}
             title={profile.name}
-            titleTypographyProps={{ variant: 'h5', fontSize: '1.5rem' }}
             subheader={`${profile.career} (${profile.yearOfExp})`}
-            subheaderTypographyProps={{ variant: 'h6', fontSize: '1.25rem' }}
+            slotProps={{
+              title: { variant: 'h5', sx: { fontSize: '1.5rem' } },
+              subheader: { variant: 'h6', sx: { fontSize: '1.25rem' } },
+            }}
           />
 
           <CardContent>
             <Grid container style={{ height: 830 }}>
-              <Grid item xs={4} className={classes.personalInfo} direction="column">
+              <Grid size={4} className={classes.personalInfo}>
                 <div style={{ display: 'grid', gap: 20 }}>
                   <Personal />
                   <Contact />
                 </div>
               </Grid>
 
-              <Grid item xs={8} className={classes.experienceInfo}>
+              <Grid size={8} className={classes.experienceInfo}>
                 <div style={{ display: 'grid', gap: 20 }}>
                   <About />
                   <Experience experiences={[profile.experiences[0], profile.experiences[1]]} />
@@ -103,11 +105,11 @@ export const Profile: React.FC = () => {
         <Card raised id="page-2" style={{ width: '100%' }}>
           <CardContent>
             <Grid container style={{ height: 1120 }}>
-              <Grid item xs={4} className={classes.personalInfo} direction="column">
+              <Grid size={4} className={classes.personalInfo}>
                 <Skill />
               </Grid>
 
-              <Grid item xs={8} className={classes.experienceInfo}>
+              <Grid size={8} className={classes.experienceInfo}>
                 <Experience experiences={[profile.experiences[2]]} />
               </Grid>
             </Grid>
@@ -117,18 +119,11 @@ export const Profile: React.FC = () => {
         <Card raised id="page-3" style={{ width: '100%' }}>
           <CardContent>
             <Grid container style={{ height: 1120 }}>
-              <Grid
-                container
-                item
-                xs={4}
-                className={classes.personalInfo}
-                direction="column"
-                gap={2}
-              >
+              <Grid container size={4} className={classes.personalInfo} spacing={2}>
                 <Certificate />
               </Grid>
 
-              <Grid item xs={8} className={classes.experienceInfo}>
+              <Grid size={8} className={classes.experienceInfo}>
                 <Experience
                   experiences={[
                     profile.experiences[3],
@@ -144,8 +139,8 @@ export const Profile: React.FC = () => {
         <Card raised id="page-4" style={{ width: '100%' }}>
           <CardContent>
             <Grid container>
-              <Grid item xs={4} className={classes.personalInfo} direction="column"></Grid>
-              <Grid container item xs={8} className={classes.experienceInfo} gap={2}>
+              <Grid size={4} className={classes.personalInfo}></Grid>
+              <Grid container size={8} className={classes.experienceInfo} spacing={2}>
                 <Project
                   projects={[
                     profile.projects[0],
@@ -163,11 +158,9 @@ export const Profile: React.FC = () => {
           <CardMedia>
             <Grid
               container
-              item
-              xs={12}
+              size={12}
               className={classes.cardFooter}
-              justifyContent="center"
-              alignItems="center"
+              sx={{ justifyContent: 'center', alignItems: 'center' }}
             >
               Powered by{' '}
               <Link href="https://material-ui.com" target="_blank" color="inherit">
