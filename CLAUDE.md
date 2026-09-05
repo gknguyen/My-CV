@@ -73,8 +73,7 @@ All dark-mode overrides live in `style.css` using `!important` to beat MT's inte
 
 ### Shared utilities (`src/shared/`)
 
-- `helper.tsx` — `getTotalYearOfExperience()` and other pure helpers
-- `dayjs-with-plugins.ts` — dayjs instance with locale/plugins pre-loaded
+- `helper.tsx` — `getTotalYearOfExperience()`, `formatLongDate()`, and other pure helpers
 - `hooks/useBreakpoint.tsx` — responsive breakpoint hook
 - `lazy-load.tsx` — Suspense wrapper for lazy imports
 

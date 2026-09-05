@@ -1,5 +1,4 @@
-import { dayjs } from '../shared/dayjs-with-plugins';
-import { getTotalYearOfExperience } from '../shared/helper';
+import { formatLongDate, getTotalYearOfExperience } from '../shared/helper';
 
 const APP_DOMAIN = process.env.REACT_APP_DOMAIN;
 
@@ -18,7 +17,7 @@ export const profile = {
   personals: [
     {
       image: 'today',
-      content: dayjs('1995/11/17').format('LL'),
+      content: formatLongDate('1995-11-17'),
     },
     {
       image: 'face',

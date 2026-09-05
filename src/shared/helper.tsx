@@ -28,3 +28,11 @@ export function chunkArray<T>(array: T[], limit: number) {
 export function isUrl(value: string) {
   return /^https?:\/\//i.test(value);
 }
+
+export function formatLongDate(date: string | Date) {
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  }).format(new Date(date));
+}
