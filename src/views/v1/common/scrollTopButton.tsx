@@ -27,21 +27,14 @@ export const ScrollTopButton: FC = () => {
   const { classes } = useStyles();
 
   const [show, setShow] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
 
   useEffect(() => {
+    const handleScroll = () => {
+      setShow(window.scrollY > 1000);
+    };
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  useEffect(() => {
-    setShow(scrollPosition > 1000);
-  }, [scrollPosition]);
-
-  const handleScroll = () => {
-    const position = window.scrollY;
-    setScrollPosition(position);
-  };
 
   const handleClick = useCallback(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });

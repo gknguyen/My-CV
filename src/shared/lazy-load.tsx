@@ -1,7 +1,7 @@
 import { Suspense, useEffect, useRef, useState } from 'react';
 
-export const useFirstViewportEntry = (
-  ref: React.MutableRefObject<any>,
+const useFirstViewportEntry = (
+  ref: React.RefObject<Element | null>,
   observerOptions: IntersectionObserverInit,
 ) => {
   const [entered, setEntered] = useState(false);

@@ -3,7 +3,7 @@ import React from 'react';
 import { profile } from '../../../data/profile';
 import { makeStyles } from '../common/hook';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     // padding: 20,
   },
@@ -13,7 +13,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export const About: React.FC = (props) => {
+export const About: React.FC = () => {
   const { classes } = useStyles();
 
   return (

@@ -1,13 +1,6 @@
 import React from 'react';
 import { Box } from './component';
 
-export const a11yProps = (index: number) => {
-  return {
-    id: `tab-${index}`,
-    'aria-controls': `tabpanel-${index}`,
-  };
-};
-
 interface TabPanelProps {
   style?: React.CSSProperties;
   dir?: string;
