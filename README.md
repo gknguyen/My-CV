@@ -4,7 +4,7 @@ a small project for my CV
 
 ## Technical Stack
 
-- Base template: [create-react-app](https://reactjs.org/docs/create-a-new-react-app.html)
+- Build tool: [Vite](https://vitejs.dev/)
 - Programming language: [Typescript](https://www.typescriptlang.org/)
 - Core: [ReactJS](https://react.dev/)
 - CSS: [TailwindCSS](https://tailwindcss.com/)
@@ -24,16 +24,17 @@ npm ci
 ### Development build
 
 ```sh
-npm start
+npm run dev
 ```
 
 ### Production build
 
 ```sh
 npm run build
-npm install -g serve
-serve -s build
+npm run preview
 ```
+
+Deployed automatically to AWS S3/CloudFront on push to `master` (see `.github/workflows/s3-deployment.yaml`). A standalone Go static server (`server.go`) is also available for self-hosting the `build/` output.
 
 ## Reference
 

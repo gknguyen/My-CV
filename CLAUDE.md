@@ -6,15 +6,17 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ```sh
 npm ci                  # install dependencies
-npm start               # dev server (CRA via craco)
-npm run build           # production build
-npm run lint            # ESLint
+npm run dev             # dev server (Vite)
+npm run build           # type-check (tsc -b) + production build
+npm run build:analyze   # production build + bundle visualizer report
+npm run preview         # serve the production build locally
+npm run lint            # ESLint (flat config)
 npm run format          # Prettier (formats src/**/*.{ts,tsx})
 ```
 
 ## Architecture
 
-**Single-page React app** (CRA + craco) that renders a personal CV. Two versioned UI layouts (`v1`, `v2`) share the same data layer.
+**Single-page React app** (Vite) that renders a personal CV. Two versioned UI layouts (`v1`, `v2`) share the same data layer.
 
 ### Data layer (`src/data/`)
 
@@ -79,5 +81,11 @@ All dark-mode overrides live in `style.css` using `!important` to beat MT's inte
 
 ### Build tooling
 
-- `craco` wraps CRA webpack config; `craco.config.js` handles bundle analysis (`BUILD_ANALYZE=true`)
-- Pre-commit: Husky runs lint/format checks
+- `vite.config.ts` — Vite build config; `@vitejs/plugin-react` + `vite-plugin-checker` (type-checking during dev); bundle analysis via `rollup-plugin-visualizer` when `BUILD_ANALYZE=true` (output: `build/bundle-analysis.html`)
+- `eslint.config.js` — ESLint flat config (`typescript-eslint`, `eslint-plugin-import-x`, `eslint-plugin-react-hooks`, `eslint-plugin-react-refresh`)
+- Pre-commit: Husky + `lint-staged` runs ESLint/Prettier on staged files
+- `server.go` — minimal standalone Go static file server for the `build/` output (optional, not used by the CI deploy pipeline)
+
+### Deployment
+
+`.github/workflows/s3-deployment.yaml` builds on push/merge to `master` and syncs `build/` to an S3 bucket, then invalidates the CloudFront distribution.
