@@ -1,9 +1,8 @@
 import React from 'react';
 import { CertificateImage } from '../../../../data/profile';
-import { Dialog, DialogContent, DialogTitle } from '../../common/component';
-import { DraggableDialog } from '../../common/draggableDialog';
+import { Dialog, DialogContent } from '../../common/component';
+import { CustomPaper } from '../../common/customPaper';
 import { makeStyles } from '../../common/hook';
-import { useCommonStyles } from '../../style';
 
 const useStyles = makeStyles(() => ({
   root: {
@@ -25,7 +24,6 @@ interface Props {
 }
 
 export const CertificateImagePopup: React.FC<Props> = (props) => {
-  const { classes: commonClasses } = useCommonStyles();
   const { classes } = useStyles();
 
   return (
@@ -34,10 +32,8 @@ export const CertificateImagePopup: React.FC<Props> = (props) => {
       onClose={props.closeHandlerCallBack}
       fullWidth
       maxWidth="md"
-      PaperComponent={DraggableDialog}
+      PaperComponent={CustomPaper}
     >
-      <DialogTitle id="draggable-dialog-title" className={commonClasses.drag}></DialogTitle>
-
       <DialogContent>
         <img className={classes.image} alt="certificate" src={props.image.image} />
       </DialogContent>

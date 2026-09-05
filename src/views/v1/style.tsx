@@ -52,12 +52,6 @@ export const useCommonStyles = makeStyles(() => ({
     paddingTop: 5,
     paddingBottom: 5,
   },
-  drag: {
-    cursor: 'grab',
-    '&:active': {
-      cursor: 'grabbing',
-    },
-  },
   ul: {
     paddingLeft: 20,
     marginTop: 5,
