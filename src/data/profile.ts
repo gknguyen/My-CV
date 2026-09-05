@@ -1,6 +1,6 @@
 import { formatLongDate, getTotalYearOfExperience } from '../shared/helper';
 
-const APP_DOMAIN = process.env.REACT_APP_DOMAIN;
+const APP_DOMAIN = import.meta.env.VITE_APP_DOMAIN;
 
 export const profile = {
   name: 'Nguyen Truong Giang',
