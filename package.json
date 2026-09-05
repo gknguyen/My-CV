@@ -24,7 +24,7 @@
     ]
   },
   "engines": {
-    "node": "22"
+    "node": "26"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -47,7 +47,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@craco/craco": "^7.1.0",
-    "@types/node": "^22.19.7",
+    "@types/node": "^26.4.1",
     "@types/react": "^18.2.47",
     "@types/react-dom": "^18.2.18",
     "@types/webpack-bundle-analyzer": "^4.7.0",
