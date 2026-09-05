@@ -12,7 +12,6 @@ a small project for my CV
 - Formatter: [Prettier](https://prettier.io/)
 - Code quality scanner: [Eslint](https://eslint.org/)
 - Pre-commit checker: [Husky](https://typicode.github.io/husky/)
-- Testing: [Cypress](https://www.cypress.io/)
 
 ## Installation
 
@@ -34,24 +33,6 @@ npm start
 npm run build
 npm install -g serve
 serve -s build
-```
-
-## Test
-
-### unit tests
-
-```sh
-npm test
-npm run test:w
-npm run test:cov
-```
-
-### e2e tests
-
-```sh
-npm run test:e2e
-npm run test:e2e:w
-npm run test:e2e:cov
 ```
 
 ## Reference

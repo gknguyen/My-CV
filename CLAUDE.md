@@ -10,22 +10,6 @@ npm start               # dev server (CRA via craco)
 npm run build           # production build
 npm run lint            # ESLint
 npm run format          # Prettier (formats src/**/*.{ts,tsx})
-
-# Component tests (Cypress)
-npm test                # headless
-npm run test:w          # interactive (Chrome)
-npm run test:cov        # headless + coverage report
-
-# E2E tests (Cypress)
-npm run test:e2e        # headless
-npm run test:w:e2e      # interactive (Chrome)
-npm run test:e2e:cov    # headless + coverage report
-```
-
-Run a single test file: open Cypress interactive (`test:w` or `test:w:e2e`) and select the spec manually, or pass `--spec` flag:
-
-```sh
-npx cypress run --component --spec "cypress/component/SomeFile.cy.tsx"
 ```
 
 ## Architecture
@@ -94,14 +78,7 @@ All dark-mode overrides live in `style.css` using `!important` to beat MT's inte
 - `hooks/useBreakpoint.tsx` — responsive breakpoint hook
 - `lazy-load.tsx` — Suspense wrapper for lazy imports
 
-### Testing
-
-- Component tests: `cypress/component/` — Cypress component testing
-- E2E specs: `cypress/e2e/` plus root-level `v1.cy-spec.tsx` / `v2.cy-spec.tsx`
-- Coverage via `@cypress/code-coverage` + `nyc`
-
 ### Build tooling
 
 - `craco` wraps CRA webpack config; `craco.config.js` handles bundle analysis (`BUILD_ANALYZE=true`)
-- `@cypress/instrument-cra` instruments code for coverage during `npm start`
 - Pre-commit: Husky runs lint/format checks
