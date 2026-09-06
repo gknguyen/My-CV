@@ -28,8 +28,17 @@ body {
   color: #60a5fa !important;
 }
 
-.dark #version-2 [role='tablist'] {
+#version-2 [role='tablist'] {
   background: transparent !important;
+}
+
+#version-2 [role='tab'] {
+  background: #f8fafc !important;
+  height: auto;
+}
+
+#version-2 .v2-tab-indicator {
+  background: linear-gradient(to bottom right, #fb923c, #ea580c) !important;
 }
 
 .dark #version-2 [role='tab'] {

@@ -42,6 +42,7 @@ export const Certificates: FC<IProps> = (props) => {
                 {props.cert.list.map((cert) => (
                   <Tab
                     placeholder=""
+                    className={cn(tabValue === cert.name ? 'text-white' : undefined)}
                     key={cert.name}
                     value={cert.name}
                     onClick={() => setTabValue(cert.name)}

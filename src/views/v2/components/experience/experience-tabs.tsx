@@ -28,7 +28,7 @@ export const ExperienceTabs: FC = () => {
           {profile.experiences.map((exp) => (
             <Tab
               placeholder=""
-              className={cn('w-28 rounded-lg')}
+              className={cn('w-28 rounded-lg', tabValue === exp.key ? 'text-white' : undefined)}
               key={exp.key}
               value={exp.key}
               onClick={() => {

@@ -30,7 +30,7 @@ export const CertificateTabs: FC = () => {
           {profile.certificates.map((exp) => (
             <Tab
               placeholder=""
-              className="w-28 rounded-lg"
+              className={cn('w-28 rounded-lg', tabValue === exp.key ? 'text-white' : undefined)}
               key={exp.key}
               value={exp.key}
               onClick={() => {
