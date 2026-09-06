@@ -1,7 +1,7 @@
-import { APPLICATION_ARCHITECT } from '../../src/data/aws-roadmap';
-import { profile } from '../../src/data/profile';
-import { TECH_STACKS } from '../../src/data/tech-stack';
-import { isUrl } from '../../src/shared/helper';
+import { APPLICATION_ARCHITECT } from '../../src/data/aws-roadmap.js';
+import { profile } from '../../src/data/profile.js';
+import { TECH_STACKS } from '../../src/data/tech-stack.js';
+import { isUrl } from '../../src/shared/helper.js';
 
 function toYearMonth(monthYear: string): string {
   const date = new Date(`1 ${monthYear}`);

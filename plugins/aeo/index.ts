@@ -1,6 +1,6 @@
 import type { Plugin } from 'vite';
 
-import { createLlmProfile, type LlmProfile } from './llm-profile';
+import { createLlmProfile, type LlmProfile } from './llm-profile.js';
 
 function personJsonLd(llmProfile: LlmProfile) {
   return {

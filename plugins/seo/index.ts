@@ -1,5 +1,5 @@
 import type { Plugin } from 'vite';
-import { profile } from '../../src/data/profile';
+import { profile } from '../../src/data/profile.js';
 
 const SITE_TITLE = 'GK Nguyen – Fullstack Engineer | MERN Stack Developer (Typescript, AWS)';
 const SITE_DESCRIPTION =

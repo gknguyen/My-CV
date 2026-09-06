@@ -1,4 +1,4 @@
-import { formatLongDate, getTotalYearOfExperience } from '../shared/helper';
+import { formatLongDate, getTotalYearOfExperience } from '../shared/helper.js';
 
 // Optional chaining: `import.meta.env` is only populated inside Vite's app pipeline —
 // this file is also imported (for its data) from `plugins/aeo.ts`, which is

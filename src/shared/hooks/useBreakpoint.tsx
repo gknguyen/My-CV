@@ -9,8 +9,12 @@ function getSnapshot() {
   return window.innerWidth;
 }
 
+function getServerSnapshot() {
+  return 1024;
+}
+
 export function useBreakpoint() {
-  const width = useSyncExternalStore(subscribe, getSnapshot);
+  const width = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   return {
     isSm: width >= 360 && width < 768,
