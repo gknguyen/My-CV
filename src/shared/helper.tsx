@@ -29,10 +29,12 @@ export function isUrl(value: string) {
   return /^https?:\/\//i.test(value);
 }
 
+const longDateFormatter = new Intl.DateTimeFormat('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
 export function formatLongDate(date: string | Date) {
-  return new Intl.DateTimeFormat('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }).format(new Date(date));
+  return longDateFormatter.format(new Date(date));
 }

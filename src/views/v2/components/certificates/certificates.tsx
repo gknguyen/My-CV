@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { FC, useRef, useState } from 'react';
 import { CertificatesType } from '../../../../data/profile';
 import { cn } from '../../../../shared/helper';
@@ -18,10 +18,16 @@ export const Certificates: FC<IProps> = (props) => {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.3 });
 
+  const [activeCertKey, setActiveCertKey] = useState(props.cert.key);
   const [tabValue, setTabValue] = useState(props.cert.list[0].name);
 
+  if (props.cert.key !== activeCertKey) {
+    setActiveCertKey(props.cert.key);
+    setTabValue(props.cert.list[0].name);
+  }
+
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={cn('sm:w-screen md:w-[48rem]', 'rounded-xl overflow-hidden', 'v2-card-wrapper')}
       variants={fadeUpVariant}
@@ -69,6 +75,6 @@ export const Certificates: FC<IProps> = (props) => {
           )}
         </CardBody>
       </Card>
-    </motion.div>
+    </m.div>
   );
 };

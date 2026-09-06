@@ -6,13 +6,17 @@ const useFirstViewportEntry = (
 ) => {
   const [entered, setEntered] = useState(false);
 
-  const observer = useRef(
-    new IntersectionObserver(([entry]) => setEntered(entry.isIntersecting), observerOptions),
-  );
+  const observerRef = useRef<IntersectionObserver | null>(null);
+  if (observerRef.current === null) {
+    observerRef.current = new IntersectionObserver(
+      ([entry]) => setEntered(entry.isIntersecting),
+      observerOptions,
+    );
+  }
 
   useEffect(() => {
     const element = ref.current;
-    const ob = observer.current;
+    const ob = observerRef.current as IntersectionObserver;
 
     if (entered) {
       ob.disconnect();

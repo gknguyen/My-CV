@@ -1,3 +1,4 @@
+import { MotionConfig } from 'framer-motion';
 import { FC, useCallback } from 'react';
 import { Navigate, Outlet } from '../router/component';
 import { ROUTE_V2 } from '../router/const';
@@ -11,5 +12,5 @@ export const App: FC = () => {
     return <Outlet />;
   }, [location.pathname]);
 
-  return autoNavigateRoutes();
+  return <MotionConfig reducedMotion="user">{autoNavigateRoutes()}</MotionConfig>;
 };

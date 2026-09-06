@@ -53,8 +53,8 @@ export const Project: React.FC<IProps> = (props) => {
                   <Typography component="span">
                     {project.type}
                     <ul className={commonClasses.ul}>
-                      {project.descriptions.map((description, index) => (
-                        <li key={`${index}-${description}`}>
+                      {project.descriptions.map((description) => (
+                        <li key={description}>
                           {isUrl(description) ? (
                             <Link href={description} target="_blank">
                               {description}

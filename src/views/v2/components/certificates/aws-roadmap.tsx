@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FC } from 'react';
 import { APPLICATION_ARCHITECT } from '../../../../data/aws-roadmap';
 import { Typography } from '../../common/components';
@@ -33,7 +33,7 @@ export const AwsRoadmap: FC<IProps> = (props) => {
           return (
             <div key={cert.title} className="flex">
               {!!index && <ArrowRightIcon className="sm:hidden md:block w-8" />}
-              <motion.div
+              <m.div
                 whileHover={validCert ? { scale: 1.08 } : {}}
                 whileTap={validCert ? { scale: 0.97 } : {}}
                 transition={{ type: 'spring', stiffness: 200 }}
@@ -47,7 +47,7 @@ export const AwsRoadmap: FC<IProps> = (props) => {
                     <img alt={cert.title} src={cert.image} className="h-40 grayscale" />
                   </span>
                 )}
-              </motion.div>
+              </m.div>
             </div>
           );
         })}
@@ -61,7 +61,7 @@ export const AwsRoadmap: FC<IProps> = (props) => {
           return (
             <div key={cert.title} className="flex">
               {!!index && <PlusIcon className="sm:hidden md:block w-[27px]" />}
-              <motion.div
+              <m.div
                 whileHover={validCert ? { scale: 1.08 } : {}}
                 whileTap={validCert ? { scale: 0.97 } : {}}
                 transition={{ type: 'spring', stiffness: 200 }}
@@ -75,7 +75,7 @@ export const AwsRoadmap: FC<IProps> = (props) => {
                     <img alt={cert.title} src={cert.image} className="h-40 grayscale" />
                   </span>
                 )}
-              </motion.div>
+              </m.div>
             </div>
           );
         })}

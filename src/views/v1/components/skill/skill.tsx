@@ -31,8 +31,8 @@ export const Skill: React.FC = () => {
         <strong>SKILLS</strong>
       </Typography>
 
-      {profile.skills.map((skill, index) => (
-        <SkillItem key={index} skill={skill} />
+      {profile.skills.map((skill) => (
+        <SkillItem key={skill.category} skill={skill} />
       ))}
     </Box>
   );

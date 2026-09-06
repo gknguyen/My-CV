@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FC, useMemo } from 'react';
 import { profile } from '../../../data/profile';
 import { TECH_STACKS } from '../../../data/tech-stack';
@@ -64,7 +64,7 @@ export const Overview: FC = () => {
 
   return (
     <div id="overview" className={cn('grid content-center justify-center', 'h-auto min-h-screen')}>
-      <motion.div
+      <m.div
         className={cn('sm:w-screen md:w-[48rem]', 'rounded-xl overflow-hidden', 'v2-card-wrapper')}
         variants={containerVariants}
         initial="hidden"
@@ -76,7 +76,7 @@ export const Overview: FC = () => {
             className="grid sm:grid-row-1 md:grid-cols-3 sm:text-center md:text-left sm:gap-2 md:gap-0"
           >
             <div className="md:col-span-2 gap-2 sm:order-2 md:order-1">
-              <motion.div
+              <m.div
                 className="mb-2 flex sm:flex-col md:flex-row sm:gap-0 md:gap-2"
                 variants={fadeUpVariant}
               >
@@ -92,9 +92,9 @@ export const Overview: FC = () => {
                     {text}
                   </Typography>
                 ))}
-              </motion.div>
+              </m.div>
 
-              <motion.div variants={fadeUpVariant}>
+              <m.div variants={fadeUpVariant}>
                 <Typography placeholder="card-about" className="mb-2 dark:text-slate-100">
                   Hi, i'm {profile.name}, a fullstack developer based in HCMC, Vietnam.
                 </Typography>
@@ -121,10 +121,10 @@ export const Overview: FC = () => {
                     </Button>
                   </div>
                 </div>
-              </motion.div>
+              </m.div>
             </div>
 
-            <motion.div
+            <m.div
               className="sm:order-1 md:order-2"
               variants={slideRightVariant}
               whileHover={{ scale: 1.02 }}
@@ -136,11 +136,11 @@ export const Overview: FC = () => {
                 variant="rounded"
                 className="w-60 h-60"
               />
-            </motion.div>
+            </m.div>
           </CardBody>
 
           <CardFooter className="pt-0" placeholder="">
-            <motion.div
+            <m.div
               className="items-center flex sm:flex-col md:flex-row sm:gap-4 md:gap-6"
               variants={fadeUpVariant}
             >
@@ -181,10 +181,10 @@ export const Overview: FC = () => {
                   </BasePopover>
                 ))}
               </div>
-            </motion.div>
+            </m.div>
           </CardFooter>
         </Card>
-      </motion.div>
+      </m.div>
     </div>
   );
 };

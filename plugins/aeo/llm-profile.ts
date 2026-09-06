@@ -101,9 +101,10 @@ export function createLlmProfile(siteUrl: string) {
 
     languages: languageSkills.map(parseLanguage),
 
-    sameAs: profile.contacts
-      .filter((c) => c.type === 'url' && c.key !== 'portfolio')
-      .map((c) => toUrl(c.content)),
+    sameAs: profile.contacts.reduce<string[]>((urls, c) => {
+      if (c.type === 'url' && c.key !== 'portfolio') urls.push(toUrl(c.content));
+      return urls;
+    }, []),
 
     alumniOf: {
       name: school.content,
@@ -126,13 +127,15 @@ export function createLlmProfile(siteUrl: string) {
 
     certifications: profile.certificates.flatMap((provider) => {
       const certList = provider.list as Array<{ name: string; isShow: boolean; link?: string }>;
-      return certList
-        .filter((cert) => cert.isShow)
-        .map((cert) => ({
-          name: cert.name,
-          issuer: provider.name,
-          url: cert.link ?? null,
-        }));
+      return certList.reduce<Array<{ name: string; issuer: string; url: string | null }>>(
+        (shown, cert) => {
+          if (cert.isShow) {
+            shown.push({ name: cert.name, issuer: provider.name, url: cert.link ?? null });
+          }
+          return shown;
+        },
+        [],
+      );
     }),
 
     workHistory: profile.experiences.map((job) => ({

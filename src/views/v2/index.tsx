@@ -1,3 +1,4 @@
+import { domAnimation, LazyMotion } from 'framer-motion';
 import { useEffect } from 'react';
 import { About } from './components/about';
 import { BackToTop } from './components/back-to-top';
@@ -18,16 +19,18 @@ export const V2: React.FC = () => {
   }, []);
 
   return (
-    <div id="version-2">
-      <Header isDark={isDark} onToggleDark={toggle} activeSection={activeSection} />
-      <BackToTop />
+    <LazyMotion features={domAnimation}>
+      <div id="version-2">
+        <Header isDark={isDark} onToggleDark={toggle} activeSection={activeSection} />
+        <BackToTop />
 
-      <div className="-mt-10 overflow-x-hidden">
-        <Overview />
-        <About />
-        <ExperienceTabs />
-        <CertificateTabs />
+        <div className="-mt-10 overflow-x-hidden">
+          <Overview />
+          <About />
+          <ExperienceTabs />
+          <CertificateTabs />
+        </div>
       </div>
-    </div>
+    </LazyMotion>
   );
 };

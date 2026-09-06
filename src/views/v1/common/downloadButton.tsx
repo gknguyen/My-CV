@@ -28,7 +28,7 @@ export const DownloadButton: FC = () => {
 
   return (
     <a href="/resumes/nguyen-truong-giang.pdf" target="_blank" rel="noopener noreferrer">
-      <IconButton className={classes.root}>
+      <IconButton className={classes.root} aria-label="Download resume PDF">
         <GetAppIcon />
       </IconButton>
     </a>

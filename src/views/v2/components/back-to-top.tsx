@@ -1,7 +1,9 @@
 import { ArrowUpIcon } from '@heroicons/react/24/solid';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { AnimatePresence } from '../common/animate-presence';
 import { FC, useEffect, useState } from 'react';
+
+const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
 export const BackToTop: FC = () => {
   const [visible, setVisible] = useState(false);
@@ -14,12 +16,10 @@ export const BackToTop: FC = () => {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' });
-
   return (
     <AnimatePresence>
       {visible && (
-        <motion.button
+        <m.button
           key="back-to-top"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export const BackToTop: FC = () => {
           aria-label="Back to top"
         >
           <ArrowUpIcon className="w-5 h-5" />
-        </motion.button>
+        </m.button>
       )}
     </AnimatePresence>
   );

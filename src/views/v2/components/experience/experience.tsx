@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { FC, useCallback, useRef, useState } from 'react';
 import { ExperienceType } from '../../../../data/profile';
 import { cn, highlightAchievement } from '../../../../shared/helper';
@@ -43,7 +43,7 @@ export const Experience: FC<IProps> = (props) => {
   }, []);
 
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={cn('sm:w-screen md:w-[48rem]', 'rounded-xl', 'v2-card-wrapper')}
       variants={containerVariants}
@@ -55,7 +55,7 @@ export const Experience: FC<IProps> = (props) => {
       <Card className="sm:w-screen md:w-[48rem] v2-card" placeholder="">
         <CardBody placeholder="" className="grid gap-4">
           <div className="grid sm:grid-cols-1 md:grid-cols-4 gap-2">
-            <motion.div className="col-span-3" variants={slideLeftVariant}>
+            <m.div className="col-span-3" variants={slideLeftVariant}>
               <Typography
                 placeholder=""
                 variant="h5"
@@ -74,18 +74,15 @@ export const Experience: FC<IProps> = (props) => {
               </Typography>
 
               <ul>
-                {props.exp.descriptions.map((des, index) => (
-                  <li key={`${index}-${des}`}>{highlightAchievement(des)}</li>
+                {props.exp.descriptions.map((des) => (
+                  <li key={des}>{highlightAchievement(des)}</li>
                 ))}
               </ul>
-            </motion.div>
+            </m.div>
 
-            <motion.div
-              className="justify-self-end sm:hidden md:block"
-              variants={slideRightVariant}
-            >
+            <m.div className="justify-self-end sm:hidden md:block" variants={slideRightVariant}>
               <img src={props.exp.logo} alt={props.exp.title} className="rounded-2xl bg-white" />
-            </motion.div>
+            </m.div>
           </div>
 
           {!!props.exp.projects?.length && (
@@ -104,6 +101,6 @@ export const Experience: FC<IProps> = (props) => {
           onClose={onCloseExpDetail}
         />
       </Card>
-    </motion.div>
+    </m.div>
   );
 };

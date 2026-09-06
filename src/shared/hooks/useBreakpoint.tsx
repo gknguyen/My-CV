@@ -1,13 +1,16 @@
-import { useLayoutEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
+
+function subscribe(onChange: () => void) {
+  window.addEventListener('resize', onChange);
+  return () => window.removeEventListener('resize', onChange);
+}
+
+function getSnapshot() {
+  return window.innerWidth;
+}
 
 export function useBreakpoint() {
-  const [width, setWidth] = useState(window.innerWidth);
-
-  useLayoutEffect(() => {
-    const resize = () => setWidth(window.innerWidth);
-    window.addEventListener('resize', resize);
-    return () => window.removeEventListener('resize', resize);
-  }, []);
+  const width = useSyncExternalStore(subscribe, getSnapshot);
 
   return {
     isSm: width >= 360 && width < 768,

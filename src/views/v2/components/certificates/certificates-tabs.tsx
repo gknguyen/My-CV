@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { AnimatePresence } from '../../common/animate-presence';
 import { FC, lazy, Suspense, useState } from 'react';
 import { CertificatesType, profile } from '../../../../data/profile';
@@ -46,7 +46,7 @@ export const CertificateTabs: FC = () => {
         <TabsBody placeholder="" style={{ minHeight: isSm ? 715 : 665, overflow: 'hidden' }}>
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <AnimatePresence mode="wait">
-              <motion.div
+              <m.div
                 key={tabValue}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -56,7 +56,7 @@ export const CertificateTabs: FC = () => {
                 <Suspense fallback={null}>
                   <Certificates cert={tabContent} />
                 </Suspense>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </TabPanel>
         </TabsBody>

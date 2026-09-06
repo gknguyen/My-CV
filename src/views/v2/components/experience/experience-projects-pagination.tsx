@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { FC, useCallback, useMemo, useState } from 'react';
 import { chunkArray, cn } from '../../../../shared/helper';
 import { AnimatePresence } from '../../common/animate-presence';
@@ -26,8 +26,8 @@ export const ExperienceProjectsPagination: FC<Props> = (props) => {
 
   const [active, setActive] = useState(0);
 
-  const minPage = useMemo(() => 0, []);
-  const maxPage = useMemo(() => projectsGroup.length - 1, [projectsGroup]);
+  const minPage = 0;
+  const maxPage = projectsGroup.length - 1;
 
   const next = useCallback(() => {
     if (active === maxPage) return;
@@ -41,88 +41,75 @@ export const ExperienceProjectsPagination: FC<Props> = (props) => {
 
   return (
     <>
-      {projectsGroup.length === 1 ? (
-        <AnimatePresence mode="wait">
-          <motion.ol
-            key={active}
-            className="relative grid gap-5 border-s-2"
-            variants={listVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {projectsGroup[0].map((proj) => (
-              <ProjectDetail
-                key={proj.name}
-                project={proj}
-                onOpenExpDetail={props.onOpenExpDetail}
-              />
-            ))}
-          </motion.ol>
-        </AnimatePresence>
-      ) : (
+      <ProjectsList
+        projects={projectsGroup[active]}
+        active={active}
+        onOpenExpDetail={props.onOpenExpDetail}
+      />
+
+      {projectsGroup.length > 1 && (
         <>
-          <motion.button
-            onClick={prev}
-            disabled={active === minPage}
-            whileHover={active === minPage ? {} : { scale: 1.1 }}
-            whileTap={active === minPage ? {} : { scale: 0.95 }}
-            className={cn(
-              'absolute z-50',
-              'sm:left-[39%] sm:top-auto sm:-bottom-5',
-              'md:-left-5 md:top-1/2 md:bottom-1/2',
-              'p-2 border-2 rounded-xl h-fit',
-              'v2-pagination-btn',
-              active === minPage
-                ? 'bg-gray-100 border-gray-200 cursor-not-allowed opacity-50'
-                : 'bg-white border-gray-500 cursor-pointer',
-            )}
-          >
-            <ArrowLeftIcon
-              className={cn('h-5 w-5', active === minPage ? 'text-gray-400' : 'text-gray-600')}
-            />
-          </motion.button>
-
-          <AnimatePresence mode="wait">
-            <motion.ol
-              key={active}
-              className="relative grid gap-5 border-s-2"
-              variants={listVariants}
-              initial="hidden"
-              animate="visible"
-            >
-              {projectsGroup[active].map((proj) => (
-                <ProjectDetail
-                  key={proj.name}
-                  project={proj}
-                  onOpenExpDetail={props.onOpenExpDetail}
-                />
-              ))}
-            </motion.ol>
-          </AnimatePresence>
-
-          <motion.button
-            onClick={next}
-            disabled={active === maxPage}
-            whileHover={active === maxPage ? {} : { scale: 1.1 }}
-            whileTap={active === maxPage ? {} : { scale: 0.95 }}
-            className={cn(
-              'absolute z-50',
-              'sm:right-[39%] sm:top-auto sm:-bottom-5',
-              'md:-right-5 md:top-1/2 md:bottom-1/2',
-              'p-2 border-2 rounded-xl h-fit',
-              'v2-pagination-btn',
-              active === maxPage
-                ? 'bg-gray-100 border-gray-200 cursor-not-allowed opacity-50'
-                : 'bg-white border-gray-500 cursor-pointer',
-            )}
-          >
-            <ArrowRightIcon
-              className={cn('h-5 w-5', active === maxPage ? 'text-gray-400' : 'text-gray-600')}
-            />
-          </motion.button>
+          <PaginationButton direction="prev" onClick={prev} disabled={active === minPage} />
+          <PaginationButton direction="next" onClick={next} disabled={active === maxPage} />
         </>
       )}
     </>
+  );
+};
+
+interface ProjectsListProps {
+  projects: ExperienceDetailType[];
+  active: number;
+  onOpenExpDetail: (detail: ExperienceDetailType) => void;
+}
+
+const ProjectsList: FC<ProjectsListProps> = ({ projects, active, onOpenExpDetail }) => (
+  <AnimatePresence mode="wait">
+    <m.ol
+      key={active}
+      className="relative grid gap-5 border-s-2"
+      variants={listVariants}
+      initial="hidden"
+      animate="visible"
+    >
+      {projects.map((proj) => (
+        <ProjectDetail key={proj.name} project={proj} onOpenExpDetail={onOpenExpDetail} />
+      ))}
+    </m.ol>
+  </AnimatePresence>
+);
+
+interface PaginationButtonProps {
+  direction: 'prev' | 'next';
+  onClick: () => void;
+  disabled: boolean;
+}
+
+const PaginationButton: FC<PaginationButtonProps> = ({ direction, onClick, disabled }) => {
+  const Icon = direction === 'prev' ? ArrowLeftIcon : ArrowRightIcon;
+
+  return (
+    <m.button
+      type="button"
+      aria-label={direction === 'prev' ? 'Previous projects' : 'Next projects'}
+      onClick={onClick}
+      disabled={disabled}
+      whileHover={disabled ? {} : { scale: 1.1 }}
+      whileTap={disabled ? {} : { scale: 0.95 }}
+      className={cn(
+        'absolute z-50',
+        direction === 'prev'
+          ? cn('sm:left-[39%] sm:top-auto sm:-bottom-5', 'md:-left-5 md:top-1/2 md:bottom-1/2')
+          : cn('sm:right-[39%] sm:top-auto sm:-bottom-5', 'md:-right-5 md:top-1/2 md:bottom-1/2'),
+        'p-2 border-2 rounded-xl h-fit',
+        'v2-pagination-btn',
+        disabled
+          ? 'bg-gray-100 border-gray-200 cursor-not-allowed opacity-50'
+          : 'bg-white border-gray-500 cursor-pointer',
+      )}
+    >
+      <Icon className={cn('h-5 w-5', disabled ? 'text-gray-400' : 'text-gray-600')} />
+    </m.button>
   );
 };
 
@@ -132,7 +119,7 @@ interface ProjectDetailProps {
 }
 
 const ProjectDetail: FC<ProjectDetailProps> = ({ project: proj, onOpenExpDetail }) => (
-  <motion.li
+  <m.li
     key={proj.name}
     className="mx-8"
     variants={itemVariants}
@@ -140,7 +127,9 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project: proj, onOpenExpDetail 
     animate="animate"
     exit="exit"
   >
-    <span
+    <button
+      type="button"
+      aria-label={`View details for ${proj.name}`}
       className={cn(
         'absolute flex items-center justify-center w-8 h-8 bg-orange-300 rounded-full ring-4 ring-white',
         'hover:cursor-pointer hover:bg-orange-500 hover:scale-110 active:scale-90',
@@ -150,7 +139,7 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project: proj, onOpenExpDetail 
       onClick={() => onOpenExpDetail(proj)}
     >
       <PlusIcon className="block w-[27px] pointer-events-none" />
-    </span>
+    </button>
 
     <div>
       <Typography placeholder="" variant="h5" className="dark:text-slate-100">
@@ -161,5 +150,5 @@ const ProjectDetail: FC<ProjectDetailProps> = ({ project: proj, onOpenExpDetail 
       </Typography>
       <div className={cn('sm:hidden', 'md:block')}>{proj.descriptions[0]}</div>
     </div>
-  </motion.li>
+  </m.li>
 );

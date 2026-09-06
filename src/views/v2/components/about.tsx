@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion';
+import { m, useInView } from 'framer-motion';
 import { FC, useRef } from 'react';
 import { profile } from '../../../data/profile';
 import { cn, isUrl } from '../../../shared/helper';
@@ -31,7 +31,7 @@ export const About: FC = () => {
 
   return (
     <div id="about" className={cn('grid content-center justify-center', 'h-auto min-h-screen')}>
-      <motion.div
+      <m.div
         ref={ref}
         className={cn('sm:w-screen md:w-[48rem]', 'rounded-xl overflow-hidden', 'v2-card-wrapper')}
         variants={containerVariants}
@@ -40,7 +40,7 @@ export const About: FC = () => {
       >
         <Card className="sm:w-screen md:w-[48rem] v2-card" placeholder="">
           <CardBody placeholder="" className="grid sm:grid-cols-1 md:grid-cols-3">
-            <motion.div
+            <m.div
               className="sm:hidden md:block"
               variants={slideLeftVariant}
               whileHover={{ scale: 1.02 }}
@@ -52,10 +52,10 @@ export const About: FC = () => {
                 variant="rounded"
                 className="w-60 h-60"
               />
-            </motion.div>
+            </m.div>
 
             <div className="col-span-2 gap-2 md:pl-8">
-              <motion.div variants={fadeUpVariant}>
+              <m.div variants={fadeUpVariant}>
                 <Typography
                   placeholder=""
                   variant="h5"
@@ -64,9 +64,9 @@ export const About: FC = () => {
                 >
                   ABOUT ME
                 </Typography>
-              </motion.div>
+              </m.div>
 
-              <motion.div variants={slideRightVariant}>
+              <m.div variants={slideRightVariant}>
                 {profile.about.map((ele) => (
                   <Typography key={ele} placeholder="" className="mb-2 dark:text-slate-100">
                     {ele}
@@ -77,42 +77,40 @@ export const About: FC = () => {
                   Some fun projects that i have made
                 </Typography>
                 <div className="grid grid-cols-1 gap-3">
-                  {[profile.projects[0], profile.projects[1], profile.projects[2]].map(
-                    (proj, index) => (
-                      <motion.div
-                        key={`${index}-${proj.title}`}
-                        whileHover={{ scale: 1.02 }}
-                        transition={{ type: 'spring', stiffness: 300 }}
-                        className="p-3 rounded-lg border border-gray-200 dark:border-slate-600 bg-white/50 dark:bg-slate-700/60 flex flex-col gap-1"
-                      >
-                        <div className="flex items-center gap-2">
-                          {proj.logo && (
-                            <img
-                              src={proj.logo}
-                              alt={proj.title}
-                              className="w-5 h-5 object-contain shrink-0 bg-white border border-gray-300 rounded-md p-0.5 shadow-sm"
-                            />
-                          )}
-                          <span className="text-sm font-semibold dark:text-white leading-tight">
-                            {proj.title}
-                          </span>
-                        </div>
-                        <p className="text-xs text-gray-600 dark:text-slate-300 line-clamp-2">
-                          {isUrl(proj.descriptions[0]) ? (
-                            <CustomLink link={proj.descriptions[0]} notDisplayProtocol />
-                          ) : (
-                            proj.descriptions[0]
-                          )}
-                        </p>
-                      </motion.div>
-                    ),
-                  )}
+                  {[profile.projects[0], profile.projects[1], profile.projects[2]].map((proj) => (
+                    <m.div
+                      key={proj.title}
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ type: 'spring', stiffness: 300 }}
+                      className="p-3 rounded-lg border border-gray-200 dark:border-slate-600 bg-white/50 dark:bg-slate-700/60 flex flex-col gap-1"
+                    >
+                      <div className="flex items-center gap-2">
+                        {proj.logo && (
+                          <img
+                            src={proj.logo}
+                            alt={proj.title}
+                            className="w-5 h-5 object-contain shrink-0 bg-white border border-gray-300 rounded-md p-0.5 shadow-sm"
+                          />
+                        )}
+                        <span className="text-sm font-semibold dark:text-white leading-tight">
+                          {proj.title}
+                        </span>
+                      </div>
+                      <p className="text-xs text-gray-600 dark:text-slate-300 line-clamp-2">
+                        {isUrl(proj.descriptions[0]) ? (
+                          <CustomLink link={proj.descriptions[0]} notDisplayProtocol />
+                        ) : (
+                          proj.descriptions[0]
+                        )}
+                      </p>
+                    </m.div>
+                  ))}
                 </div>
-              </motion.div>
+              </m.div>
             </div>
           </CardBody>
         </Card>
-      </motion.div>
+      </m.div>
     </div>
   );
 };

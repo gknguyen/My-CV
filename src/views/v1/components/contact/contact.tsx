@@ -24,8 +24,8 @@ export const Contact: React.FC = () => {
       </Typography>
 
       <List className={commonClasses.list}>
-        {profile.contacts.map((contact, index) => (
-          <ContactItem key={index} contact={contact} />
+        {profile.contacts.map((contact) => (
+          <ContactItem key={contact.key} contact={contact} />
         ))}
       </List>
     </Box>

@@ -23,8 +23,8 @@ export const Personal: React.FC = () => {
       </Typography>
 
       <List className={commonClasses.list}>
-        {profile.personals.map((personal, index) => (
-          <PersonalItem key={index} personal={personal} />
+        {profile.personals.map((personal) => (
+          <PersonalItem key={personal.image} personal={personal} />
         ))}
       </List>
     </Box>

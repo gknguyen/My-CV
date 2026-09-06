@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { AnimatePresence } from '../../common/animate-presence';
 import { FC, lazy, Suspense, useState } from 'react';
 import { ExperienceType, profile } from '../../../../data/profile';
@@ -48,7 +48,7 @@ export const ExperienceTabs: FC = () => {
         >
           <TabPanel key={tabContent.key} value={tabContent.key} className="p-0">
             <AnimatePresence mode="wait">
-              <motion.div
+              <m.div
                 key={tabValue}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -58,7 +58,7 @@ export const ExperienceTabs: FC = () => {
                 <Suspense fallback={null}>
                   <Experience exp={tabContent} />
                 </Suspense>
-              </motion.div>
+              </m.div>
             </AnimatePresence>
           </TabPanel>
         </TabsBody>
