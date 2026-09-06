@@ -3,8 +3,8 @@ import { visualizer } from 'rollup-plugin-visualizer';
 import type { PluginOption } from 'vite';
 import { defineConfig, loadEnv } from 'vite';
 import checker from 'vite-plugin-checker';
-
 import { aeoPlugin } from './plugins/aeo';
+import { seoPlugin } from './plugins/seo';
 
 // eslint-disable-next-line import-x/no-default-export
 export default defineConfig(({ mode }) => {
@@ -14,6 +14,7 @@ export default defineConfig(({ mode }) => {
     react(),
     checker({ typescript: true }),
     aeoPlugin({ siteUrl: env.VITE_APP_DOMAIN }),
+    seoPlugin({ siteUrl: env.VITE_APP_DOMAIN }),
   ];
 
   if (process.env.BUILD_ANALYZE === 'true') {
