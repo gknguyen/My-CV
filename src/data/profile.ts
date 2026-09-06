@@ -1,6 +1,9 @@
 import { formatLongDate, getTotalYearOfExperience } from '../shared/helper';
 
-const APP_DOMAIN = import.meta.env.VITE_APP_DOMAIN;
+// Optional chaining: `import.meta.env` is only populated inside Vite's app pipeline —
+// this file is also imported (for its data) from `plugins/aeo.ts`, which is
+// loaded by `vite.config.ts` itself, where `import.meta.env` is not defined.
+const APP_DOMAIN = import.meta.env?.VITE_APP_DOMAIN;
 
 export const profile = {
   name: 'Nguyen Truong Giang',

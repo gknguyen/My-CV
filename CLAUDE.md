@@ -26,6 +26,15 @@ All CV content lives here as plain TypeScript objects — no API calls, no state
 - `tech-stack.ts` — tech stack icon lists
 - `aws-roadmap.ts` — AWS certification roadmap data
 
+### AEO / LLM discoverability
+
+`plugins/aeo/index.ts` defines an `aeoPlugin` (wired into `vite.config.ts`) that uses `plugins/aeo/llm-profile.ts`'s `createLlmProfile(siteUrl)` factory — which derives a canonical, machine-readable (schema.org-shaped) summary of the CV owner directly from `profile.ts`, `aws-roadmap.ts`, and `tech-stack.ts` — and, at build time:
+
+- injects a `<script type="application/ld+json">` `Person` schema into `index.html`'s `<head>` (via `transformIndexHtml`) — readable by crawlers that don't execute JavaScript
+- emits `build/llms.txt`, a plain-Markdown summary of the profile (per the [llms.txt](https://llmstxt.org) convention) — via `generateBundle`
+
+`siteUrl` comes from `.env`'s `VITE_APP_DOMAIN`, read via `loadEnv` in `vite.config.ts` and passed into `aeoPlugin`. Both generated artifacts stay in sync automatically since they're derived from the same UI data — no separate file to update when profile data changes.
+
 ### Router (`src/router/`)
 
 `react-router-dom` v6 with lazy-loaded routes. Both versions are children of the root `App` component:
