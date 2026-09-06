@@ -8,19 +8,21 @@ export const TECH_STACKS = [
         name: 'Go Gin',
         path: '/icons/go/gin.svg',
       },
-    ],
-  },
-  {
-    name: 'Javascript',
-    path: '/icons/js/javascript.svg',
-    addons: [
       {
-        name: 'Typescript',
-        path: '/icons/js/typescript.svg',
+        name: 'Go Echo',
+        path: '/icons/go/echo.svg',
       },
       {
-        name: 'Eslint',
-        path: '/icons/js/eslint.svg',
+        name: 'Go Bun',
+        path: '/icons/go/bun.png',
+      },
+      {
+        name: 'ConnectRPC',
+        path: '/icons/go/connectrpc.svg',
+      },
+      {
+        name: 'Go Wails',
+        path: '/icons/go/wails.svg',
       },
     ],
   },
@@ -28,6 +30,10 @@ export const TECH_STACKS = [
     name: 'Node.js',
     path: '/icons/backend/nodejs.svg',
     addons: [
+      {
+        name: 'Typescript',
+        path: '/icons/js/typescript.svg',
+      },
       {
         name: 'Express.js',
         path: '/icons/backend/express.svg',
@@ -41,16 +47,16 @@ export const TECH_STACKS = [
         path: '/icons/backend/mongoose.svg',
       },
       {
-        name: 'Sequelize',
-        path: '/icons/backend/sequelize.svg',
-      },
-      {
         name: 'Typeorm',
         path: '/icons/backend/typeorm.svg',
       },
       {
         name: 'Jest',
         path: '/icons/test/jest.svg',
+      },
+      {
+        name: 'Electron.js',
+        path: '/icons/electron.svg',
       },
     ],
   },
@@ -63,12 +69,12 @@ export const TECH_STACKS = [
         path: '/icons/frontend/react-native.svg',
       },
       {
-        name: 'Material UI',
-        path: '/icons/frontend/mui.svg',
+        name: 'Next.js',
+        path: '/icons/frontend/nextjs.svg',
       },
       {
-        name: 'Ant Design',
-        path: '/icons/frontend/ant-design.svg',
+        name: 'Tanstack',
+        path: '/icons/frontend/tanstack.svg',
       },
       {
         name: 'Tailwind CSS',
@@ -83,10 +89,6 @@ export const TECH_STACKS = [
         path: '/icons/test/cypress.svg',
       },
     ],
-  },
-  {
-    name: 'Electron.js',
-    path: '/icons/electron.svg',
   },
   {
     /** https://aws-icons.com/ */
@@ -216,6 +218,20 @@ export const TECH_STACKS = [
       {
         name: 'CloudFormation',
         path: '/icons/iac/cloud-formation.svg',
+      },
+    ],
+  },
+  {
+    name: 'LLM',
+    path: '/icons/llm/llm.svg',
+    addons: [
+      {
+        name: 'Claude Code',
+        path: '/icons/llm/claude-code.svg',
+      },
+      {
+        name: 'Codex',
+        path: '/icons/llm/codex.svg',
       },
     ],
   },
