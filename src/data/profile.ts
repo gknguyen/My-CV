@@ -442,11 +442,11 @@ export const profile = {
   projects: [
     {
       period: 'Jul 2026 - Now',
-      title: 'Litelens',
-      logo: 'https://litelensapp.github.io/assets/logo-transparent-Bh9_wwGG.png',
+      title: 'Galacius',
+      logo: 'https://galacius.github.io/assets/logo-transparent-Byr80d6b.png',
       type: 'Personal project',
       descriptions: [
-        'https://litelensapp.github.io',
+        'https://galacius.github.io',
         'a lightweight, native desktop app for managing Kubernetes clusters',
         'Using React.js, Vite, Tailwind CSS & Shadcn UI for App UI/UX',
         'Using Wails (Golang) to build App engine',
