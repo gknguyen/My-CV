@@ -1,47 +1,44 @@
-import type { Plugin } from 'vite';
-import { profile } from '../../src/data/profile.js';
+import type { HtmlTagDescriptor, Plugin, ResolvedConfig } from 'vite';
+import type { SiteRoute } from '../site-routes.js';
+import { ogTags } from './og-tags.js';
+import { sitemapXml } from './sitemap.js';
 
-const SITE_TITLE = 'GK Nguyen – Fullstack Engineer | MERN Stack Developer (Typescript, AWS)';
-const SITE_DESCRIPTION =
-  'Fullstack Engineer specializing in Typescript, NestJS, React.js, AWS, Kubernetes, and distributed systems. Portfolio, projects, and blog.';
-
-function metaTags({
+/** Injects Open Graph and Twitter Card meta tags, plus a canonical link, into `index.html`'s
+ * `<head>`, so links to the site render a rich preview card (title, description, image) across
+ * social platforms and chat apps (Facebook, LinkedIn, X/Twitter, Slack, Discord, etc.). Also
+ * generates `sitemap.xml` (from `routes`, kept in sync with what `ssgPlugin` prerenders). */
+export function seoPlugin({
   siteUrl,
+  routes = [],
 }: {
   siteUrl: string;
-}): Array<{ attr: 'property' | 'name'; key: string; content: string }> {
-  const image = `${siteUrl}${profile.avatar}`;
+  routes?: SiteRoute[];
+}): Plugin {
+  let config: ResolvedConfig;
 
-  return [
-    // Open Graph — Facebook, LinkedIn, Slack, Discord, etc.
-    { attr: 'property', key: 'og:type', content: 'website' },
-    { attr: 'property', key: 'og:site_name', content: profile.name },
-    { attr: 'property', key: 'og:locale', content: 'en_US' },
-    { attr: 'property', key: 'og:title', content: SITE_TITLE },
-    { attr: 'property', key: 'og:description', content: SITE_DESCRIPTION },
-    { attr: 'property', key: 'og:url', content: siteUrl },
-    { attr: 'property', key: 'og:image', content: image },
-
-    // Twitter/X Cards
-    { attr: 'name', key: 'twitter:card', content: 'summary_large_image' },
-    { attr: 'name', key: 'twitter:title', content: SITE_TITLE },
-    { attr: 'name', key: 'twitter:description', content: SITE_DESCRIPTION },
-    { attr: 'name', key: 'twitter:image', content: image },
-  ];
-}
-
-/** Injects Open Graph and Twitter Card meta tags into `index.html`'s `<head>`, so links to
- * the site render a rich preview card (title, description, image) across social platforms
- * and chat apps (Facebook, LinkedIn, X/Twitter, Slack, Discord, etc.). */
-export function seoPlugin({ siteUrl }: { siteUrl: string }): Plugin {
   return {
     name: 'seo-og-tags',
-    transformIndexHtml() {
-      return metaTags({ siteUrl }).map(({ attr, key, content }) => ({
-        tag: 'meta',
-        attrs: { [attr]: key, content },
+    configResolved(resolvedConfig) {
+      config = resolvedConfig;
+    },
+    transformIndexHtml(): HtmlTagDescriptor[] {
+      const canonicalTag: HtmlTagDescriptor = {
+        tag: 'link',
+        attrs: { rel: 'canonical', href: siteUrl },
         injectTo: 'head',
-      }));
+      };
+
+      return [...ogTags({ siteUrl }), canonicalTag];
+    },
+    generateBundle() {
+      // Skip emitting sitemap.xml during nested SSR builds.
+      if (config.build.ssr) return;
+
+      this.emitFile({
+        type: 'asset',
+        fileName: 'sitemap.xml',
+        source: sitemapXml({ siteUrl, routes }),
+      });
     },
   };
 }

@@ -3,12 +3,14 @@ import { basename, resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import type { Plugin, ResolvedConfig } from 'vite';
 import { build as viteBuild } from 'vite';
+import type { SiteRoute } from '../site-routes.js';
 
 interface SsgOptions {
   /** SSR entry module exporting a `render(url: string): string` function. */
   entry: string;
-  /** Routes to prerender, e.g. ['/v1', '/v2']. Each becomes `<outDir><route>/index.html`. */
-  routes: string[];
+  /** Routes to prerender. Each becomes `<outDir><route>/index.html`, or for root path,
+   * overwrites `<outDir>/index.html` directly. */
+  routes: SiteRoute[];
 }
 
 /**
@@ -50,14 +52,22 @@ export function ssgPlugin({ entry, routes }: SsgOptions): Plugin {
         render: (url: string) => string;
       };
 
+      // Template read happens before the render loop, so overwriting root is safe.
       const template = readFileSync(resolve(outDir, 'index.html'), 'utf-8');
 
       for (const route of routes) {
-        const appHtml = render(route);
+        const renderUrl = route.renderUrl ?? route.path;
+        const appHtml = render(renderUrl);
         const html = template.replace('<div id="root"></div>', `<div id="root">${appHtml}</div>`);
-        const routeDir = resolve(outDir, route.replace(/^\//, ''));
-        mkdirSync(routeDir, { recursive: true });
-        writeFileSync(resolve(routeDir, 'index.html'), html);
+
+        if (route.path === '/') {
+          // Overwrite the root template directly.
+          writeFileSync(resolve(outDir, 'index.html'), html);
+        } else {
+          const routeDir = resolve(outDir, route.path.replace(/^\//, ''));
+          mkdirSync(routeDir, { recursive: true });
+          writeFileSync(resolve(routeDir, 'index.html'), html);
+        }
       }
 
       rmSync(ssrOutDir, { recursive: true, force: true });

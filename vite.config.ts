@@ -6,6 +6,7 @@ import checker from 'vite-plugin-checker';
 import { aeoPlugin } from './plugins/aeo/index.js';
 import { seoPlugin } from './plugins/seo/index.js';
 import { ssgPlugin } from './plugins/ssg/index.js';
+import { SITE_ROUTES } from './plugins/site-routes.js';
 
 // eslint-disable-next-line import-x/no-default-export
 export default defineConfig(({ mode }) => {
@@ -15,8 +16,8 @@ export default defineConfig(({ mode }) => {
     react(),
     checker({ typescript: true }),
     aeoPlugin({ siteUrl: env.VITE_APP_DOMAIN }),
-    seoPlugin({ siteUrl: env.VITE_APP_DOMAIN }),
-    ssgPlugin({ entry: 'src/entry-server.tsx', routes: ['/v1', '/v2'] }),
+    seoPlugin({ siteUrl: env.VITE_APP_DOMAIN, routes: SITE_ROUTES }),
+    ssgPlugin({ entry: 'src/entry-server.tsx', routes: SITE_ROUTES }),
   ];
 
   if (process.env.BUILD_ANALYZE === 'true') {

@@ -29,10 +29,6 @@ function toUrl(value: string): string {
   return isUrl(value) ? value : `https://${value}`;
 }
 
-function normalizeVnPhone(phone: string): string {
-  return `+84${phone.replace(/^0/, '')}`;
-}
-
 function normalize(value: string): string {
   return value.toLowerCase().replace(/[^a-z0-9]/g, '');
 }
@@ -66,7 +62,9 @@ function parseLanguage(entry: string): { name: string; proficiency: string | nul
  */
 export function createLlmProfile(siteUrl: string) {
   const latestJob = profile.experiences[0];
-  const [birthday, gender, location, school] = profile.personals;
+  // `location` (profile.personals[2]) is deliberately not surfaced here — it's PII
+  // that shouldn't be exposed to LLM crawlers.
+  const [birthday, gender, , school] = profile.personals;
   const contact = Object.fromEntries(profile.contacts.map((c) => [c.key, c.content]));
   const languageSkills = profile.skills.find((s) => s.category === 'Languages')?.list ?? [];
 
@@ -81,13 +79,8 @@ export function createLlmProfile(siteUrl: string) {
     url: siteUrl,
     image: `${siteUrl}${profile.avatar}`,
     email: contact.email,
-    telephone: normalizeVnPhone(contact.phone),
     gender: gender.content,
     birthDate: toIsoDate(new Date(birthday.content)),
-    address: {
-      addressLocality: location.content,
-      addressCountry: 'VN',
-    },
 
     summary: profile.about.join(' '),
     yearsOfExperience: Number(profile.yearOfExp.match(/\d+/)?.[0] ?? 0),

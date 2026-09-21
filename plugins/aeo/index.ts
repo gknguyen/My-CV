@@ -1,58 +1,33 @@
-import type { Plugin } from 'vite';
+import type { HtmlTagDescriptor, Plugin, ResolvedConfig } from 'vite';
 
+import { personJsonLd } from './json-ld.js';
 import { createLlmProfile, type LlmProfile } from './llm-profile.js';
-
-function personJsonLd(llmProfile: LlmProfile) {
-  return {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: llmProfile.name,
-    alternateName: llmProfile.alternateName,
-    jobTitle: llmProfile.jobTitle,
-    description: llmProfile.summary,
-    url: llmProfile.url,
-    image: llmProfile.image,
-    email: `mailto:${llmProfile.email}`,
-    telephone: llmProfile.telephone,
-    gender: llmProfile.gender,
-    birthDate: llmProfile.birthDate,
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: llmProfile.address.addressLocality,
-      addressCountry: llmProfile.address.addressCountry,
-    },
-    sameAs: llmProfile.sameAs,
-    knowsAbout: llmProfile.knowsAbout,
-    knowsLanguage: llmProfile.languages.map((lang: LlmProfile['languages'][number]) => lang.name),
-    alumniOf: {
-      '@type': 'CollegeOrUniversity',
-      name: llmProfile.alumniOf.name,
-    },
-    hasCredential: llmProfile.certifications.map((cert: LlmProfile['certifications'][number]) => ({
-      '@type': 'EducationalOccupationalCredential',
-      name: cert.name,
-      credentialCategory: 'certification',
-      recognizedBy: { '@type': 'Organization', name: cert.issuer },
-      ...('url' in cert && cert.url ? { url: cert.url } : {}),
-    })),
-    worksFor: llmProfile.workHistory
-      .filter((job: LlmProfile['workHistory'][number]) => job.endDate === null)
-      .map((job: LlmProfile['workHistory'][number]) => ({
-        '@type': 'Organization',
-        name: job.organization,
-      })),
-  };
-}
+import { robotsTxt } from './robots.js';
 
 /** Bakes machine-readable profile data into the built site, so LLM/AEO crawlers that don't
- * execute JavaScript can read it directly (JSON-LD in `index.html`, plus `llms.txt`). */
+ * execute JavaScript can read it directly (JSON-LD in `index.html`, plus `llms.txt` and
+ * `robots.txt` with an explicit AI/answer-engine crawler allowlist). */
 export function aeoPlugin({ siteUrl }: { siteUrl: string }): Plugin {
   const llmProfile = createLlmProfile(siteUrl);
+  let config: ResolvedConfig;
 
   return {
     name: 'aeo-data',
-    transformIndexHtml() {
+    configResolved(resolvedConfig) {
+      config = resolvedConfig;
+    },
+    transformIndexHtml(): HtmlTagDescriptor[] {
       return [
+        {
+          tag: 'link',
+          attrs: {
+            rel: 'alternate',
+            type: 'text/markdown',
+            href: '/llms.txt',
+            title: 'LLM-readable profile',
+          },
+          injectTo: 'head',
+        },
         {
           tag: 'script',
           attrs: { type: 'application/ld+json' },
@@ -62,6 +37,9 @@ export function aeoPlugin({ siteUrl }: { siteUrl: string }): Plugin {
       ];
     },
     generateBundle() {
+      // Skip emitting llms.txt during nested SSR builds.
+      if (config.build.ssr) return;
+
       const lines = [
         `# ${llmProfile.name}`,
         '',
@@ -78,11 +56,31 @@ export function aeoPlugin({ siteUrl }: { siteUrl: string }): Plugin {
         '## Skills',
         llmProfile.knowsAbout.join(', '),
         '',
-        '## Work history',
-        ...llmProfile.workHistory.map(
-          (job: LlmProfile['workHistory'][number]) =>
-            `- **${job.jobTitle}**, ${job.organization} (${job.startDate} - ${job.endDate ?? 'present'}): ${job.summary}`,
+        '## Education',
+        `- ${llmProfile.alumniOf.name}${
+          llmProfile.alumniOf.field ? ` (${llmProfile.alumniOf.field})` : ''
+        }`,
+        '',
+        '## Languages',
+        ...llmProfile.languages.map(
+          (lang: LlmProfile['languages'][number]) =>
+            `- ${lang.name}${lang.proficiency ? ` (${lang.proficiency})` : ''}`,
         ),
+        '',
+        '## Work history',
+        ...llmProfile.workHistory.flatMap((job: LlmProfile['workHistory'][number]) => [
+          `- **${job.jobTitle}**, ${job.organization} (${job.startDate} - ${
+            job.endDate ?? 'present'
+          }): ${job.summary}`,
+          ...(job.projects.length > 0
+            ? job.projects.map(
+                (project) =>
+                  `  - ${project.name}${project.position ? ` (${project.position})` : ''}: ${
+                    project.description
+                  }`,
+              )
+            : []),
+        ]),
         '',
         '## Certifications',
         ...llmProfile.certifications.map((cert: LlmProfile['certifications'][number]) => {
@@ -90,11 +88,25 @@ export function aeoPlugin({ siteUrl }: { siteUrl: string }): Plugin {
           return `- ${name} (${cert.issuer})`;
         }),
         '',
+        '## Certification roadmap',
+        `- ${llmProfile.certificationRoadmap.title}`,
+        ...llmProfile.certificationRoadmap.milestones.map(
+          (milestone) => `  - ${milestone.achieved ? '✓' : '○'} ${milestone.name}`,
+        ),
+        ...llmProfile.certificationRoadmap.stretchGoals.map((goal) => `  - (stretch) ${goal}`),
+        '',
         '## Personal projects',
         ...llmProfile.projects.map((project: LlmProfile['projects'][number]) => {
           const name = project.url ? `[${project.name}](${project.url})` : project.name;
-          return `- ${name}: ${project.description}`;
+          return `- ${name}${project.type ? ` (${project.type})` : ''}${
+            project.period ? ` • ${project.period}` : ''
+          }: ${project.description}`;
         }),
+        '',
+        '## Resources',
+        `- Resume: ${siteUrl}/resumes/nguyen-truong-giang.pdf`,
+        `- UI v1: ${siteUrl}/v1`,
+        `- UI v2: ${siteUrl}/v2`,
         '',
       ];
 
@@ -102,6 +114,12 @@ export function aeoPlugin({ siteUrl }: { siteUrl: string }): Plugin {
         type: 'asset',
         fileName: 'llms.txt',
         source: lines.join('\n'),
+      });
+
+      this.emitFile({
+        type: 'asset',
+        fileName: 'robots.txt',
+        source: robotsTxt({ siteUrl }),
       });
     },
   };
